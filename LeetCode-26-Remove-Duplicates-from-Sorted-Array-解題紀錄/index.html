@@ -27,7 +27,7 @@
 <meta property="og:description" content="題目連結：https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-array難度：Easy 給定一個已經由小到大排序的 array要你移除重複的元素，使得每個元素只出現一次並且只能 in-place 修改原始的 array不能用額外的記憶體空間存 最後只需要回傳 k新的 array 不用回傳，只要修改原始的 arrayk 代表修改後的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-13T16:15:58.000Z">
-<meta property="article:modified_time" content="2025-04-13T17:58:27.000Z">
+<meta property="article:modified_time" content="2025-04-13T18:50:44.833Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Two Pointers">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          293 words
+          295 words
         
       </span>
     
@@ -283,10 +283,10 @@
                 <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>連結：<a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-array">https://leetcode.com/problems/remove-duplicates-from-sorted-array</a><br>難度：Easy</p>
 <p>給定一個已經由小到大排序的 array<br>要你移除重複的元素，使得每個元素只出現一次<br>並且只能 in-place 修改原始的 array<br>不能用額外的記憶體空間存</p>
 <p>最後只需要回傳 k<br>新的 array 不用回傳，只要修改原始的 array<br>k 代表修改後的 array 前 k 個元素符合題目要求<br>而第 k 個之後的元素不用管</p>
-<h2 id="解法：雙指標"><a href="#解法：雙指標" class="headerlink" title="解法：雙指標"></a>解法：雙指標</h2><p>維護 2 個 index<br>i：遍歷所有元素<br>k：要覆寫的位置<br>i 和 k 從 1 開始<br>當 <code>nums[i]</code> 與 <code>nums[i-1]</code> 不相等時<br>將 <code>nums[k]</code> 賦值為 <code>nums[i]</code>，並遞增 k<br>k 與 i 相同時，不需要賦值，這個可寫可不寫，不影響</p>
+<h2 id="解法：雙指標"><a href="#解法：雙指標" class="headerlink" title="解法：雙指標"></a>解法：雙指標</h2><p>維護 2 個 index<br>i：遍歷所有元素<br>k：要覆寫的位置<br>i 和 k 從 1 開始<br>當 <code>nums[i]</code> 與 <code>nums[i-1]</code> 不相等時<br>將 <code>nums[k]</code> 賦值為 <code>nums[i]</code>，並遞增 k<br>k 與 i 相同時，不需要賦值，這個可判斷可不判斷，不影響</p>
 <h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        k = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">if</span> nums[i] != nums[i-<span class="hljs-number">1</span>]:<br>                <span class="hljs-keyword">if</span> k != i: <span class="hljs-comment"># 可不寫</span><br>                    nums[k] = nums[i]<br>                k += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> k<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100%</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p>由於 <code>if (k != i)</code> 可不寫<br>寫法能更精簡，將 <code>k += 1</code> 寫成 <code>k++</code> 放進 index 裡<br>而 C++ 中多餘的賦值，代價是很低的</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p>由於 <code>if (k != i)</code> 可不判斷<br>寫法能更精簡，將 <code>k += 1</code> 寫成 <code>k++</code> 放進 index 裡<br>C++ 中多餘的賦值，代價是很低的</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> k = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++)<br>            <span class="hljs-keyword">if</span> (nums[i] != nums[i<span class="hljs-number">-1</span>])<br>                nums[k++] = nums[i];<br>        <span class="hljs-keyword">return</span> k;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100%</p>
 
