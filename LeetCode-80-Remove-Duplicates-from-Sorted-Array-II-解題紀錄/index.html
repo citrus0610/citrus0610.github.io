@@ -19,25 +19,26 @@
   <meta name="author" content="Citrus">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結：https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-list-ii難度：Medium 承上一題 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-list給定一個已排序好的 linked list除了移除重複的 node 以外，還要移除 node 本身">
+    <meta name="description" content="題目連結：https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-array-ii難度：Medium 承上一題 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-array給定一個已經由小到大排序的 array要你移除重複的元素，使得每個元素最多出現 2 次並且只能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄">
-<meta property="og:url" content="https://citrus0610.github.io/LeetCode-82-Remove-Duplicates-from-Sorted-List-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
+<meta property="og:title" content="LeetCode 80. Remove Duplicates from Sorted Array II - 解題紀錄">
+<meta property="og:url" content="https://citrus0610.github.io/LeetCode-80-Remove-Duplicates-from-Sorted-Array-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
 <meta property="og:site_name" content="Citrus 的技術文章">
-<meta property="og:description" content="題目連結：https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-list-ii難度：Medium 承上一題 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-list給定一個已排序好的 linked list除了移除重複的 node 以外，還要移除 node 本身">
+<meta property="og:description" content="題目連結：https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-array-ii難度：Medium 承上一題 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-array給定一個已經由小到大排序的 array要你移除重複的元素，使得每個元素最多出現 2 次並且只能">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-13T01:27:47.000Z">
-<meta property="article:modified_time" content="2025-04-13T17:11:55.420Z">
+<meta property="article:published_time" content="2025-04-13T16:51:34.000Z">
+<meta property="article:modified_time" content="2025-04-13T18:43:41.681Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Two Pointers">
+<meta property="article:tag" content="Array">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Linked-List">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄 - Citrus 的技術文章</title>
+  <title>LeetCode 80. Remove Duplicates from Sorted Array II - 解題紀錄 - Citrus 的技術文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄</span>
+            <span id="subtitle">LeetCode 80. Remove Duplicates from Sorted Array II - 解題紀錄</span>
           
         </div>
 
@@ -214,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-13 09:27" pubdate>
-          April 13, 2025 am
+        <time datetime="2025-04-14 00:51" pubdate>
+          April 14, 2025 am
         </time>
       </span>
     
@@ -226,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          309 words
+          610 words
         
       </span>
     
@@ -237,7 +238,7 @@
         
         
         
-          3 mins
+          6 mins
         
       </span>
     
@@ -274,20 +275,28 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄</h1>
+            <h1 id="seo-header">LeetCode 80. Remove Duplicates from Sorted Array II - 解題紀錄</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>連結：<a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii">https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii</a><br>難度：Medium</p>
-<p>承上一題 <a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-list">https://leetcode.com/problems/remove-duplicates-from-sorted-list</a><br>給定一個已排序好的 linked list<br>除了移除重複的 node 以外，還要移除 node 本身<br>也就是移除所有含有重複值的 node，只留下沒有重複的 node</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>遍歷 node 時，若遇到當前 node 的值與下一個 node 相同<br>則一直往後走，直到 node 的值與下一個 node 不同<br>這部份用一個第二層的 while 迴圈即可<br>接著判斷 pre_node 需不需要往後接</p>
-<p>然後會發現如果一開始 head 是重複值的話就會錯<br>因此 pre_node 需要用一個 dummy<br>並將 dummy 的 next 初始化為 head<br>遍歷 node 時，從 dummy.next 開始走<br>而最後回傳的 head 則變為 dummy.next</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deleteDuplicates</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        dummy = ListNode(<span class="hljs-built_in">next</span>=head)<br>        pre_node = dummy<br>        node = dummy.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">while</span> node:<br>            <span class="hljs-keyword">while</span> node.<span class="hljs-built_in">next</span> <span class="hljs-keyword">and</span> node.val == node.<span class="hljs-built_in">next</span>.val:<br>                node = node.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">if</span> pre_node.<span class="hljs-built_in">next</span> != node:<br>                pre_node.<span class="hljs-built_in">next</span> = node.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">else</span>:<br>                pre_node = node<br>            node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> dummy.<span class="hljs-built_in">next</span><br></code></pre></td></tr></table></figure>
-<p>Runtime：0ms - Beats 100%</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">deleteDuplicates</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        ListNode* dummy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ListNode</span>(<span class="hljs-number">0</span>, head);<br>        ListNode* pre_node = dummy;<br>        ListNode* node = head;<br>        <span class="hljs-keyword">while</span> (node) &#123;<br>            <span class="hljs-keyword">while</span> (node-&gt;next &amp;&amp; node-&gt;val == node-&gt;next-&gt;val)<br>                node = node-&gt;next;<br>            <span class="hljs-keyword">if</span> (pre_node-&gt;next != node)<br>                pre_node-&gt;next = node-&gt;next;<br>            <span class="hljs-keyword">else</span><br>                pre_node = node;<br>            node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dummy-&gt;next;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>Runtime：0ms - Beats 100%</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a target="_blank" rel="noopener" href="https://shannonhung.github.io/posts/leetcode-82-remove-duplicates-from-sorted-list-ll/">https://shannonhung.github.io/posts/leetcode-82-remove-duplicates-from-sorted-list-ll/</a></p>
+                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p>連結：<a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii">https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii</a><br>難度：Medium</p>
+<p>承上一題 <a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-array">https://leetcode.com/problems/remove-duplicates-from-sorted-array</a><br>給定一個已經由小到大排序的 array<br>要你移除重複的元素，使得每個元素最多出現 2 次<br>並且只能 in-place 修改原始的 array<br>不能用額外的記憶體空間存</p>
+<p>最後只需要回傳 k<br>新的 array 不用回傳，只要修改原始的 array<br>k 代表修改後的 array 前 k 個元素符合題目要求<br>而第 k 個之後的元素不用管</p>
+<h2 id="解法1：雙指標-index-從-1-開始"><a href="#解法1：雙指標-index-從-1-開始" class="headerlink" title="解法1：雙指標 (index 從 1 開始)"></a>解法1：雙指標 (index 從 1 開始)</h2><p>跟前一題差不多 (<a href="https://citrus0610.github.io/LeetCode-26-Remove-Duplicates-from-Sorted-Array-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">解題文章</a>)<br>也是維護 index i 和 k<br>差別在於，要多判斷最多能連續兩個相同的值<br>原本是只有 <code>nums[i]</code> 和 <code>nums[i-1]</code> 不相等時才會覆寫值<br>現在要變成相等時也會覆寫值，但最多只連續 2 次<br>因此多一個 <code>cnt</code> 變數紀錄次數<br>當 <code>nums[i]</code> 和 <code>nums[i-1]</code> 不相等時，<code>cnt</code> 歸零重新計數</p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        k = <span class="hljs-number">1</span><br>        cnt = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>            <span class="hljs-keyword">if</span> nums[i] != nums[i-<span class="hljs-number">1</span>]:<br>                <span class="hljs-keyword">if</span> k != i:<br>                    nums[k] = nums[i]<br>                k += <span class="hljs-number">1</span><br>                cnt = <span class="hljs-number">0</span><br>            <span class="hljs-keyword">elif</span> nums[i] == nums[i-<span class="hljs-number">1</span>] <span class="hljs-keyword">and</span> cnt &lt; <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">if</span> k != i:<br>                    nums[k] = nums[i]<br>                k += <span class="hljs-number">1</span><br>                cnt += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> k<br></code></pre></td></tr></table></figure>
+<p>Runtime：78ms - Beats 89.32%</p>
+<p>寫法可以更精簡<br>把判斷覆寫和計數的部份獨立分開<br>就不用多寫一層重複的 if</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        k = <span class="hljs-number">1</span><br>        cnt = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>            cnt = cnt + <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> nums[i] == nums[i-<span class="hljs-number">1</span>] <span class="hljs-keyword">else</span> <span class="hljs-number">0</span><br>            <span class="hljs-keyword">if</span> cnt &lt; <span class="hljs-number">2</span>:<br>                <span class="hljs-keyword">if</span> k != i: <span class="hljs-comment"># 可不寫</span><br>                    nums[k] = nums[i]<br>                k += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> k<br></code></pre></td></tr></table></figure>
+<p>Runtime：78ms - Beats 89.32%</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p>由於 <code>if (k != i)</code> 可不寫<br>寫法能更精簡，將 <code>k += 1</code> 寫成 <code>k++</code> 放進 index 裡<br>C++ 中多餘的賦值，代價是很低的，而 python 會比較高</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> n;<br><br>        <span class="hljs-type">int</span> k = <span class="hljs-number">1</span>, cnt = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>            cnt = (nums[i] == nums[i<span class="hljs-number">-1</span>])? cnt + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span> (cnt &lt; <span class="hljs-number">2</span>)<br>                nums[k++] = nums[i];<br>        &#125;<br>        <span class="hljs-keyword">return</span> k;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>Runtime：3ms - Beats 96.09%</p>
+<h2 id="解法2：雙指標-index-從-2-開始"><a href="#解法2：雙指標-index-從-2-開始" class="headerlink" title="解法2：雙指標 (index 從 2 開始)"></a>解法2：雙指標 (index 從 2 開始)</h2><p>改成從 2 開始<br>並直接判斷位置 i 和 k-2 的值相不相同<br>就可確保最多只有連續 2 個相同值<br>是個比較神奇但更簡單的方法</p>
+<h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        k = <span class="hljs-number">2</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, n):<br>            <span class="hljs-keyword">if</span> nums[i] != nums[k-<span class="hljs-number">2</span>]:<br>                <span class="hljs-keyword">if</span> k != i: <span class="hljs-comment"># 可不寫</span><br>                    nums[k] = nums[i]<br>                k += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> k<br></code></pre></td></tr></table></figure>
+<p>Runtime：68ms - Beats 99.16%</p>
+<h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> n;<br><br>        <span class="hljs-type">int</span> k = <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt; n; i++)<br>            <span class="hljs-keyword">if</span> (nums[i] != nums[k<span class="hljs-number">-2</span>])<br>                nums[k++] = nums[i];<br>        <span class="hljs-keyword">return</span> k;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>Runtime：3ms - Beats 96.09%</p>
 
                 
               </div>
@@ -302,11 +311,13 @@
       
         <a href="/tags/LeetCode/" class="print-no-link">#LeetCode</a>
       
+        <a href="/tags/Two-Pointers/" class="print-no-link">#Two Pointers</a>
+      
+        <a href="/tags/Array/" class="print-no-link">#Array</a>
+      
         <a href="/tags/Python/" class="print-no-link">#Python</a>
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
-      
-        <a href="/tags/Linked-List/" class="print-no-link">#Linked-List</a>
       
     </div>
   
@@ -318,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄</div>
-      <div>https://citrus0610.github.io/LeetCode-82-Remove-Duplicates-from-Sorted-List-II-解題紀錄/</div>
+      <div>LeetCode 80. Remove Duplicates from Sorted Array II - 解題紀錄</div>
+      <div>https://citrus0610.github.io/LeetCode-80-Remove-Duplicates-from-Sorted-Array-II-解題紀錄/</div>
     </div>
     <div class="license-meta">
       
@@ -331,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 13, 2025</div>
+          <div>April 14, 2025</div>
         </div>
       
       
@@ -363,18 +374,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/LeetCode-26-Remove-Duplicates-from-Sorted-Array-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 26. Remove Duplicates from Sorted Array - 解題紀錄">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 26. Remove Duplicates from Sorted Array - 解題紀錄</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LeetCode-83-Remove-Duplicates-from-Sorted-List-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄">
-                        <span class="hidden-mobile">LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄</span>
+                      <a href="/LeetCode-26-Remove-Duplicates-from-Sorted-Array-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 26. Remove Duplicates from Sorted Array - 解題紀錄">
+                        <span class="hidden-mobile">LeetCode 26. Remove Duplicates from Sorted Array - 解題紀錄</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -23,21 +23,21 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄">
 <meta property="og:url" content="https://citrus0610.github.io/LeetCode-83-Remove-Duplicates-from-Sorted-List-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Citrus 的技術文章">
 <meta property="og:description" content="題目連結：https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;remove-duplicates-from-sorted-list難度：Easy 給定一個已排序好的 linked list要你移除重複的 node，使得每個值只出現一次 解法1遍歷 node，若當前 node 的值與前一個 node 的值相同將前一個 node 的 next 指向當前 node 的下一個 node 需要注意的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-12T23:55:43.000Z">
-<meta property="article:modified_time" content="2025-04-13T03:50:53.721Z">
+<meta property="article:modified_time" content="2025-04-13T16:43:36.237Z">
 <meta property="article:author" content="Citrus">
-<meta property="article:tag" content="Linked-List">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="Linked-List">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄 - Hexo</title>
+  <title>LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄 - Citrus 的技術文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          296 words
+          305 words
         
       </span>
     
@@ -284,9 +284,12 @@
 <h2 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h2><p>遍歷 node，若當前 node 的值與前一個 node 的值相同<br>將前一個 node 的 next 指向當前 node 的下一個 node</p>
 <p>需要注意的是，pre_node 的值必須初始化為特殊值<br>不能只有 <code>pre_node = ListNode()</code>，初始值會是 0<br>題目給定的 node 的值有可能為 0，這樣會錯</p>
 <h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deleteDuplicates</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        node = head<br>        pre_node = ListNode(<span class="hljs-literal">None</span>)<br>        <span class="hljs-keyword">while</span> node:<br>            <span class="hljs-keyword">if</span> node.val == pre_node.val:<br>                pre_node.<span class="hljs-built_in">next</span> = node.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">else</span>:<br>                pre_node = node<br>            node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> head<br></code></pre></td></tr></table></figure>
+<p>Runtime：0ms - Beats 100%</p>
 <h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">deleteDuplicates</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        ListNode* node = head;<br>        ListNode* pre_node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ListNode</span>(INT_MIN);<br>        <span class="hljs-keyword">while</span> (node) &#123;<br>            <span class="hljs-keyword">if</span> (node-&gt;val == pre_node-&gt;val)<br>                pre_node-&gt;next = node-&gt;next;<br>            <span class="hljs-keyword">else</span><br>                pre_node = node;<br>            node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>Runtime：0ms - Beats 100%</p>
 <h2 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h2><p>遍歷 node，若當前 node 的值與下一個 node 的值相同<br>將當前 node 的 next 指向下下一個 node<br>比解法1簡單，不需要紀錄 pre_node</p>
 <h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deleteDuplicates</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        node = head<br>        <span class="hljs-keyword">while</span> node <span class="hljs-keyword">and</span> node.<span class="hljs-built_in">next</span>:<br>            <span class="hljs-keyword">if</span> node.val == node.<span class="hljs-built_in">next</span>.val:<br>                node.<span class="hljs-built_in">next</span> = node.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">else</span>:<br>                node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> head<br></code></pre></td></tr></table></figure>
+<p>Runtime：0ms - Beats 100%</p>
 <h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">deleteDuplicates</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        ListNode* node = head;<br>        <span class="hljs-keyword">while</span> (node &amp;&amp; node-&gt;next) &#123;<br>            <span class="hljs-keyword">if</span> (node-&gt;val == node-&gt;next-&gt;val)<br>                node-&gt;next = node-&gt;next-&gt;next;<br>            <span class="hljs-keyword">else</span><br>                node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100%</p>
 
@@ -301,13 +304,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linked-List/" class="print-no-link">#Linked-List</a>
-      
         <a href="/tags/LeetCode/" class="print-no-link">#LeetCode</a>
       
         <a href="/tags/Python/" class="print-no-link">#Python</a>
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Linked-List/" class="print-no-link">#Linked-List</a>
       
     </div>
   
