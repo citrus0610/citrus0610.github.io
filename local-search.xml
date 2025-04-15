@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>LeetCode 69. Sqrt(x) - 解題紀錄</title>
+    <link href="/LeetCode-69-Sqrt-x-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-69-Sqrt-x-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/sqrtx">連結</a><br>難度：Easy</p><p>求根號 x 的整數部分<br>且不能使用內建的 function 或運算子</p><h2 id="解法1：暴力法"><a href="#解法1：暴力法" class="headerlink" title="解法1：暴力法"></a>解法1：暴力法</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">mySqrt</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x + <span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> i * i == x:<br>                <span class="hljs-keyword">return</span> i<br>            <span class="hljs-keyword">elif</span> i * i &gt; x:<br>                <span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>Runtime：1551ms - Beats 6.58%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= x; i++) &#123;<br>            <span class="hljs-keyword">if</span> ((<span class="hljs-type">long</span> <span class="hljs-type">long</span>)i * i == x)<br>                <span class="hljs-keyword">return</span> i;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((<span class="hljs-type">long</span> <span class="hljs-type">long</span>)i * i &gt; x)<br>                <span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 不會走到</span><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：11ms - Beats 13.25%</p><h2 id="解法2：二分搜-binary-search"><a href="#解法2：二分搜-binary-search" class="headerlink" title="解法2：二分搜 (binary search)"></a>解法2：二分搜 (binary search)</h2><p>實際跑跑看步驟就能知道<br>如果用我的寫法，最後位置會落在 <code>right</code></p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">mySqrt</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        left, right = <span class="hljs-number">0</span>, x<br>        <span class="hljs-keyword">while</span> left &lt;= right:<br>            mid = (left + right) // <span class="hljs-number">2</span><br>            square = mid * mid<br>            <span class="hljs-keyword">if</span> square &gt; x:<br>                right = mid - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">elif</span> square &lt; x:<br>                left = mid + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> mid<br>        <span class="hljs-keyword">return</span> right<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><p>記得用 <code>long</code> 避免 overflow</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = x;<br>        <span class="hljs-type">long</span> mid, square;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            mid = (left + right) / <span class="hljs-number">2</span>;<br>            square = mid * mid;<br>            <span class="hljs-keyword">if</span> (square &gt; x)<br>                right = mid - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (square &lt; x)<br>                left = mid + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-keyword">return</span> mid;<br>        &#125;<br>        <span class="hljs-keyword">return</span> right;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="解法3：牛頓法"><a href="#解法3：牛頓法" class="headerlink" title="解法3：牛頓法"></a>解法3：牛頓法</h2><p>使用<a href="https://www.youtube.com/watch?v=Quw4ZHLH2CY">牛頓求根法</a><br>求根號 x 可轉為求 $f(r) &#x3D; r^2 - x &#x3D; 0$ 的實數解<br>就能套用牛頓法<br>牛頓法的迭代公式</p><div style="font-size: 1.5em">$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$<br></div><p><br>$f(r)$ 的一次微分 $f’(r) &#x3D; 2r$</p><div style="font-size: 1.5em">$r - \frac{f(r)}{f'(r)} = r - \frac{r^2 - x}{2r} = r - (r - \frac{x}{r}) / 2$</div><p><br>這就是最後會在迴圈裡迭代的式子<br>由於這題是取整數部分<br>因此除法的部分也要改成取整數，避免無窮迴圈</p><h3 id="Python-2"><a href="#Python-2" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">mySqrt</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        r = x<br>        <span class="hljs-keyword">while</span> r * r &gt; x:<br>            r = (r + x / r) // <span class="hljs-number">2</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(r)<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C-2"><a href="#C-2" class="headerlink" title="C++"></a>C++</h3><p>記得用 <code>long</code> 避免 overflow</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        <span class="hljs-type">long</span> r = x;<br>        <span class="hljs-keyword">while</span> (r * r &gt; x)<br>            r = (r + x / r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)r;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Math</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Binary Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 35. Search Insert Position - 解題紀錄</title>
+    <link href="/LeetCode-35-Search-Insert-Position-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-35-Search-Insert-Position-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/search-insert-position">連結</a><br>難度：Easy</p><p>給定一個已經由小到大排序好的 array 和 target<br>如果 target 有在裡面的話，回傳它的 index<br>如果沒有，回傳它應該要被插入的 index<br>並且時間複雜度要 O(log n)</p><h2 id="解法：二分搜-binary-search"><a href="#解法：二分搜-binary-search" class="headerlink" title="解法：二分搜 (binary search)"></a>解法：二分搜 (binary search)</h2><p>實際跑看看步驟就會知道最後的位置落在哪裡<br>如果是用我的寫法，就會是 <code>left</code></p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">searchInsert</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        left, right = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &lt;= right:<br>            mid = (left + right) // <span class="hljs-number">2</span><br>            <span class="hljs-keyword">if</span> nums[mid] == target:<br>                <span class="hljs-keyword">return</span> mid<br>            <span class="hljs-keyword">elif</span> nums[mid] &gt; target:<br>                right = mid - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                left = mid + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> left<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">searchInsert</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> target)</span> </span>&#123;<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            <span class="hljs-type">int</span> mid = (left + right) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (nums[mid] == target)<br>                <span class="hljs-keyword">return</span> mid;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[mid] &gt; target)<br>                right = mid - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                left = mid + <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> left;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Binary Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 63. Unique Paths II - 解題紀錄</title>
     <link href="/LeetCode-63-Unique-Paths-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
     <url>/LeetCode-63-Unique-Paths-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
@@ -16,11 +70,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Dynamic Programming</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -41,13 +95,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Math</tag>
       
       <tag>Dynamic Programming</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
       <tag>Combinatorics</tag>
       
@@ -70,13 +124,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Math</tag>
       
       <tag>Dynamic Programming</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -97,13 +151,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Math</tag>
       
       <tag>Dynamic Programming</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -124,13 +178,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Math</tag>
       
       <tag>Dynamic Programming</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -151,11 +205,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>BFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>BFS</tag>
       
       <tag>Union Find</tag>
       
@@ -180,11 +234,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>BFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>BFS</tag>
       
     </tags>
     

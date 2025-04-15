@@ -19,26 +19,26 @@
   <meta name="author" content="Citrus">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結難度：Easy 爬樓梯每次能爬 1 階或 2 階樓梯總共有 n 階求爬到第 n 階的方法數 解法：數列規律 + DP由於每次只能爬 1 階或 2 階所以如果要爬到第 n 階必定只能從第 n-1 階爬 1 階或是從第 n-2 階爬 2 階設爬到第 n 階之方法數為 f(n)因此 f(n) &#x3D; f(n-1) + f(n-2)接著用簡單的一維 DP 就能做完了 Python123456class">
+    <meta name="description" content="連結難度：Easy 求根號 x 的整數部分且不能使用內建的 function 或運算子 解法1：暴力法Python1234567class Solution:    def mySqrt(self, x: int) -&gt; int:        for i in range(x + 1):            if i * i &#x3D;&#x3D; x:                return i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 70. Climbing Stairs - 解題紀錄">
-<meta property="og:url" content="https://citrus0610.github.io/LeetCode-70-Climbing-Stairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
+<meta property="og:title" content="LeetCode 69. Sqrt(x) - 解題紀錄">
+<meta property="og:url" content="https://citrus0610.github.io/LeetCode-69-Sqrt-x-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
 <meta property="og:site_name" content="Citrus 的技術文章">
-<meta property="og:description" content="題目連結難度：Easy 爬樓梯每次能爬 1 階或 2 階樓梯總共有 n 階求爬到第 n 階的方法數 解法：數列規律 + DP由於每次只能爬 1 階或 2 階所以如果要爬到第 n 階必定只能從第 n-1 階爬 1 階或是從第 n-2 階爬 2 階設爬到第 n 階之方法數為 f(n)因此 f(n) &#x3D; f(n-1) + f(n-2)接著用簡單的一維 DP 就能做完了 Python123456class">
+<meta property="og:description" content="連結難度：Easy 求根號 x 的整數部分且不能使用內建的 function 或運算子 解法1：暴力法Python1234567class Solution:    def mySqrt(self, x: int) -&gt; int:        for i in range(x + 1):            if i * i &#x3D;&#x3D; x:                return i">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-14T01:23:45.000Z">
-<meta property="article:modified_time" content="2025-04-14T19:20:18.851Z">
+<meta property="article:published_time" content="2025-04-15T07:25:15.000Z">
+<meta property="article:modified_time" content="2025-04-15T09:11:41.293Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Math">
-<meta property="article:tag" content="Dynamic Programming">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="Binary Search">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode 70. Climbing Stairs - 解題紀錄 - Citrus 的技術文章</title>
+  <title>LeetCode 69. Sqrt(x) - 解題紀錄 - Citrus 的技術文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 70. Climbing Stairs - 解題紀錄</span>
+            <span id="subtitle">LeetCode 69. Sqrt(x) - 解題紀錄</span>
           
         </div>
 
@@ -215,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-14 09:23" pubdate>
-          April 14, 2025 am
+        <time datetime="2025-04-15 15:25" pubdate>
+          April 15, 2025 pm
         </time>
       </span>
     
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          255 words
+          398 words
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          3 mins
+          4 mins
         
       </span>
     
@@ -275,23 +275,39 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 70. Climbing Stairs - 解題紀錄</h1>
+            <h1 id="seo-header">LeetCode 69. Sqrt(x) - 解題紀錄</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/climbing-stairs">連結</a><br>難度：Easy</p>
-<p>爬樓梯每次能爬 1 階或 2 階<br>樓梯總共有 n 階<br>求爬到第 n 階的方法數</p>
-<h2 id="解法：數列規律-DP"><a href="#解法：數列規律-DP" class="headerlink" title="解法：數列規律 + DP"></a>解法：數列規律 + DP</h2><p>由於每次只能爬 1 階或 2 階<br>所以如果要爬到第 n 階<br>必定只能從第 n-1 階爬 1 階<br>或是從第 n-2 階爬 2 階<br>設爬到第 n 階之方法數為 <code>f(n)</code><br>因此 <code>f(n) = f(n-1) + f(n-2)</code><br>接著用簡單的一維 DP 就能做完了</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">climbStairs</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        f = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            f.append(f[i-<span class="hljs-number">1</span>] + f[i-<span class="hljs-number">2</span>])<br>        <span class="hljs-keyword">return</span> f[n]<br></code></pre></td></tr></table></figure>
+                <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/sqrtx">連結</a><br>難度：Easy</p>
+<p>求根號 x 的整數部分<br>且不能使用內建的 function 或運算子</p>
+<h2 id="解法1：暴力法"><a href="#解法1：暴力法" class="headerlink" title="解法1：暴力法"></a>解法1：暴力法</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">mySqrt</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(x + <span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> i * i == x:<br>                <span class="hljs-keyword">return</span> i<br>            <span class="hljs-keyword">elif</span> i * i &gt; x:<br>                <span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<p>Runtime：1551ms - Beats 6.58%</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= x; i++) &#123;<br>            <span class="hljs-keyword">if</span> ((<span class="hljs-type">long</span> <span class="hljs-type">long</span>)i * i == x)<br>                <span class="hljs-keyword">return</span> i;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((<span class="hljs-type">long</span> <span class="hljs-type">long</span>)i * i &gt; x)<br>                <span class="hljs-keyword">return</span> i - <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// 不會走到</span><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>Runtime：11ms - Beats 13.25%</p>
+<h2 id="解法2：二分搜-binary-search"><a href="#解法2：二分搜-binary-search" class="headerlink" title="解法2：二分搜 (binary search)"></a>解法2：二分搜 (binary search)</h2><p>實際跑跑看步驟就能知道<br>如果用我的寫法，最後位置會落在 <code>right</code></p>
+<h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">mySqrt</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        left, right = <span class="hljs-number">0</span>, x<br>        <span class="hljs-keyword">while</span> left &lt;= right:<br>            mid = (left + right) // <span class="hljs-number">2</span><br>            square = mid * mid<br>            <span class="hljs-keyword">if</span> square &gt; x:<br>                right = mid - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">elif</span> square &lt; x:<br>                left = mid + <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> mid<br>        <span class="hljs-keyword">return</span> right<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
-<p>可將空間複雜度再優化為 O(1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">climbStairs</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        f1, f2 = <span class="hljs-number">1</span>, <span class="hljs-number">2</span><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            f1, f2 = f2, f1 + f2<br>        <span class="hljs-keyword">return</span> f2<br></code></pre></td></tr></table></figure>
+<h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><p>記得用 <code>long</code> 避免 overflow</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = x;<br>        <span class="hljs-type">long</span> mid, square;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            mid = (left + right) / <span class="hljs-number">2</span>;<br>            square = mid * mid;<br>            <span class="hljs-keyword">if</span> (square &gt; x)<br>                right = mid - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (square &lt; x)<br>                left = mid + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-keyword">return</span> mid;<br>        &#125;<br>        <span class="hljs-keyword">return</span> right;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p>這題 n 的測資最大只到 45<br>int 不會 overflow，直接用 int 即可<br>如果再大一點的話就要用 long long 了</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">return</span> n;<br><br>        <span class="hljs-type">int</span> f1 = <span class="hljs-number">1</span>, f2 = <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> tmp = f2;<br>            f2 = f1 + f2;<br>            f1 = tmp;<br>        &#125;<br>        <span class="hljs-keyword">return</span> f2;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="解法3：牛頓法"><a href="#解法3：牛頓法" class="headerlink" title="解法3：牛頓法"></a>解法3：牛頓法</h2><p>使用<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Quw4ZHLH2CY">牛頓求根法</a><br>求根號 x 可轉為求 $f(r) &#x3D; r^2 - x &#x3D; 0$ 的實數解<br>就能套用牛頓法<br>牛頓法的迭代公式</p>
+<div style="font-size: 1.5em">
+$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$<br>
+</div>
+
+<p><br>$f(r)$ 的一次微分 $f’(r) &#x3D; 2r$</p>
+<div style="font-size: 1.5em">
+$r - \frac{f(r)}{f'(r)} = r - \frac{r^2 - x}{2r} = r - (r - \frac{x}{r}) / 2$
+</div>
+
+<p><br>這就是最後會在迴圈裡迭代的式子<br>由於這題是取整數部分<br>因此除法的部分也要改成取整數，避免無窮迴圈</p>
+<h3 id="Python-2"><a href="#Python-2" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">mySqrt</span>(<span class="hljs-params">self, x: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        r = x<br>        <span class="hljs-keyword">while</span> r * r &gt; x:<br>            r = (r + x / r) // <span class="hljs-number">2</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(r)<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a target="_blank" rel="noopener" href="https://dwye.dev/post/python-fibonacci/">Python 費氏數列解法（一）</a></p>
+<h3 id="C-2"><a href="#C-2" class="headerlink" title="C++"></a>C++</h3><p>記得用 <code>long</code> 避免 overflow</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>        <span class="hljs-type">long</span> r = x;<br>        <span class="hljs-keyword">while</span> (r * r &gt; x)<br>            r = (r + x / r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)r;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>Runtime：0ms - Beats 100.00%</p>
 
                 
               </div>
@@ -308,11 +324,11 @@
       
         <a href="/tags/Math/" class="print-no-link">#Math</a>
       
-        <a href="/tags/Dynamic-Programming/" class="print-no-link">#Dynamic Programming</a>
-      
         <a href="/tags/Python/" class="print-no-link">#Python</a>
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Binary-Search/" class="print-no-link">#Binary Search</a>
       
     </div>
   
@@ -324,8 +340,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 70. Climbing Stairs - 解題紀錄</div>
-      <div>https://citrus0610.github.io/LeetCode-70-Climbing-Stairs-解題紀錄/</div>
+      <div>LeetCode 69. Sqrt(x) - 解題紀錄</div>
+      <div>https://citrus0610.github.io/LeetCode-69-Sqrt-x-解題紀錄/</div>
     </div>
     <div class="license-meta">
       
@@ -337,7 +353,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 14, 2025</div>
+          <div>April 15, 2025</div>
         </div>
       
       
@@ -369,18 +385,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/LeetCode-509-Fibonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 509. Fibonacci Number - 解題紀錄">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 509. Fibonacci Number - 解題紀錄</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LeetCode-684-Redundant-Connection-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 684. Redundant Connection - 解題紀錄">
-                        <span class="hidden-mobile">LeetCode 684. Redundant Connection - 解題紀錄</span>
+                      <a href="/LeetCode-35-Search-Insert-Position-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 35. Search Insert Position - 解題紀錄">
+                        <span class="hidden-mobile">LeetCode 35. Search Insert Position - 解題紀錄</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
