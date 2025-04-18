@@ -19,25 +19,26 @@
   <meta name="author" content="Citrus">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結難度：Easy 給定一個已排序好的 linked list要你移除重複的 node，使得每個值只出現一次 解法1遍歷 node，若當前 node 的值與前一個 node 的值相同將前一個 node 的 next 指向當前 node 的下一個 node 需要注意的是，pre_node 的值必須初始化為特殊值不能只有 pre_node &#x3D; ListNode()，初始值會是 0題目給定的 nod">
+    <meta name="description" content="題目連結難度：Easy 每次將字串中相鄰的相同字元刪除掉一直做到底，回傳最後結果而題目說不管怎麼做，答案都會是唯一的 解法：stack用一個 stack遍歷字串中每一個字元時判斷字元是否和 stack 最上面的字元相同若不相同，將字元放入 stack若相同，將 stack 最上面的字元拿掉而最後 stack 裡剩下的字元組成的字串就是答案 Python123456789class Solution">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄">
-<meta property="og:url" content="https://citrus0610.github.io/LeetCode-83-Remove-Duplicates-from-Sorted-List-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
+<meta property="og:title" content="LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄">
+<meta property="og:url" content="https://citrus0610.github.io/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
 <meta property="og:site_name" content="Citrus 的技術文章">
-<meta property="og:description" content="題目連結難度：Easy 給定一個已排序好的 linked list要你移除重複的 node，使得每個值只出現一次 解法1遍歷 node，若當前 node 的值與前一個 node 的值相同將前一個 node 的 next 指向當前 node 的下一個 node 需要注意的是，pre_node 的值必須初始化為特殊值不能只有 pre_node &#x3D; ListNode()，初始值會是 0題目給定的 nod">
+<meta property="og:description" content="題目連結難度：Easy 每次將字串中相鄰的相同字元刪除掉一直做到底，回傳最後結果而題目說不管怎麼做，答案都會是唯一的 解法：stack用一個 stack遍歷字串中每一個字元時判斷字元是否和 stack 最上面的字元相同若不相同，將字元放入 stack若相同，將 stack 最上面的字元拿掉而最後 stack 裡剩下的字元組成的字串就是答案 Python123456789class Solution">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-12T23:55:43.000Z">
-<meta property="article:modified_time" content="2025-04-14T14:11:30.132Z">
+<meta property="article:published_time" content="2025-04-17T20:35:50.000Z">
+<meta property="article:modified_time" content="2025-04-17T20:47:26.814Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Linked-List">
+<meta property="article:tag" content="String">
+<meta property="article:tag" content="Stack">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄 - Citrus 的技術文章</title>
+  <title>LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄 - Citrus 的技術文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄</span>
+            <span id="subtitle">LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄</span>
           
         </div>
 
@@ -214,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-13 07:55" pubdate>
-          April 13, 2025 am
+        <time datetime="2025-04-18 04:35" pubdate>
+          April 18, 2025 am
         </time>
       </span>
     
@@ -226,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          300 words
+          183 words
         
       </span>
     
@@ -237,7 +238,7 @@
         
         
         
-          3 mins
+          2 mins
         
       </span>
     
@@ -274,23 +275,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄</h1>
+            <h1 id="seo-header">LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-list">連結</a><br>難度：Easy</p>
-<p>給定一個已排序好的 linked list<br>要你移除重複的 node，使得每個值只出現一次</p>
-<h2 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h2><p>遍歷 node，若當前 node 的值與前一個 node 的值相同<br>將前一個 node 的 next 指向當前 node 的下一個 node</p>
-<p>需要注意的是，pre_node 的值必須初始化為特殊值<br>不能只有 <code>pre_node = ListNode()</code>，初始值會是 0<br>題目給定的 node 的值有可能為 0，這樣會錯</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deleteDuplicates</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        node = head<br>        pre_node = ListNode(<span class="hljs-literal">None</span>)<br>        <span class="hljs-keyword">while</span> node:<br>            <span class="hljs-keyword">if</span> node.val == pre_node.val:<br>                pre_node.<span class="hljs-built_in">next</span> = node.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">else</span>:<br>                pre_node = node<br>            node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> head<br></code></pre></td></tr></table></figure>
+                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string">連結</a><br>難度：Easy</p>
+<p>每次將字串中相鄰的相同字元刪除掉<br>一直做到底，回傳最後結果<br>而題目說不管怎麼做，答案都會是唯一的</p>
+<h2 id="解法：stack"><a href="#解法：stack" class="headerlink" title="解法：stack"></a>解法：stack</h2><p>用一個 stack<br>遍歷字串中每一個字元時<br>判斷字元是否和 stack 最上面的字元相同<br>若不相同，將字元放入 stack<br>若相同，將 stack 最上面的字元拿掉<br>而最後 stack 裡剩下的字元組成的字串就是答案</p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>        stack = []<br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> s:<br>            <span class="hljs-keyword">if</span> stack <span class="hljs-keyword">and</span> stack[-<span class="hljs-number">1</span>] == char:<br>                stack.pop()<br>            <span class="hljs-keyword">else</span>:<br>                stack.append(char)<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join(stack)<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">deleteDuplicates</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        ListNode* node = head;<br>        ListNode* pre_node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ListNode</span>(INT_MIN);<br>        <span class="hljs-keyword">while</span> (node) &#123;<br>            <span class="hljs-keyword">if</span> (node-&gt;val == pre_node-&gt;val)<br>                pre_node-&gt;next = node-&gt;next;<br>            <span class="hljs-keyword">else</span><br>                pre_node = node;<br>            node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>Runtime：0ms - Beats 100.00%</p>
-<h2 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h2><p>遍歷 node，若當前 node 的值與下一個 node 的值相同<br>將當前 node 的 next 指向下下一個 node<br>比解法1簡單，不需要紀錄 pre_node</p>
-<h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deleteDuplicates</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        node = head<br>        <span class="hljs-keyword">while</span> node <span class="hljs-keyword">and</span> node.<span class="hljs-built_in">next</span>:<br>            <span class="hljs-keyword">if</span> node.val == node.<span class="hljs-built_in">next</span>.val:<br>                node.<span class="hljs-built_in">next</span> = node.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">else</span>:<br>                node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> head<br></code></pre></td></tr></table></figure>
-<p>Runtime：0ms - Beats 100.00%</p>
-<h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">deleteDuplicates</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        ListNode* node = head;<br>        <span class="hljs-keyword">while</span> (node &amp;&amp; node-&gt;next) &#123;<br>            <span class="hljs-keyword">if</span> (node-&gt;val == node-&gt;next-&gt;val)<br>                node-&gt;next = node-&gt;next-&gt;next;<br>            <span class="hljs-keyword">else</span><br>                node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        string stack;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s) &#123;<br>            <span class="hljs-keyword">if</span> (!stack.<span class="hljs-built_in">empty</span>() &amp;&amp; stack.<span class="hljs-built_in">back</span>() == c)<br>                stack.<span class="hljs-built_in">pop_back</span>();<br>            <span class="hljs-keyword">else</span><br>                stack.<span class="hljs-built_in">push_back</span>(c);<br>        &#125;<br>        <span class="hljs-keyword">return</span> stack;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
 
                 
@@ -310,7 +305,9 @@
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/Linked-List/" class="print-no-link">#Linked-List</a>
+        <a href="/tags/String/" class="print-no-link">#String</a>
+      
+        <a href="/tags/Stack/" class="print-no-link">#Stack</a>
       
     </div>
   
@@ -322,8 +319,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 83. Remove Duplicates from Sorted List - 解題紀錄</div>
-      <div>https://citrus0610.github.io/LeetCode-83-Remove-Duplicates-from-Sorted-List-解題紀錄/</div>
+      <div>LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄</div>
+      <div>https://citrus0610.github.io/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-解題紀錄/</div>
     </div>
     <div class="license-meta">
       
@@ -335,7 +332,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 13, 2025</div>
+          <div>April 18, 2025</div>
         </div>
       
       
@@ -367,15 +364,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/LeetCode-82-Remove-Duplicates-from-Sorted-List-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/LeetCode-102-Binary-Tree-Level-Order-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 102. Binary Tree Level Order Traversal - 解題紀錄">
+                        <span class="hidden-mobile">LeetCode 102. Binary Tree Level Order Traversal - 解題紀錄</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

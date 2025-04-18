@@ -4,6 +4,147 @@
   
   
   <entry>
+    <title>LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄</title>
+    <link href="/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string">連結</a><br>難度：Easy</p><p>每次將字串中相鄰的相同字元刪除掉<br>一直做到底，回傳最後結果<br>而題目說不管怎麼做，答案都會是唯一的</p><h2 id="解法：stack"><a href="#解法：stack" class="headerlink" title="解法：stack"></a>解法：stack</h2><p>用一個 stack<br>遍歷字串中每一個字元時<br>判斷字元是否和 stack 最上面的字元相同<br>若不相同，將字元放入 stack<br>若相同，將 stack 最上面的字元拿掉<br>而最後 stack 裡剩下的字元組成的字串就是答案</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>        stack = []<br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> s:<br>            <span class="hljs-keyword">if</span> stack <span class="hljs-keyword">and</span> stack[-<span class="hljs-number">1</span>] == char:<br>                stack.pop()<br>            <span class="hljs-keyword">else</span>:<br>                stack.append(char)<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join(stack)<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        string stack;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s) &#123;<br>            <span class="hljs-keyword">if</span> (!stack.<span class="hljs-built_in">empty</span>() &amp;&amp; stack.<span class="hljs-built_in">back</span>() == c)<br>                stack.<span class="hljs-built_in">pop_back</span>();<br>            <span class="hljs-keyword">else</span><br>                stack.<span class="hljs-built_in">push_back</span>(c);<br>        &#125;<br>        <span class="hljs-keyword">return</span> stack;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Stack</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 102. Binary Tree Level Order Traversal - 解題紀錄</title>
+    <link href="/LeetCode-102-Binary-Tree-Level-Order-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-102-Binary-Tree-Level-Order-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal">連結</a><br>難度：Medium</p><p>回傳 binary tree 裡每一層的 node</p><h2 id="解法：BFS"><a href="#解法：BFS" class="headerlink" title="解法：BFS"></a>解法：BFS</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">levelOrder</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        ans = []<br>        <span class="hljs-keyword">if</span> root:<br>            q = deque([root])<br>            <span class="hljs-keyword">while</span> q:<br>                level_nodes = []<br>                <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(q)):<br>                    node = q.popleft()<br>                    level_nodes.append(node.val)<br>                    <span class="hljs-keyword">if</span> node.left:<br>                        q.append(node.left)<br>                    <span class="hljs-keyword">if</span> node.right:<br>                        q.append(node.right)<br>                ans.append(level_nodes)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">levelOrder</span>(TreeNode* root) &#123;<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; ans;<br>        <span class="hljs-keyword">if</span> (!root)<br>            <span class="hljs-keyword">return</span> ans;<br><br>        queue&lt;TreeNode*&gt; q;<br>        q.<span class="hljs-built_in">push</span>(root);<br>        <span class="hljs-type">int</span> level_size;<br>        TreeNode* node;<br><br>        <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>            vector&lt;<span class="hljs-type">int</span>&gt; level_nodes;<br>            level_size = q.<span class="hljs-built_in">size</span>();<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; level_size; i++) &#123;<br>                node = q.<span class="hljs-built_in">front</span>();<br>                q.<span class="hljs-built_in">pop</span>();<br>                level_nodes.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br><br>                <span class="hljs-keyword">if</span> (node-&gt;left)<br>                    q.<span class="hljs-built_in">push</span>(node-&gt;left);<br>                <span class="hljs-keyword">if</span> (node-&gt;right)<br>                    q.<span class="hljs-built_in">push</span>(node-&gt;right);<br>            &#125;<br>            ans.<span class="hljs-built_in">push_back</span>(level_nodes);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>BFS</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 145. Binary Tree Postorder Traversal - 解題紀錄</title>
+    <link href="/LeetCode-145-Binary-Tree-Postorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-145-Binary-Tree-Postorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/binary-tree-postorder-traversal">連結</a><br>難度：Easy</p><p>binary tree 做後序遍歷 (postorder traversal)：左、右、中</p><h2 id="解法1：遞迴"><a href="#解法1：遞迴" class="headerlink" title="解法1：遞迴"></a>解法1：遞迴</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">postorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        ans = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">postorder_traverse</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>                <span class="hljs-keyword">return</span><br>            postorder_traverse(node.left)<br>            postorder_traverse(node.right)<br>            ans.append(node.val)<br><br>        postorder_traverse(root)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">postorder_traverse</span><span class="hljs-params">(TreeNode* node, vector&lt;<span class="hljs-type">int</span>&gt;&amp; ans)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!node)<br>            <span class="hljs-keyword">return</span>;<br>        <span class="hljs-built_in">postorder_traverse</span>(node-&gt;left, ans);<br>        <span class="hljs-built_in">postorder_traverse</span>(node-&gt;right, ans);<br>        ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>    &#125;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">postorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-built_in">postorder_traverse</span>(root, ans);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="解法2：stack-迭代"><a href="#解法2：stack-迭代" class="headerlink" title="解法2：stack 迭代"></a>解法2：stack 迭代</h2><h3 id="寫法1"><a href="#寫法1" class="headerlink" title="寫法1"></a>寫法1</h3><p>每個 node 第一次被處理時，先不放進答案裡<br>而是維持放在 stack 裡並標記為已走過<br>然後將右邊的 node 與左邊的 node 依序放入 stack<br>這樣左邊的 node 才會先被處理 (可參考<a href="https://citrus0610.github.io/LeetCode-144-Binary-Tree-Preorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">這題</a>的做法)</p><p>當節點第二次被處理時 (visited 為 True)<br>代表它的左邊 node 和右邊 node 都已經處理完了<br>此時再放進答案裡</p><p>有些網路上的解法會暫時把左邊或右邊的 node 設為 None<br>但這樣會破壞到 tree 原本的結構<br>如果遍歷完之後，tree 本身還會用到的話<br>裡面結構就會是錯的，因此這種做法比較不好<br>詳細可看底下附的參考文章</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">postorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        stack = [(root, <span class="hljs-literal">False</span>)]<br>        ans = []<br><br>        <span class="hljs-keyword">while</span> stack:<br>            node, visited = stack[-<span class="hljs-number">1</span>]<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>                stack.pop()<br>                <span class="hljs-keyword">continue</span><br><br>            <span class="hljs-keyword">if</span> visited: <span class="hljs-comment"># 第二次走到時，代表這個 node 的 left 和 right 都處理完了</span><br>                ans.append(node.val)<br>                stack.pop()<br>            <span class="hljs-keyword">else</span>:<br>                stack[-<span class="hljs-number">1</span>] = (node, <span class="hljs-literal">True</span>) <span class="hljs-comment"># 第一次走到時，先標記為已走過，之後再處理</span><br>                stack.append((node.right, <span class="hljs-literal">False</span>))<br>                stack.append((node.left, <span class="hljs-literal">False</span>))<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">postorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        stack&lt;pair&lt;TreeNode*, <span class="hljs-type">bool</span>&gt;&gt; st;<br>        st.<span class="hljs-built_in">push</span>(&#123;root, <span class="hljs-literal">false</span>&#125;);<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br><br>        pair&lt;TreeNode*, <span class="hljs-type">bool</span>&gt; top;<br>        TreeNode* node;<br>        <span class="hljs-type">bool</span> visited;<br><br>        <span class="hljs-keyword">while</span> (!st.<span class="hljs-built_in">empty</span>()) &#123;<br>            top = st.<span class="hljs-built_in">top</span>();<br>            node = top.first;<br>            visited = top.second;<br>            <span class="hljs-keyword">if</span> (!node) &#123;<br>                st.<span class="hljs-built_in">pop</span>();<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br><br>            <span class="hljs-keyword">if</span> (visited) &#123; <span class="hljs-comment">// 第二次走到時，代表這個 node 的 left 和 right 都處理完了</span><br>                ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>                st.<span class="hljs-built_in">pop</span>();<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                st.<span class="hljs-built_in">top</span>().second = <span class="hljs-literal">true</span>; <span class="hljs-comment">//  第一次走到時，先標記為已走過，之後再處理</span><br>                st.<span class="hljs-built_in">push</span>(&#123;node-&gt;right, <span class="hljs-literal">false</span>&#125;);<br>                st.<span class="hljs-built_in">push</span>(&#123;node-&gt;left, <span class="hljs-literal">false</span>&#125;);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="寫法2"><a href="#寫法2" class="headerlink" title="寫法2"></a>寫法2</h3><p>優化成不需要在 stack 裡面多存 True&#x2F;False<br>改成只用一個變數 <code>last_visited</code> 紀錄<br>由於當我們返回 node 的時候<br>我們不知道它是從左邊回來還是從右邊回來<br>因此這個變數會用來紀錄上一次走完的 node<br>這樣才能判斷右邊 node 是否已經走完<br>如果是，才加進答案裡</p><h3 id="Python-2"><a href="#Python-2" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">postorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        ans = []<br>        stack = []<br>        last_visited = <span class="hljs-literal">None</span><br>        cur = root<br><br>        <span class="hljs-keyword">while</span> cur <span class="hljs-keyword">or</span> stack:<br>            <span class="hljs-keyword">if</span> cur:<br>                stack.append(cur)<br>                cur = cur.left<br>            <span class="hljs-keyword">else</span>:<br>                node = stack[-<span class="hljs-number">1</span>]<br>                <span class="hljs-keyword">if</span> node.right <span class="hljs-keyword">and</span> last_visited != node.right:<br>                    <span class="hljs-comment"># 如果 right 存在且沒處理過，就往右走</span><br>                    cur = node.right<br>                <span class="hljs-keyword">else</span>: <span class="hljs-comment"># left 和 right 都處理完了</span><br>                    ans.append(node.val)<br>                    last_visited = stack.pop()<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C-2"><a href="#C-2" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">postorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        stack&lt;TreeNode*&gt; st;<br>        TreeNode *last_visited = <span class="hljs-literal">nullptr</span>, *cur = root, *node;<br><br>        <span class="hljs-keyword">while</span> (cur || !st.<span class="hljs-built_in">empty</span>()) &#123;<br>            <span class="hljs-keyword">if</span> (cur) &#123;<br>                st.<span class="hljs-built_in">push</span>(cur);<br>                cur = cur-&gt;left;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                node = st.<span class="hljs-built_in">top</span>();<br>                <span class="hljs-comment">// 如果 right 存在且沒處理過，就往右走</span><br>                <span class="hljs-keyword">if</span> (node-&gt;right &amp;&amp; last_visited != node-&gt;right)<br>                    cur = node-&gt;right;<br>                <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// left 和 right 都處理完了</span><br>                    ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>                    last_visited = node;<br>                    st.<span class="hljs-built_in">pop</span>();<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.shubo.io/iterative-binary-tree-traversal/">三種 Iterative Binary Tree Traversal 的方法 (Inorder, Preorder, Postorder)</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Stack</tag>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 94. Binary Tree Inorder Traversal - 解題紀錄</title>
+    <link href="/LeetCode-94-Binary-Tree-Inorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-94-Binary-Tree-Inorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/binary-tree-inorder-traversal">連結</a><br>難度：Easy</p><p>binary tree 做中序遍歷 (inorder traversal)：左、中、右</p><h2 id="解法1：遞迴"><a href="#解法1：遞迴" class="headerlink" title="解法1：遞迴"></a>解法1：遞迴</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">inorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        ans = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">inorder_traverse</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>                <span class="hljs-keyword">return</span><br>            inorder_traverse(node.left)<br>            ans.append(node.val)<br>            inorder_traverse(node.right)<br><br>        inorder_traverse(root)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">inorder_traverse</span><span class="hljs-params">(TreeNode* node, vector&lt;<span class="hljs-type">int</span>&gt;&amp; ans)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!node)<br>            <span class="hljs-keyword">return</span>;<br>        <span class="hljs-built_in">inorder_traverse</span>(node-&gt;left, ans);<br>        ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>        <span class="hljs-built_in">inorder_traverse</span>(node-&gt;right, ans);<br>    &#125;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">inorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-built_in">inorder_traverse</span>(root, ans);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="解法2：stack-迭代"><a href="#解法2：stack-迭代" class="headerlink" title="解法2：stack 迭代"></a>解法2：stack 迭代</h2><p>每次判斷當前 node 如果不是 None 就放進 stack 並且往左走<br>如果是 None，代表左邊的 node 已經走完<br>此時拿出 stack 最上面的 node，放進答案裡<br>接著往右走</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">inorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        stack = []<br>        ans = []<br>        node = root<br><br>        <span class="hljs-keyword">while</span> node <span class="hljs-keyword">or</span> stack:<br>            <span class="hljs-keyword">if</span> node:<br>                stack.append(node)<br>                node = node.left<br>            <span class="hljs-keyword">else</span>:<br>                node = stack.pop()<br>                ans.append(node.val)<br>                node = node.right<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">inorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        stack&lt;TreeNode*&gt; st;<br>        TreeNode* node = root;<br><br>        <span class="hljs-keyword">while</span> (node || !st.<span class="hljs-built_in">empty</span>()) &#123;<br>            <span class="hljs-keyword">if</span> (node) &#123;<br>                st.<span class="hljs-built_in">push</span>(node);<br>                node = node-&gt;left;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                node = st.<span class="hljs-built_in">top</span>();<br>                st.<span class="hljs-built_in">pop</span>();<br>                ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>                node = node-&gt;right;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.shubo.io/iterative-binary-tree-traversal/">三種 Iterative Binary Tree Traversal 的方法 (Inorder, Preorder, Postorder)</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Stack</tag>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 144. Binary Tree Preorder Traversal - 解題紀錄</title>
+    <link href="/LeetCode-144-Binary-Tree-Preorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-144-Binary-Tree-Preorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/binary-tree-preorder-traversal">連結</a><br>難度：Easy</p><p>binary tree 做前序遍歷 (preorder traversal)：中、左、右</p><h2 id="解法1：遞迴"><a href="#解法1：遞迴" class="headerlink" title="解法1：遞迴"></a>解法1：遞迴</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">preorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        ans = []<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">preorder_traverse</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>                <span class="hljs-keyword">return</span><br>            ans.append(node.val)<br>            preorder_traverse(node.left)<br>            preorder_traverse(node.right)<br><br>        preorder_traverse(root)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">preorder_traverse</span><span class="hljs-params">(TreeNode* node, vector&lt;<span class="hljs-type">int</span>&gt;&amp; ans)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!node)<br>            <span class="hljs-keyword">return</span>;<br>        ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>        <span class="hljs-built_in">preorder_traverse</span>(node-&gt;left, ans);<br>        <span class="hljs-built_in">preorder_traverse</span>(node-&gt;right, ans);<br>    &#125;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-built_in">preorder_traverse</span>(root, ans);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="解法2：stack-迭代"><a href="#解法2：stack-迭代" class="headerlink" title="解法2：stack 迭代"></a>解法2：stack 迭代</h2><p>每次從 stack 裡面拿出中間的 node，放進答案裡<br>由於要讓左邊的 node 先拿出來<br>因此要先將右邊的 node 放上去<br>這樣左邊的 node 才會在上面</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">preorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:<br>            <span class="hljs-keyword">return</span> []<br><br>        stack = [root]<br>        ans = []<br><br>        <span class="hljs-keyword">while</span> stack:<br>            node = stack.pop()<br>            ans.append(node.val)<br>            <span class="hljs-keyword">if</span> node.right:<br>                stack.append(node.right)<br>            <span class="hljs-keyword">if</span> node.left:<br>                stack.append(node.left)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-keyword">if</span> (!root)<br>            <span class="hljs-keyword">return</span> ans;<br><br>        stack&lt;TreeNode*&gt; st;<br>        st.<span class="hljs-built_in">push</span>(root);<br>        TreeNode* node;<br><br>        <span class="hljs-keyword">while</span> (!st.<span class="hljs-built_in">empty</span>()) &#123;<br>            node = st.<span class="hljs-built_in">top</span>();<br>            st.<span class="hljs-built_in">pop</span>();<br>            ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br><br>            <span class="hljs-keyword">if</span> (node-&gt;right)<br>                st.<span class="hljs-built_in">push</span>(node-&gt;right);<br>            <span class="hljs-keyword">if</span> (node-&gt;left)<br>                st.<span class="hljs-built_in">push</span>(node-&gt;left);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.shubo.io/iterative-binary-tree-traversal/">三種 Iterative Binary Tree Traversal 的方法 (Inorder, Preorder, Postorder)</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Stack</tag>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 25. Reverse Nodes in k-Group - 解題紀錄</title>
     <link href="/LeetCode-25-Reverse-Nodes-in-k-Group-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
     <url>/LeetCode-25-Reverse-Nodes-in-k-Group-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
@@ -79,11 +220,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Math</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Math</tag>
       
       <tag>Binary Search</tag>
       
@@ -106,11 +247,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Dynamic Programming</tag>
       
       <tag>Matrix</tag>
       
@@ -133,11 +274,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Math</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Math</tag>
       
       <tag>Binary Search</tag>
       
@@ -187,11 +328,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -212,13 +353,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Math</tag>
-      
-      <tag>Dynamic Programming</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
       <tag>Combinatorics</tag>
       
@@ -233,7 +374,7 @@
     <link href="/LeetCode-1137-N-th-Tribonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
     <url>/LeetCode-1137-N-th-Tribonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
     
-    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/n-th-tribonacci-number">連結</a><br>難度：Easy</p><p>費氏數列的變形，求第 n 項</p><h2 id="解法：一維-DP"><a href="#解法：一維-DP" class="headerlink" title="解法：一維 DP"></a>解法：一維 DP</h2><p>方法仍然相同</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tribonacci</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        t = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            t.append(t[i-<span class="hljs-number">1</span>] + t[i-<span class="hljs-number">2</span>] + t[i-<span class="hljs-number">3</span>])<br>        <span class="hljs-keyword">return</span> t[n]<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><p>將空間複雜度優化為 O(1)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tribonacci</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> n<br>        <span class="hljs-keyword">elif</span> n == <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br><br>        t0, t1, t2 = <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            t0, t1, t2 = t1, t2, t0 + t1 + t2<br>        <span class="hljs-keyword">return</span> t2<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">tribonacci</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>)<br>            <span class="hljs-keyword">return</span> n;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br><br>        <span class="hljs-type">int</span> t0 = <span class="hljs-number">0</span>, t1 = <span class="hljs-number">1</span>, t2 = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> tmp0 = t0, tmp1 = t1;<br>            t0 = t1;<br>            t1 = t2;<br>            t2 = tmp0 + tmp1 + t2;<br>        &#125;<br>        <span class="hljs-keyword">return</span> t2;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://dwye.dev/post/python-fibonacci/">Python 費氏數列解法（一）</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/n-th-tribonacci-number">連結</a><br>難度：Easy</p><p>費氏數列的變形<br>後面一項是前面三項相加<br>求第 n 項</p><h2 id="解法：一維-DP"><a href="#解法：一維-DP" class="headerlink" title="解法：一維 DP"></a>解法：一維 DP</h2><p>跟<a href="https://citrus0610.github.io/LeetCode-509-Fibonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">一般的費氏數列解法</a>相同</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tribonacci</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        t = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            t.append(t[i-<span class="hljs-number">1</span>] + t[i-<span class="hljs-number">2</span>] + t[i-<span class="hljs-number">3</span>])<br>        <span class="hljs-keyword">return</span> t[n]<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><p>將空間複雜度優化為 O(1)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tribonacci</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> n<br>        <span class="hljs-keyword">elif</span> n == <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br><br>        t0, t1, t2 = <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            t0, t1, t2 = t1, t2, t0 + t1 + t2<br>        <span class="hljs-keyword">return</span> t2<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">tribonacci</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>)<br>            <span class="hljs-keyword">return</span> n;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br><br>        <span class="hljs-type">int</span> t0 = <span class="hljs-number">0</span>, t1 = <span class="hljs-number">1</span>, t2 = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> tmp0 = t0, tmp1 = t1;<br>            t0 = t1;<br>            t1 = t2;<br>            t2 = tmp0 + tmp1 + t2;<br>        &#125;<br>        <span class="hljs-keyword">return</span> t2;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://dwye.dev/post/python-fibonacci/">Python 費氏數列解法（一）</a></p>]]></content>
     
     
     
@@ -241,13 +382,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Math</tag>
-      
-      <tag>Dynamic Programming</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -268,13 +409,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Math</tag>
-      
-      <tag>Dynamic Programming</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -287,7 +428,7 @@
     <link href="/LeetCode-70-Climbing-Stairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
     <url>/LeetCode-70-Climbing-Stairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
     
-    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/climbing-stairs">連結</a><br>難度：Easy</p><p>爬樓梯每次能爬 1 階或 2 階<br>樓梯總共有 n 階<br>求爬到第 n 階的方法數</p><h2 id="解法：數列規律-DP"><a href="#解法：數列規律-DP" class="headerlink" title="解法：數列規律 + DP"></a>解法：數列規律 + DP</h2><p>由於每次只能爬 1 階或 2 階<br>所以如果要爬到第 n 階<br>必定只能從第 n-1 階爬 1 階<br>或是從第 n-2 階爬 2 階<br>設爬到第 n 階之方法數為 <code>f(n)</code><br>因此 <code>f(n) = f(n-1) + f(n-2)</code><br>接著用簡單的一維 DP 就能做完了</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">climbStairs</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        f = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            f.append(f[i-<span class="hljs-number">1</span>] + f[i-<span class="hljs-number">2</span>])<br>        <span class="hljs-keyword">return</span> f[n]<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><p>可將空間複雜度再優化為 O(1)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">climbStairs</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        f1, f2 = <span class="hljs-number">1</span>, <span class="hljs-number">2</span><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            f1, f2 = f2, f1 + f2<br>        <span class="hljs-keyword">return</span> f2<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p>這題 n 的測資最大只到 45<br>int 不會 overflow，直接用 int 即可<br>如果再大一點的話就要用 long long 了</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">return</span> n;<br><br>        <span class="hljs-type">int</span> f1 = <span class="hljs-number">1</span>, f2 = <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> tmp = f2;<br>            f2 = f1 + f2;<br>            f1 = tmp;<br>        &#125;<br>        <span class="hljs-keyword">return</span> f2;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://dwye.dev/post/python-fibonacci/">Python 費氏數列解法（一）</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/climbing-stairs">連結</a><br>難度：Easy</p><p>爬樓梯每次能爬 1 階或 2 階<br>樓梯總共有 n 階<br>求爬到第 n 階的方法數</p><h2 id="解法：數列規律-DP"><a href="#解法：數列規律-DP" class="headerlink" title="解法：數列規律 + DP"></a>解法：數列規律 + DP</h2><p>由於每次只能爬 1 階或 2 階<br>所以如果要爬到第 n 階<br>必定只能從第 n-1 階爬 1 階<br>或是從第 n-2 階爬 2 階<br>設爬到第 n 階之方法數為 <code>f(n)</code><br>因此 <code>f(n) = f(n-1) + f(n-2)</code><br>接著用簡單的一維 DP 就能做完了</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">climbStairs</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        f = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            f.append(f[i-<span class="hljs-number">1</span>] + f[i-<span class="hljs-number">2</span>])<br>        <span class="hljs-keyword">return</span> f[n]<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><p>可將空間複雜度再優化為 O(1)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">climbStairs</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        f1, f2 = <span class="hljs-number">1</span>, <span class="hljs-number">2</span><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            f1, f2 = f2, f1 + f2<br>        <span class="hljs-keyword">return</span> f2<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p>這題 n 的測資最大只到 45<br>int 不會 overflow，直接用 int 即可<br>如果再大一點的話就要用 long 或 long long 了</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">return</span> n;<br><br>        <span class="hljs-type">int</span> f1 = <span class="hljs-number">1</span>, f2 = <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> tmp = f2;<br>            f2 = f1 + f2;<br>            f1 = tmp;<br>        &#125;<br>        <span class="hljs-keyword">return</span> f2;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://dwye.dev/post/python-fibonacci/">Python 費氏數列解法（一）</a></p>]]></content>
     
     
     
@@ -295,13 +436,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Math</tag>
-      
-      <tag>Dynamic Programming</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -322,11 +463,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
       <tag>Union Find</tag>
       
@@ -351,11 +492,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
     </tags>
     
@@ -380,9 +521,9 @@
       
       <tag>C++</tag>
       
-      <tag>Two Pointers</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
@@ -407,9 +548,9 @@
       
       <tag>C++</tag>
       
-      <tag>Two Pointers</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
@@ -462,19 +603,6 @@
       <tag>Linked-List</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/hello-world/"/>
-    <url>/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
