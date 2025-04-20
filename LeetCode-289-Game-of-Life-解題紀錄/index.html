@@ -19,26 +19,25 @@
   <meta name="author" content="Citrus">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結難度：Easy 每次將字串中相鄰的相同字元刪除掉一直做到底，回傳最後結果而題目說不管怎麼做，答案都會是唯一的 解法：stack用一個 stack遍歷字串中每一個字元時判斷字元是否和 stack 最上面的字元相同若不相同，將字元放入 stack若相同，將 stack 最上面的字元拿掉而最後 stack 裡剩下的字元組成的字串就是答案 Python123456789class Solution">
+    <meta name="description" content="題目連結難度：Medium 給定一個只有 0 和 1 的 m x n 矩陣定義周圍的格子是上、下、左、右、左上、右上、左下、右下這 8 格現在要將矩陣中的每一格做轉換，轉換的規則為：  若當前格子為 1，且周圍為 1 的格子少於 2 格，則當前這格變為 0 若當前格子為 1，且周圍為 1 的格子剛好有 2 個或 3 個，則當前這格變為 1 若當前格子為 1，且周圍為 1 的格子多於 3 格，則當前">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄">
-<meta property="og:url" content="https://citrus0610.github.io/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
+<meta property="og:title" content="LeetCode 289. Game of Life - 解題紀錄">
+<meta property="og:url" content="https://citrus0610.github.io/LeetCode-289-Game-of-Life-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
 <meta property="og:site_name" content="Citrus 的技術文章">
-<meta property="og:description" content="題目連結難度：Easy 每次將字串中相鄰的相同字元刪除掉一直做到底，回傳最後結果而題目說不管怎麼做，答案都會是唯一的 解法：stack用一個 stack遍歷字串中每一個字元時判斷字元是否和 stack 最上面的字元相同若不相同，將字元放入 stack若相同，將 stack 最上面的字元拿掉而最後 stack 裡剩下的字元組成的字串就是答案 Python123456789class Solution">
+<meta property="og:description" content="題目連結難度：Medium 給定一個只有 0 和 1 的 m x n 矩陣定義周圍的格子是上、下、左、右、左上、右上、左下、右下這 8 格現在要將矩陣中的每一格做轉換，轉換的規則為：  若當前格子為 1，且周圍為 1 的格子少於 2 格，則當前這格變為 0 若當前格子為 1，且周圍為 1 的格子剛好有 2 個或 3 個，則當前這格變為 1 若當前格子為 1，且周圍為 1 的格子多於 3 格，則當前">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-17T20:35:50.000Z">
-<meta property="article:modified_time" content="2025-04-17T20:47:26.814Z">
+<meta property="article:published_time" content="2025-04-20T07:11:48.000Z">
+<meta property="article:modified_time" content="2025-04-20T07:59:05.275Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="String">
-<meta property="article:tag" content="Stack">
-<meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="Matrix">
+<meta property="article:tag" content="Simulation">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄 - Citrus 的技術文章</title>
+  <title>LeetCode 289. Game of Life - 解題紀錄 - Citrus 的技術文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄</span>
+            <span id="subtitle">LeetCode 289. Game of Life - 解題紀錄</span>
           
         </div>
 
@@ -215,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-18 04:35" pubdate>
-          April 18, 2025 am
+        <time datetime="2025-04-20 15:11" pubdate>
+          April 20, 2025 pm
         </time>
       </span>
     
@@ -227,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          183 words
+          674 words
         
       </span>
     
@@ -238,7 +237,7 @@
         
         
         
-          2 mins
+          6 mins
         
       </span>
     
@@ -275,17 +274,56 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄</h1>
+            <h1 id="seo-header">LeetCode 289. Game of Life - 解題紀錄</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string">連結</a><br>難度：Easy</p>
-<p>每次將字串中相鄰的相同字元刪除掉<br>一直做到底，回傳最後結果<br>而題目說不管怎麼做，答案都會是唯一的</p>
-<h2 id="解法：stack"><a href="#解法：stack" class="headerlink" title="解法：stack"></a>解法：stack</h2><p>用一個 stack<br>遍歷字串中每一個字元時<br>判斷字元是否和 stack 最上面的字元相同<br>若不相同，將字元放入 stack<br>若相同，將 stack 最上面的字元拿掉<br>而最後 stack 裡剩下的字元組成的字串就是答案</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>        stack = []<br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> s:<br>            <span class="hljs-keyword">if</span> stack <span class="hljs-keyword">and</span> stack[-<span class="hljs-number">1</span>] == char:<br>                stack.pop()<br>            <span class="hljs-keyword">else</span>:<br>                stack.append(char)<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join(stack)<br></code></pre></td></tr></table></figure>
+                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/game-of-life">連結</a><br>難度：Medium</p>
+<p>給定一個只有 0 和 1 的 m x n 矩陣<br>定義周圍的格子是上、下、左、右、左上、右上、左下、右下這 8 格<br>現在要將矩陣中的每一格做轉換，轉換的規則為：</p>
+<ol>
+<li>若當前格子為 1，且周圍為 1 的格子少於 2 格，則當前這格變為 0</li>
+<li>若當前格子為 1，且周圍為 1 的格子剛好有 2 個或 3 個，則當前這格變為 1</li>
+<li>若當前格子為 1，且周圍為 1 的格子多於 3 格，則當前這格變為 0</li>
+<li>若當前格子為 0，且周圍為 1 的格子剛好有 3 個，則當前這格變為 1</li>
+</ol>
+<p>題目希望只能 in-place 修改原矩陣<br>不能用額外的記憶體空間去存轉換後的元素</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>必須要在已經改了之前格子的情況下<br>還能利用這些已被改過的格子知道原本的格子是多少</p>
+<p>對格子進行編碼</p>
+<table>
+<thead>
+<tr>
+<th>轉換情況</th>
+<th>周圍為 1 的格子數量</th>
+<th>編碼</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 → 0</td>
+<td>&lt; 2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1 → 1</td>
+<td>&#x3D; 2 or 3</td>
+<td>1 (不改)</td>
+</tr>
+<tr>
+<td>1 → 0</td>
+<td>&gt; 3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0 → 1</td>
+<td>&#x3D; 3</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<p>編碼如果是 3，代表原本是 1<br>編碼如果是 2，代表原本是 0<br>而 1 → 1 和 0 → 0 不用改</p>
+<p>第一輪遍歷矩陣，將每格轉為對應的編碼<br>就能利用之前已被改過的格子知道原本是多少<br>第二輪遍歷矩陣，再將每格轉為 0 或 1</p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">gameOfLife</span>(<span class="hljs-params">self, board: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        Do not return anything, modify board in-place instead.</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        m, n = <span class="hljs-built_in">len</span>(board), <span class="hljs-built_in">len</span>(board[<span class="hljs-number">0</span>])<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">count_live_neighbors</span>(<span class="hljs-params">i, j</span>):<br>            cnt = <span class="hljs-number">0</span><br>            <span class="hljs-keyword">for</span> dx <span class="hljs-keyword">in</span> (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>                <span class="hljs-keyword">for</span> dy <span class="hljs-keyword">in</span> (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>                    <span class="hljs-keyword">if</span> dx == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> dy == <span class="hljs-number">0</span>:<br>                        <span class="hljs-keyword">continue</span><br>                    row = i + dx<br>                    col = j + dy<br>                    <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> &lt;= row &lt; m <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= col &lt; n:<br>                        <span class="hljs-keyword">if</span> board[row][col] == <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> board[row][col] == <span class="hljs-number">3</span>:<br>                            cnt += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">return</span> cnt<br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>                live_neighbors = count_live_neighbors(i, j)<br><br>                <span class="hljs-keyword">if</span> board[i][j] == <span class="hljs-number">1</span>:<br>                    <span class="hljs-keyword">if</span> live_neighbors &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">or</span> live_neighbors &gt; <span class="hljs-number">3</span>:<br>                        board[i][j] = <span class="hljs-number">3</span> <span class="hljs-comment"># 1 → 0</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">if</span> live_neighbors == <span class="hljs-number">3</span>:<br>                        board[i][j] = <span class="hljs-number">2</span> <span class="hljs-comment"># 0 → 1</span><br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>                <span class="hljs-keyword">if</span> board[i][j] == <span class="hljs-number">3</span>:<br>                    board[i][j] = <span class="hljs-number">0</span><br>                <span class="hljs-keyword">elif</span> board[i][j] == <span class="hljs-number">2</span>:<br>                    board[i][j] = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        string stack;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s) &#123;<br>            <span class="hljs-keyword">if</span> (!stack.<span class="hljs-built_in">empty</span>() &amp;&amp; stack.<span class="hljs-built_in">back</span>() == c)<br>                stack.<span class="hljs-built_in">pop_back</span>();<br>            <span class="hljs-keyword">else</span><br>                stack.<span class="hljs-built_in">push_back</span>(c);<br>        &#125;<br>        <span class="hljs-keyword">return</span> stack;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">count_live_neighbors</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; board, <span class="hljs-type">int</span>&amp; m, <span class="hljs-type">int</span>&amp; n)</span> </span>&#123;<br>        <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> dx = <span class="hljs-number">-1</span>; dx &lt;= <span class="hljs-number">1</span>; dx++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> dy = <span class="hljs-number">-1</span>; dy &lt;= <span class="hljs-number">1</span>; dy++) &#123;<br>                <span class="hljs-keyword">if</span> (dx == <span class="hljs-number">0</span> &amp;&amp; dy == <span class="hljs-number">0</span>)<br>                    <span class="hljs-keyword">continue</span>;<br>                <span class="hljs-type">int</span> row = i + dx, col = j + dy;<br>                <span class="hljs-keyword">if</span> (row &gt;= <span class="hljs-number">0</span> &amp;&amp; row &lt; m &amp;&amp; col &gt;= <span class="hljs-number">0</span> &amp;&amp; col &lt; n) &#123;<br>                    <span class="hljs-type">int</span> val = board[row][col];<br>                    <span class="hljs-keyword">if</span> (val == <span class="hljs-number">1</span> || val == <span class="hljs-number">3</span>)<br>                        cnt++;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> cnt;<br>    &#125;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">gameOfLife</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; board)</span> </span>&#123;<br>        <span class="hljs-type">int</span> m = board.<span class="hljs-built_in">size</span>(), n = board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; ++i) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; ++j) &#123;<br>                <span class="hljs-type">int</span> live_neighbors = <span class="hljs-built_in">count_live_neighbors</span>(i, j, board, m, n);<br>                <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-number">1</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (live_neighbors &lt; <span class="hljs-number">2</span> || live_neighbors &gt; <span class="hljs-number">3</span>)<br>                        board[i][j] = <span class="hljs-number">3</span>; <span class="hljs-comment">// 1 → 0</span><br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    <span class="hljs-keyword">if</span> (live_neighbors == <span class="hljs-number">3</span>)<br>                        board[i][j] = <span class="hljs-number">2</span>; <span class="hljs-comment">// 0 → 1</span><br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-number">3</span>)<br>                    board[i][j] = <span class="hljs-number">0</span>;<br>                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-number">2</span>)<br>                    board[i][j] = <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
 
                 
@@ -301,13 +339,11 @@
       
         <a href="/tags/LeetCode/" class="print-no-link">#LeetCode</a>
       
-        <a href="/tags/String/" class="print-no-link">#String</a>
-      
-        <a href="/tags/Stack/" class="print-no-link">#Stack</a>
-      
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
-      
         <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Matrix/" class="print-no-link">#Matrix</a>
+      
+        <a href="/tags/Simulation/" class="print-no-link">#Simulation</a>
       
     </div>
   
@@ -319,8 +355,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄</div>
-      <div>https://citrus0610.github.io/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-解題紀錄/</div>
+      <div>LeetCode 289. Game of Life - 解題紀錄</div>
+      <div>https://citrus0610.github.io/LeetCode-289-Game-of-Life-解題紀錄/</div>
     </div>
     <div class="license-meta">
       
@@ -332,7 +368,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 18, 2025</div>
+          <div>April 20, 2025</div>
         </div>
       
       
@@ -364,18 +400,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/LeetCode-20-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 20. Valid Parentheses - 解題紀錄">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 20. Valid Parentheses - 解題紀錄</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LeetCode-102-Binary-Tree-Level-Order-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 102. Binary Tree Level Order Traversal - 解題紀錄">
-                        <span class="hidden-mobile">LeetCode 102. Binary Tree Level Order Traversal - 解題紀錄</span>
+                      <a href="/LeetCode-32-Longest-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 32. Longest Valid Parentheses - 解題紀錄">
+                        <span class="hidden-mobile">LeetCode 32. Longest Valid Parentheses - 解題紀錄</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
