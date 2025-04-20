@@ -27,13 +27,13 @@
 <meta property="og:description" content="題目連結難度：Hard 給定只含有左括號和右括號的字串求最長的有正確括起來的 substring 的長度 解法：stack和這題差不多只是變成求最大的長度既然求長度，就要將 index 放入 stack我們改成不放字元，只放入 index而這個 index 會是上一個沒有辦法對應的括號的 index當括號能對應時就可透過當前遍歷的 index 和 stack 最上方的 index 計算出來而一開始">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-18T23:18:25.000Z">
-<meta property="article:modified_time" content="2025-04-18T23:42:27.342Z">
+<meta property="article:modified_time" content="2025-04-20T20:42:29.530Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="C++">
 <meta property="article:tag" content="String">
 <meta property="article:tag" content="Stack">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -282,7 +282,7 @@
                 
                 <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-valid-parentheses">連結</a><br>難度：Hard</p>
 <p>給定只含有左括號和右括號的字串<br>求最長的有正確括起來的 substring 的長度</p>
-<h2 id="解法：stack"><a href="#解法：stack" class="headerlink" title="解法：stack"></a>解法：stack</h2><p>和<a href="https://citrus0610.github.io/LeetCode-20-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">這題</a>差不多<br>只是變成求最大的長度<br>既然求長度，就要將 index 放入 stack<br>我們改成不放字元，只放入 index<br>而這個 index 會是上一個沒有辦法對應的括號的 index<br>當括號能對應時<br>就可透過當前遍歷的 index 和 stack 最上方的 index 計算出來<br>而一開始 stack 要先放入 -1，才能正確計算</p>
+<h2 id="解法：stack"><a href="#解法：stack" class="headerlink" title="解法：stack"></a>解法：stack</h2><p>和<a href="/LeetCode-20-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">這題</a>差不多<br>只是變成求最大的長度<br>既然求長度，就要將 index 放入 stack<br>我們改成不放字元，只放入 index<br>而這個 index 會是上一個沒有辦法對應的括號的 index<br>當括號能對應時<br>就可透過當前遍歷的 index 和 stack 最上方的 index 計算出來<br>而一開始 stack 要先放入 -1，才能正確計算</p>
 <h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">longestValidParentheses</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        stack = [-<span class="hljs-number">1</span>]<br>        max_len = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i, char <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s):<br>            <span class="hljs-keyword">if</span> char == <span class="hljs-string">&#x27;(&#x27;</span>:<br>                stack.append(i)<br>            <span class="hljs-keyword">else</span>:<br>                stack.pop()<br>                <span class="hljs-keyword">if</span> stack:<br>                    cur_len = i - stack[-<span class="hljs-number">1</span>]<br>                    <span class="hljs-keyword">if</span> cur_len &gt; max_len:<br>                        max_len = cur_len<br>                <span class="hljs-keyword">else</span>:<br>                    stack.append(i)<br>        <span class="hljs-keyword">return</span> max_len<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
 <h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">longestValidParentheses</span><span class="hljs-params">(string s)</span> </span>&#123;<br>        stack&lt;<span class="hljs-type">int</span>&gt; st;<br>        st.<span class="hljs-built_in">push</span>(<span class="hljs-number">-1</span>);<br><br>        <span class="hljs-type">int</span> max_len = <span class="hljs-number">0</span>, cur_len;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">size</span>(); i++) &#123;<br>            <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27;(&#x27;</span>)<br>                st.<span class="hljs-built_in">push</span>(i);<br>            <span class="hljs-keyword">else</span> &#123;<br>                st.<span class="hljs-built_in">pop</span>();<br>                <span class="hljs-keyword">if</span> (st.<span class="hljs-built_in">empty</span>())<br>                    st.<span class="hljs-built_in">push</span>(i);<br>                <span class="hljs-keyword">else</span> &#123;<br>                    cur_len = i - st.<span class="hljs-built_in">top</span>();<br>                    <span class="hljs-keyword">if</span> (cur_len &gt; max_len)<br>                        max_len = cur_len;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max_len;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
@@ -301,13 +301,13 @@
       
         <a href="/tags/LeetCode/" class="print-no-link">#LeetCode</a>
       
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
-      
-        <a href="/tags/C/" class="print-no-link">#C++</a>
-      
         <a href="/tags/String/" class="print-no-link">#String</a>
       
         <a href="/tags/Stack/" class="print-no-link">#Stack</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
       
     </div>
   

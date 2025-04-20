@@ -27,13 +27,13 @@
 <meta property="og:description" content="題目連結難度：Medium 承上一題給定一個已經由小到大排序的 array要你移除重複的元素，使得每個元素最多出現 2 次並且只能 in-place 修改原 array不能用額外的記憶體空間存 最後只需要回傳 k新的 array 不用回傳，只要修改原始的 arrayk 代表修改後的 array 前 k 個元素符合題目要求而第 k 個之後的元素不用管 解法1：雙指標 (index 從 1 開始)跟前">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-13T16:51:34.000Z">
-<meta property="article:modified_time" content="2025-04-20T07:33:21.240Z">
+<meta property="article:modified_time" content="2025-04-20T20:42:41.663Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Array">
 <meta property="article:tag" content="Two Pointers">
+<meta property="article:tag" content="Array">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -283,7 +283,7 @@
                 <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii">連結</a><br>難度：Medium</p>
 <p>承<a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-array">上一題</a><br>給定一個已經由小到大排序的 array<br>要你移除重複的元素，使得每個元素最多出現 2 次<br>並且只能 in-place 修改原 array<br>不能用額外的記憶體空間存</p>
 <p>最後只需要回傳 k<br>新的 array 不用回傳，只要修改原始的 array<br>k 代表修改後的 array 前 k 個元素符合題目要求<br>而第 k 個之後的元素不用管</p>
-<h2 id="解法1：雙指標-index-從-1-開始"><a href="#解法1：雙指標-index-從-1-開始" class="headerlink" title="解法1：雙指標 (index 從 1 開始)"></a>解法1：雙指標 (index 從 1 開始)</h2><p>跟前一題差不多 (<a href="https://citrus0610.github.io/LeetCode-26-Remove-Duplicates-from-Sorted-Array-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">解題文章</a>)<br>也是維護 index i 和 k<br>差別在於，要多判斷最多能連續兩個相同的值<br>原本是只有 <code>nums[i]</code> 和 <code>nums[i-1]</code> 不相等時才會覆寫值<br>現在要變成相等時也會覆寫值，但最多只連續 2 次<br>因此多一個 <code>cnt</code> 變數紀錄次數<br>當 <code>nums[i]</code> 和 <code>nums[i-1]</code> 不相等時，<code>cnt</code> 歸零重新計數</p>
+<h2 id="解法1：雙指標-index-從-1-開始"><a href="#解法1：雙指標-index-從-1-開始" class="headerlink" title="解法1：雙指標 (index 從 1 開始)"></a>解法1：雙指標 (index 從 1 開始)</h2><p>跟前一題差不多 (<a href="/LeetCode-26-Remove-Duplicates-from-Sorted-Array-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">解題文章</a>)<br>也是維護 index i 和 k<br>差別在於，要多判斷最多能連續兩個相同的值<br>原本是只有 <code>nums[i]</code> 和 <code>nums[i-1]</code> 不相等時才會覆寫值<br>現在要變成相等時也會覆寫值，但最多只連續 2 次<br>因此多一個 <code>cnt</code> 變數紀錄次數<br>當 <code>nums[i]</code> 和 <code>nums[i-1]</code> 不相等時，<code>cnt</code> 歸零重新計數</p>
 <h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeDuplicates</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        k = <span class="hljs-number">1</span><br>        cnt = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>            <span class="hljs-keyword">if</span> nums[i] != nums[i-<span class="hljs-number">1</span>]:<br>                <span class="hljs-keyword">if</span> k != i: <span class="hljs-comment"># 可不寫</span><br>                    nums[k] = nums[i]<br>                k += <span class="hljs-number">1</span><br>                cnt = <span class="hljs-number">0</span><br>            <span class="hljs-keyword">elif</span> nums[i] == nums[i-<span class="hljs-number">1</span>] <span class="hljs-keyword">and</span> cnt &lt; <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">if</span> k != i: <span class="hljs-comment"># 可不寫</span><br>                    nums[k] = nums[i]<br>                k += <span class="hljs-number">1</span><br>                cnt += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> k<br></code></pre></td></tr></table></figure>
 <p>Runtime：78ms - Beats 89.32%</p>
 <p>寫法可以更精簡<br>把判斷覆寫和計數的部份獨立分開<br>就不用多寫一層重複的 if</p>
@@ -315,9 +315,9 @@
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/Array/" class="print-no-link">#Array</a>
-      
         <a href="/tags/Two-Pointers/" class="print-no-link">#Two Pointers</a>
+      
+        <a href="/tags/Array/" class="print-no-link">#Array</a>
       
     </div>
   

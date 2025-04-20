@@ -27,7 +27,7 @@
 <meta property="og:description" content="題目連結難度：Medium 給定一個只有 0 和 1 的 m x n 矩陣定義周圍的格子是上、下、左、右、左上、右上、左下、右下這 8 格現在要將矩陣中的每一格做轉換，轉換的規則為：  若當前格子為 1，且周圍為 1 的格子少於 2 格，則當前這格變為 0 若當前格子為 1，且周圍為 1 的格子剛好有 2 個或 3 個，則當前這格變為 1 若當前格子為 1，且周圍為 1 的格子多於 3 格，則當前">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-20T07:11:48.000Z">
-<meta property="article:modified_time" content="2025-04-20T08:03:44.499Z">
+<meta property="article:modified_time" content="2025-04-20T08:16:44.520Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="C++">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          674 words
+          677 words
         
       </span>
     
@@ -288,7 +288,7 @@
 <li>若當前格子為 0，且周圍為 1 的格子剛好有 3 個，則當前這格變為 1</li>
 </ol>
 <p>題目希望只能 in-place 修改原矩陣<br>不能用額外的記憶體空間去存轉換後的元素</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>必須要在已經改了之前格子的情況下<br>還能利用這些已被改過的格子知道原本的格子是多少</p>
+<h2 id="解法：編碼"><a href="#解法：編碼" class="headerlink" title="解法：編碼"></a>解法：編碼</h2><p>必須要在已經改了之前格子的情況下<br>還能利用這些已被改過的格子知道原本的格子是多少</p>
 <p>對格子進行編碼</p>
 <table>
 <thead>
@@ -399,6 +399,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/LeetCode-11-Container-With-Most-Water-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 11. Container With Most Water - 解題紀錄">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode 11. Container With Most Water - 解題紀錄</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

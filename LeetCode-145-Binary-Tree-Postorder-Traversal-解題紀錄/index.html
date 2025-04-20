@@ -27,13 +27,13 @@
 <meta property="og:description" content="題目連結難度：Easy binary tree 做後序遍歷 (postorder traversal)：左、右、中 解法1：遞迴Python12345678910111213class Solution:    def postorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:        ans &#x3D; []">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-17T17:16:47.000Z">
-<meta property="article:modified_time" content="2025-04-17T19:16:42.894Z">
+<meta property="article:modified_time" content="2025-04-20T20:42:49.533Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Binary Tree">
+<meta property="article:tag" content="Stack">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Stack">
+<meta property="article:tag" content="Binary Tree">
 <meta property="article:tag" content="DFS">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -287,7 +287,7 @@
 <p>Runtime：0ms - Beats 100.00%</p>
 <h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">postorder_traverse</span><span class="hljs-params">(TreeNode* node, vector&lt;<span class="hljs-type">int</span>&gt;&amp; ans)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!node)<br>            <span class="hljs-keyword">return</span>;<br>        <span class="hljs-built_in">postorder_traverse</span>(node-&gt;left, ans);<br>        <span class="hljs-built_in">postorder_traverse</span>(node-&gt;right, ans);<br>        ans.<span class="hljs-built_in">push_back</span>(node-&gt;val);<br>    &#125;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">postorderTraversal</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-built_in">postorder_traverse</span>(root, ans);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
-<h2 id="解法2：stack-迭代"><a href="#解法2：stack-迭代" class="headerlink" title="解法2：stack 迭代"></a>解法2：stack 迭代</h2><h3 id="寫法1"><a href="#寫法1" class="headerlink" title="寫法1"></a>寫法1</h3><p>每個 node 第一次被處理時，先不放進答案裡<br>而是維持放在 stack 裡並標記為已走過<br>然後將右邊的 node 與左邊的 node 依序放入 stack<br>這樣左邊的 node 才會先被處理 (可參考<a href="https://citrus0610.github.io/LeetCode-144-Binary-Tree-Preorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">這題</a>的做法)</p>
+<h2 id="解法2：stack-迭代"><a href="#解法2：stack-迭代" class="headerlink" title="解法2：stack 迭代"></a>解法2：stack 迭代</h2><h3 id="寫法1"><a href="#寫法1" class="headerlink" title="寫法1"></a>寫法1</h3><p>每個 node 第一次被處理時，先不放進答案裡<br>而是維持放在 stack 裡並標記為已走過<br>然後將右邊的 node 與左邊的 node 依序放入 stack<br>這樣左邊的 node 才會先被處理 (可參考<a href="/LeetCode-144-Binary-Tree-Preorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">這題</a>的做法)</p>
 <p>當節點第二次被處理時 (visited 為 True)<br>代表它的左邊 node 和右邊 node 都已經處理完了<br>此時再放進答案裡</p>
 <p>有些網路上的解法會暫時把左邊或右邊的 node 設為 None<br>但這樣會破壞到 tree 原本的結構<br>如果遍歷完之後，tree 本身還會用到的話<br>裡面結構就會是錯的，因此這種做法比較不好<br>詳細可看底下附的參考文章</p>
 <h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">postorderTraversal</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        stack = [(root, <span class="hljs-literal">False</span>)]<br>        ans = []<br><br>        <span class="hljs-keyword">while</span> stack:<br>            node, visited = stack[-<span class="hljs-number">1</span>]<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>                stack.pop()<br>                <span class="hljs-keyword">continue</span><br><br>            <span class="hljs-keyword">if</span> visited: <span class="hljs-comment"># 第二次走到時，代表這個 node 的 left 和 right 都處理完了</span><br>                ans.append(node.val)<br>                stack.pop()<br>            <span class="hljs-keyword">else</span>:<br>                stack[-<span class="hljs-number">1</span>] = (node, <span class="hljs-literal">True</span>) <span class="hljs-comment"># 第一次走到時，先標記為已走過，之後再處理</span><br>                stack.append((node.right, <span class="hljs-literal">False</span>))<br>                stack.append((node.left, <span class="hljs-literal">False</span>))<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
@@ -314,13 +314,13 @@
       
         <a href="/tags/LeetCode/" class="print-no-link">#LeetCode</a>
       
-        <a href="/tags/Binary-Tree/" class="print-no-link">#Binary Tree</a>
+        <a href="/tags/Stack/" class="print-no-link">#Stack</a>
       
         <a href="/tags/Python/" class="print-no-link">#Python</a>
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/Stack/" class="print-no-link">#Stack</a>
+        <a href="/tags/Binary-Tree/" class="print-no-link">#Binary Tree</a>
       
         <a href="/tags/DFS/" class="print-no-link">#DFS</a>
       

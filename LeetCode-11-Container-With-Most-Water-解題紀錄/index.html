@@ -19,26 +19,27 @@
   <meta name="author" content="Citrus">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結難度：Easy 費氏數列的變形後面一項是前面三項相加求第 n 項 解法：一維 DP跟一般的費氏數列解法相同 Python123456class Solution:    def tribonacci(self, n: int) -&gt; int:        t &#x3D; [0, 1, 1]        for i in range(3, n + 1):            t.appe">
+    <meta name="description" content="題目連結難度：Medium 給定 n 條高度不一的線兩條線能形成一個容器，用來裝水求最大的容器面積是多少 解法：雙指標維護 2 個 index，left 和 right分別從最左邊和最右邊開始每次比較左邊和右邊的高度若左邊較低，遞增 left若右邊較低，遞減 right過程中記錄最大面積即可 Python123456789101112131415class Solution:    def max">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 1137. N-th Tribonacci Number - 解題紀錄">
-<meta property="og:url" content="https://citrus0610.github.io/LeetCode-1137-N-th-Tribonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
+<meta property="og:title" content="LeetCode 11. Container With Most Water - 解題紀錄">
+<meta property="og:url" content="https://citrus0610.github.io/LeetCode-11-Container-With-Most-Water-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
 <meta property="og:site_name" content="Citrus 的技術文章">
-<meta property="og:description" content="題目連結難度：Easy 費氏數列的變形後面一項是前面三項相加求第 n 項 解法：一維 DP跟一般的費氏數列解法相同 Python123456class Solution:    def tribonacci(self, n: int) -&gt; int:        t &#x3D; [0, 1, 1]        for i in range(3, n + 1):            t.appe">
+<meta property="og:description" content="題目連結難度：Medium 給定 n 條高度不一的線兩條線能形成一個容器，用來裝水求最大的容器面積是多少 解法：雙指標維護 2 個 index，left 和 right分別從最左邊和最右邊開始每次比較左邊和右邊的高度若左邊較低，遞增 left若右邊較低，遞減 right過程中記錄最大面積即可 Python123456789101112131415class Solution:    def max">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-14T02:21:46.000Z">
-<meta property="article:modified_time" content="2025-04-20T20:42:56.357Z">
+<meta property="article:published_time" content="2025-04-20T08:10:58.000Z">
+<meta property="article:modified_time" content="2025-04-20T08:28:00.111Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Math">
-<meta property="article:tag" content="Dynamic Programming">
+<meta property="article:tag" content="Two Pointers">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>LeetCode 1137. N-th Tribonacci Number - 解題紀錄 - Citrus 的技術文章</title>
+  <title>LeetCode 11. Container With Most Water - 解題紀錄 - Citrus 的技術文章</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 1137. N-th Tribonacci Number - 解題紀錄</span>
+            <span id="subtitle">LeetCode 11. Container With Most Water - 解題紀錄</span>
           
         </div>
 
@@ -215,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-14 10:21" pubdate>
-          April 14, 2025 am
+        <time datetime="2025-04-20 16:10" pubdate>
+          April 20, 2025 pm
         </time>
       </span>
     
@@ -227,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          179 words
+          208 words
         
       </span>
     
@@ -275,22 +276,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 1137. N-th Tribonacci Number - 解題紀錄</h1>
+            <h1 id="seo-header">LeetCode 11. Container With Most Water - 解題紀錄</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/n-th-tribonacci-number">連結</a><br>難度：Easy</p>
-<p>費氏數列的變形<br>後面一項是前面三項相加<br>求第 n 項</p>
-<h2 id="解法：一維-DP"><a href="#解法：一維-DP" class="headerlink" title="解法：一維 DP"></a>解法：一維 DP</h2><p>跟<a href="/LeetCode-509-Fibonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">一般的費氏數列解法</a>相同</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tribonacci</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        t = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            t.append(t[i-<span class="hljs-number">1</span>] + t[i-<span class="hljs-number">2</span>] + t[i-<span class="hljs-number">3</span>])<br>        <span class="hljs-keyword">return</span> t[n]<br></code></pre></td></tr></table></figure>
+                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/container-with-most-water">連結</a><br>難度：Medium</p>
+<p>給定 n 條高度不一的線<br>兩條線能形成一個容器，用來裝水<br>求最大的容器面積是多少</p>
+<h2 id="解法：雙指標"><a href="#解法：雙指標" class="headerlink" title="解法：雙指標"></a>解法：雙指標</h2><p>維護 2 個 index，left 和 right<br>分別從最左邊和最右邊開始<br>每次比較左邊和右邊的高度<br>若左邊較低，遞增 left<br>若右邊較低，遞減 right<br>過程中記錄最大面積即可</p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxArea</span>(<span class="hljs-params">self, height: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        max_area = <span class="hljs-number">0</span><br>        left, right = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(height) - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &lt; right:<br>            width = right - left<br>            <span class="hljs-keyword">if</span> height[left] &lt; height[right]:<br>                area = height[left] * width<br>                left += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                area = height[right] * width<br>                right -= <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> area &gt; max_area:<br>                max_area = area<br>        <span class="hljs-keyword">return</span> max_area<br></code></pre></td></tr></table></figure>
+<p>Runtime：31ms - Beats 97.29%</p>
+<h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; height)</span> </span>&#123;<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = height.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> width, area, max_area = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>            width = right - left;<br>            <span class="hljs-keyword">if</span> (height[left] &lt; height[right]) &#123;<br>                area = height[left] * width;<br>                left++;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                area = height[right] * width;<br>                right--;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (area &gt; max_area)<br>                max_area = area;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max_area;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Runtime：0ms - Beats 100.00%</p>
-<p>將空間複雜度優化為 O(1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tribonacci</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> n<br>        <span class="hljs-keyword">elif</span> n == <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br><br>        t0, t1, t2 = <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n + <span class="hljs-number">1</span>):<br>            t0, t1, t2 = t1, t2, t0 + t1 + t2<br>        <span class="hljs-keyword">return</span> t2<br></code></pre></td></tr></table></figure>
-<p>Runtime：0ms - Beats 100.00%</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">tribonacci</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>)<br>            <span class="hljs-keyword">return</span> n;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br><br>        <span class="hljs-type">int</span> t0 = <span class="hljs-number">0</span>, t1 = <span class="hljs-number">1</span>, t2 = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> tmp0 = t0, tmp1 = t1;<br>            t0 = t1;<br>            t1 = t2;<br>            t2 = tmp0 + tmp1 + t2;<br>        &#125;<br>        <span class="hljs-keyword">return</span> t2;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>Runtime：0ms - Beats 100.00%</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a target="_blank" rel="noopener" href="https://dwye.dev/post/python-fibonacci/">Python 費氏數列解法（一）</a></p>
 
                 
               </div>
@@ -309,9 +306,11 @@
       
         <a href="/tags/C/" class="print-no-link">#C++</a>
       
-        <a href="/tags/Math/" class="print-no-link">#Math</a>
+        <a href="/tags/Two-Pointers/" class="print-no-link">#Two Pointers</a>
       
-        <a href="/tags/Dynamic-Programming/" class="print-no-link">#Dynamic Programming</a>
+        <a href="/tags/Array/" class="print-no-link">#Array</a>
+      
+        <a href="/tags/Greedy/" class="print-no-link">#Greedy</a>
       
     </div>
   
@@ -323,8 +322,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 1137. N-th Tribonacci Number - 解題紀錄</div>
-      <div>https://citrus0610.github.io/LeetCode-1137-N-th-Tribonacci-Number-解題紀錄/</div>
+      <div>LeetCode 11. Container With Most Water - 解題紀錄</div>
+      <div>https://citrus0610.github.io/LeetCode-11-Container-With-Most-Water-解題紀錄/</div>
     </div>
     <div class="license-meta">
       
@@ -336,7 +335,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 14, 2025</div>
+          <div>April 20, 2025</div>
         </div>
       
       
@@ -368,9 +367,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/LeetCode-62-Unique-Paths-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 62. Unique Paths - 解題紀錄">
+                      <a href="/LeetCode-42-Trapping-Rain-Water-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 42. Trapping Rain Water - 解題紀錄">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 62. Unique Paths - 解題紀錄</span>
+                        <span class="hidden-mobile">LeetCode 42. Trapping Rain Water - 解題紀錄</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -378,8 +377,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LeetCode-509-Fibonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 509. Fibonacci Number - 解題紀錄">
-                        <span class="hidden-mobile">LeetCode 509. Fibonacci Number - 解題紀錄</span>
+                      <a href="/LeetCode-289-Game-of-Life-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 289. Game of Life - 解題紀錄">
+                        <span class="hidden-mobile">LeetCode 289. Game of Life - 解題紀錄</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
