@@ -4,6 +4,473 @@
   
   
   <entry>
+    <title>LeetCode 110. Balanced Binary Tree - 解題紀錄</title>
+    <link href="/LeetCode-110-Balanced-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-110-Balanced-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/balanced-binary-tree">連結</a><br>難度：Easy</p><p>判斷 binary tree 是否平衡<br>平衡的定義是每個 node 的左右子樹高度相差不超過 1</p><h2 id="解法：DFS"><a href="#解法：DFS" class="headerlink" title="解法：DFS"></a>解法：DFS</h2><p>遞迴回傳高度，並且紀錄左右子樹的高度是否相差超過 1</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isBalanced</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        ans = <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>            left_depth = dfs(node.left)<br>            right_depth = dfs(node.right)<br><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(left_depth - right_depth) &gt; <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">nonlocal</span> ans<br>                ans = <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(left_depth, right_depth) + <span class="hljs-number">1</span><br><br>        dfs(root)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">bool</span> ans = <span class="hljs-literal">true</span>;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode* node)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!node)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> left_depth = <span class="hljs-built_in">dfs</span>(node-&gt;left);<br>        <span class="hljs-type">int</span> right_depth = <span class="hljs-built_in">dfs</span>(node-&gt;right);<br><br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">abs</span>(left_depth - right_depth) &gt; <span class="hljs-number">1</span>)<br>            ans = <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(left_depth, right_depth) + <span class="hljs-number">1</span>;<br>    &#125;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isBalanced</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        ans = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 重置，避免多次呼叫出錯</span><br>        <span class="hljs-built_in">dfs</span>(root);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 283. Move Zeroes - 解題紀錄</title>
+    <link href="/LeetCode-283-Move-Zeroes-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-283-Move-Zeroes-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/move-zeroes">連結</a><br>難度：Easy</p><p>將 array 裡的 0 移到最後面<br>必須要 in-place 去改原 array<br>不能用額外的 array 存</p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">moveZeroes</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        Do not return anything, modify nums in-place instead.</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        i = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">if</span> nums[j] != <span class="hljs-number">0</span>:<br>                nums[i], nums[j] = nums[j], nums[i]<br>                i += <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.<span class="hljs-built_in">size</span>(); j++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[j] != <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-built_in">swap</span>(nums[i], nums[j]);<br>                i++;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Two Pointers</tag>
+      
+      <tag>Array</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 704. Binary Search - 解題紀錄</title>
+    <link href="/LeetCode-704-Binary-Search-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-704-Binary-Search-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/binary-search">連結</a><br>難度：Easy</p><p>給定已經由小到大排序好的 array<br>搜尋 target 在 array 裡的 index<br>如果不存在的話回傳 -1<br>要求時間複雜度必須為 $O(log n)$</p><h2 id="解法：二分搜-binary-search"><a href="#解法：二分搜-binary-search" class="headerlink" title="解法：二分搜 (binary search)"></a>解法：二分搜 (binary search)</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">search</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        left, right = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &lt;= right:<br>            mid = (left + right) // <span class="hljs-number">2</span><br>            <span class="hljs-keyword">if</span> nums[mid] == target:<br>                <span class="hljs-keyword">return</span> mid<br>            <span class="hljs-keyword">elif</span> nums[mid] &gt; target:<br>                right = mid - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                left = mid + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">search</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> target)</span> </span>&#123;<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>, mid;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            mid = left + (right - left) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (nums[mid] == target)<br>                <span class="hljs-keyword">return</span> mid;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[mid] &gt; target)<br>                right = mid - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                left = mid + <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Binary Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 543. Diameter of Binary Tree - 解題紀錄</title>
+    <link href="/LeetCode-543-Diameter-of-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-543-Diameter-of-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/diameter-of-binary-tree">連結</a><br>難度：Easy</p><p>求 binary tree 裡，2 個 node 之間的最長距離</p><h2 id="解法：DFS"><a href="#解法：DFS" class="headerlink" title="解法：DFS"></a>解法：DFS</h2><p>遞迴，每次回傳左子樹和右子樹之中的最大深度<br>並且額外紀錄 <code>左子樹深度 + 右子樹深度</code> 的最大值，即為答案</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">diameterOfBinaryTree</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        max_diameter = <span class="hljs-number">0</span><br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">node</span>):<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>            left_depth = dfs(node.left)<br>            right_depth = dfs(node.right)<br><br>            <span class="hljs-keyword">nonlocal</span> max_diameter<br>            diameter = left_depth + right_depth<br>            <span class="hljs-keyword">if</span> diameter &gt; max_diameter:<br>                max_diameter = diameter<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(left_depth, right_depth) + <span class="hljs-number">1</span><br><br>        dfs(root)<br>        <span class="hljs-keyword">return</span> max_diameter<br></code></pre></td></tr></table></figure><p>Runtime：3ms - Beats 93.73%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> max_diameter = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode* node)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!node)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-type">int</span> left_depth = <span class="hljs-built_in">dfs</span>(node-&gt;left);<br>        <span class="hljs-type">int</span> right_depth = <span class="hljs-built_in">dfs</span>(node-&gt;right);<br><br>        <span class="hljs-type">int</span> diameter = left_depth + right_depth;<br>        <span class="hljs-keyword">if</span> (diameter &gt; max_diameter)<br>            max_diameter = diameter;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(left_depth, right_depth) + <span class="hljs-number">1</span>;<br>    &#125;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">diameterOfBinaryTree</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-built_in">dfs</span>(root);<br>        <span class="hljs-keyword">return</span> max_diameter;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 111. Minimum Depth of Binary Tree - 解題紀錄</title>
+    <link href="/LeetCode-111-Minimum-Depth-of-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-111-Minimum-Depth-of-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/minimum-depth-of-binary-tree">連結</a><br>難度：Easy</p><p>求 binary tree 的最小深度</p><h2 id="解法1：DFS"><a href="#解法1：DFS" class="headerlink" title="解法1：DFS"></a>解法1：DFS</h2><p>遞迴，要注意的是如果 node 只有其中一邊的子樹的話<br>不能直接回傳 <code>min(左子樹深度, 右子樹深度) + 1</code>，會錯<br>必須要各自判斷</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> root.right:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root.left:<br>            <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.minDepth(root.right) + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root.right:<br>            <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.minDepth(root.left) + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(<span class="hljs-variable language_">self</span>.minDepth(root.left), <span class="hljs-variable language_">self</span>.minDepth(root.right)) + <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>Runtime：39ms - Beats 60.33%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDepth</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!root)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span> (!root-&gt;left &amp;&amp; !root-&gt;right)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (!root-&gt;left)<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">minDepth</span>(root-&gt;right) + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (!root-&gt;right)<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">minDepth</span>(root-&gt;left) + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(<span class="hljs-built_in">minDepth</span>(root-&gt;left), <span class="hljs-built_in">minDepth</span>(root-&gt;right)) + <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="解法2：BFS"><a href="#解法2：BFS" class="headerlink" title="解法2：BFS"></a>解法2：BFS</h2><p>遇到 leaf node 時，直接回傳當前層數</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br>        q = deque([root])<br>        min_depth = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> q:<br>            <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(q)):<br>                node = q.popleft()<br>                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> node.right:<br>                    <span class="hljs-keyword">return</span> min_depth<br>                <span class="hljs-keyword">if</span> node.left:<br>                    q.append(node.left)<br>                <span class="hljs-keyword">if</span> node.right:<br>                    q.append(node.right)<br>            min_depth += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> min_depth<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c-1"><a href="#c-1" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDepth</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!root)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>        queue&lt;TreeNode*&gt; q;<br>        q.<span class="hljs-built_in">push</span>(root);<br>        TreeNode* node;<br>        <span class="hljs-type">int</span> min_depth = <span class="hljs-number">1</span>, level_size;<br><br>        <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>            level_size = q.<span class="hljs-built_in">size</span>();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; level_size; ++i) &#123;<br>                node = q.<span class="hljs-built_in">front</span>();<br>                q.<span class="hljs-built_in">pop</span>();<br>                <span class="hljs-keyword">if</span> (!node-&gt;left &amp;&amp; !node-&gt;right)<br>                    <span class="hljs-keyword">return</span> min_depth;<br>                <span class="hljs-keyword">if</span> (node-&gt;left)<br>                    q.<span class="hljs-built_in">push</span>(node-&gt;left);<br>                <span class="hljs-keyword">if</span> (node-&gt;right)<br>                    q.<span class="hljs-built_in">push</span>(node-&gt;right);<br>            &#125;<br>            min_depth++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> min_depth;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>BFS</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 104. Maximum Depth of Binary Tree - 解題紀錄</title>
+    <link href="/LeetCode-104-Maximum-Depth-of-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-104-Maximum-Depth-of-Binary-Tree-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree">連結</a><br>難度：Easy</p><p>求 binary tree 的最大深度</p><h2 id="解法1：DFS"><a href="#解法1：DFS" class="headerlink" title="解法1：DFS"></a>解法1：DFS</h2><p>遞迴，每次回傳左子樹和右子樹之中深度較大的那個 + 1</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(<span class="hljs-variable language_">self</span>.maxDepth(root.left), <span class="hljs-variable language_">self</span>.maxDepth(root.right)) + <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxDepth</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!root)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(<span class="hljs-built_in">maxDepth</span>(root-&gt;left), <span class="hljs-built_in">maxDepth</span>(root-&gt;right)) + <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h2 id="解法2：BFS"><a href="#解法2：BFS" class="headerlink" title="解法2：BFS"></a>解法2：BFS</h2><p>BFS 的層數即為最大深度</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br>        q = deque([root])<br>        max_depth = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> q:<br>            <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(q)):<br>                node = q.popleft()<br>                <span class="hljs-keyword">if</span> node.left:<br>                    q.append(node.left)<br>                <span class="hljs-keyword">if</span> node.right:<br>                    q.append(node.right)<br>            max_depth += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> max_depth<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c-1"><a href="#c-1" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxDepth</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (!root)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>        queue&lt;TreeNode*&gt; q;<br>        q.<span class="hljs-built_in">push</span>(root);<br>        TreeNode* node;<br>        <span class="hljs-type">int</span> max_depth = <span class="hljs-number">0</span>, level_size;<br><br>        <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>            level_size = q.<span class="hljs-built_in">size</span>();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; level_size; i++) &#123;<br>                node = q.<span class="hljs-built_in">front</span>();<br>                q.<span class="hljs-built_in">pop</span>();<br>                <span class="hljs-keyword">if</span> (node-&gt;left)<br>                    q.<span class="hljs-built_in">push</span>(node-&gt;left);<br>                <span class="hljs-keyword">if</span> (node-&gt;right)<br>                    q.<span class="hljs-built_in">push</span>(node-&gt;right);<br>            &#125;<br>            max_depth++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max_depth;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>BFS</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>DFS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 994. Rotting Oranges - 解題紀錄</title>
+    <link href="/LeetCode-994-Rotting-Oranges-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-994-Rotting-Oranges-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/rotting-oranges">連結</a><br>難度：Medium</p><p>給定 m x n 的矩陣<br>裡面會有 3 種值<br>0：空的格子<br>1：新鮮的水果<br>2：腐爛的水果</p><p>每一分鐘，腐爛水果的上下左右新鮮水果都會變為腐爛的<br>求至少要經過幾分鐘，水果才會全部變成腐爛的<br>如果無法所有水果都變成腐爛的，則回傳 -1</p><h2 id="解法：BFS"><a href="#解法：BFS" class="headerlink" title="解法：BFS"></a>解法：BFS</h2><p>首先遍歷一次矩陣，將腐爛水果的格子放進 queue 裡<br>並且記錄新鮮水果的數量<br>遍歷完矩陣後，如果新鮮水果的數量為 0<br>代表沒有新鮮水果，已完成題目條件，回傳 0</p><p>接著開始 BFS<br>每次判斷新的格子是否為新鮮水果<br>如果是的話才加進 queue 裡，並且將新的那格變為腐爛的<br>新鮮水果的數量也要減 1</p><p>最後判斷新鮮水果數量是否為 0<br>如果不是，代表有到不了的新鮮水果格子，回傳 -1<br>如果是，則回傳 BFS 的層數減 1</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">orangesRotting</span>(<span class="hljs-params">self, grid: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        m, n = <span class="hljs-built_in">len</span>(grid), <span class="hljs-built_in">len</span>(grid[<span class="hljs-number">0</span>])<br>        q = deque()<br>        fresh_cnt = <span class="hljs-number">0</span><br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>                <span class="hljs-keyword">if</span> grid[i][j] == <span class="hljs-number">2</span>:<br>                    q.append((i, j))<br>                <span class="hljs-keyword">elif</span> grid[i][j] == <span class="hljs-number">1</span>:<br>                    fresh_cnt += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">if</span> fresh_cnt == <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br>        minutes = <span class="hljs-number">0</span><br>        directions = [(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), (<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), (-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)]<br>        <span class="hljs-keyword">while</span> q:<br>            <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(q)):<br>                i, j = q.popleft()<br>                <span class="hljs-keyword">for</span> dx, dy <span class="hljs-keyword">in</span> directions:<br>                    row, col = i + dx, j + dy<br>                    <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> &lt;= row &lt; m <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= col &lt; n <span class="hljs-keyword">and</span> grid[row][col] == <span class="hljs-number">1</span>:<br>                        q.append((row, col))<br>                        grid[row][col] = <span class="hljs-number">2</span><br>                        fresh_cnt -= <span class="hljs-number">1</span><br>            minutes += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> minutes - <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> fresh_cnt == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> -<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>Runtime：1ms - Beats 89.99%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">orangesRotting</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;<br>        <span class="hljs-type">int</span> m = grid.<span class="hljs-built_in">size</span>(), n = grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(), fresh_cnt = <span class="hljs-number">0</span>;<br>        queue&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; q;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>                <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">2</span>)<br>                    q.<span class="hljs-built_in">push</span>(&#123;i, j&#125;);<br>                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">1</span>)<br>                    fresh_cnt++;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (fresh_cnt == <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>        vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; directions = &#123;&#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">0</span>&#125;, &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>&#125;&#125;;<br>        <span class="hljs-type">int</span> minutes = <span class="hljs-number">0</span>, level_size, x, y, row, col;<br>        <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>            level_size = q.<span class="hljs-built_in">size</span>();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; level_size; i++) &#123;<br>                x = q.<span class="hljs-built_in">front</span>().first;<br>                y = q.<span class="hljs-built_in">front</span>().second;<br>                q.<span class="hljs-built_in">pop</span>();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; dir : directions) &#123;<br>                    row = x + dir.first;<br>                    col = y + dir.second;<br>                    <span class="hljs-keyword">if</span> (row &gt;= <span class="hljs-number">0</span> &amp;&amp; row &lt; m &amp;&amp; col &gt;= <span class="hljs-number">0</span> &amp;&amp; col &lt; n &amp;&amp; grid[row][col] == <span class="hljs-number">1</span>) &#123;<br>                        q.<span class="hljs-built_in">push</span>(&#123;row, col&#125;);<br>                        grid[row][col] = <span class="hljs-number">2</span>;<br>                        fresh_cnt--;<br>                    &#125;<br>                &#125;<br>            &#125;<br>            minutes++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> fresh_cnt == <span class="hljs-number">0</span> ? minutes - <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>BFS</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Matrix</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 240. Search a 2D Matrix II - 解題紀錄</title>
+    <link href="/LeetCode-240-Search-a-2D-Matrix-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-240-Search-a-2D-Matrix-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/search-a-2d-matrix-ii">連結</a><br>難度：Medium</p><p>承<a href="/LeetCode-74-Search-a-2D-Matrix-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">上一題</a><br>給定 m x n 的矩陣<br>每一個 row 和 column 都已經由小到大排序好<br>判斷 target 是否在矩陣裡</p><h2 id="解法1：二分搜-binary-search"><a href="#解法1：二分搜-binary-search" class="headerlink" title="解法1：二分搜 (binary search)"></a>解法1：二分搜 (binary search)</h2><p>對每一個 row 或 column 二分搜<br>時間複雜度：$O(nlogm)$ 或 $O(mlogn)$<br>但這不會比解法 2 快，就不做了</p><h2 id="解法2：線性搜優化"><a href="#解法2：線性搜優化" class="headerlink" title="解法2：線性搜優化"></a>解法2：線性搜優化</h2><p>由於左到右和上到下都是遞增<br>可從左下角或右上角開始</p><p>如果從右上角開始<br>若當前數字比目標大，<code>col -= 1</code><br>若比目標小，<code>row += 1</code></p><p>如果從左下角開始<br>若當前數字比目標大，<code>row -= 1</code><br>若比目標小，<code>col += 1</code></p><p>時間複雜度：$O(n+m)$<br>而 $O(n+m)$ 會比 $O(nlogm)$ 和 $O(mlogn)$ 小<br>隨便代個數字比較<br>$n &#x3D; m &#x3D; 1000$<br>$nlogm \approx 9965 &gt; n+m &#x3D; 2000$</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>從右上角的版本</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">searchMatrix</span>(<span class="hljs-params">self, matrix: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        m, n = <span class="hljs-built_in">len</span>(matrix), <span class="hljs-built_in">len</span>(matrix[<span class="hljs-number">0</span>])<br>        row, col = <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-number">0</span> &lt;= row &lt; m <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= col &lt; n:<br>            num = matrix[row][col]<br>            <span class="hljs-keyword">if</span> num == target:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">elif</span> num &gt; target:<br>                col -= <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                row += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure><p>Runtime：136ms - Beats 91.34%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><p>從左下角的版本</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">searchMatrix</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; matrix, <span class="hljs-type">int</span> target)</span> </span>&#123;<br>        <span class="hljs-type">int</span> m = matrix.<span class="hljs-built_in">size</span>(), n = matrix[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> row = m - <span class="hljs-number">1</span>, col = <span class="hljs-number">0</span>, num;<br>        <span class="hljs-keyword">while</span> (row &gt;= <span class="hljs-number">0</span> &amp;&amp; row &lt; m &amp;&amp; col &gt;= <span class="hljs-number">0</span> &amp;&amp; col &lt; n) &#123;<br>            num = matrix[row][col];<br>            <span class="hljs-keyword">if</span> (num == target)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (num &gt; target)<br>                row--;<br>            <span class="hljs-keyword">else</span><br>                col++;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：52ms - Beats 62.73%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Matrix</tag>
+      
+      <tag>Binary Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 74. Search a 2D Matrix - 解題紀錄</title>
+    <link href="/LeetCode-74-Search-a-2D-Matrix-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-74-Search-a-2D-Matrix-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/search-a-2d-matrix">連結</a><br>難度：Medium</p><p>給定 m x n 的矩陣<br>每一個 row 都已經由小到大排序好<br>且每一個 row 的第一個數字都會大於前一個 row 的最後一個數<br>判斷 target 是否在矩陣裡<br>要求時間複雜度必須為 $O(log(mn))$</p><h2 id="解法：二分搜-binary-search"><a href="#解法：二分搜-binary-search" class="headerlink" title="解法：二分搜 (binary search)"></a>解法：二分搜 (binary search)</h2><p>將 index 從二維攤平為一維，進行二分搜<br>left 從 0 開始，right 從 <code>m x n - 1</code> 開始<br>每次將攤平後的中點 index 變回二維即可<br><code>row = mid // n</code><br><code>col = mid % n</code></p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">searchMatrix</span>(<span class="hljs-params">self, matrix: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        m, n = <span class="hljs-built_in">len</span>(matrix), <span class="hljs-built_in">len</span>(matrix[<span class="hljs-number">0</span>])<br>        left, right = <span class="hljs-number">0</span>, m * n - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &lt;= right:<br>            mid = (left + right) // <span class="hljs-number">2</span><br>            num = matrix[mid // n][mid % n]<br>            <span class="hljs-keyword">if</span> num == target:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">elif</span> num &gt; target:<br>                right = mid - <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                left = mid + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">searchMatrix</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; matrix, <span class="hljs-type">int</span> target)</span> </span>&#123;<br>        <span class="hljs-type">int</span> m = matrix.<span class="hljs-built_in">size</span>(), n = matrix[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = m * n - <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> mid, num;<br>        <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>            mid = (left + right) / <span class="hljs-number">2</span>;<br>            num = matrix[mid / n][mid % n];<br>            <span class="hljs-keyword">if</span> (num == target)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (num &gt; target)<br>                right = mid - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">else</span><br>                left = mid + <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Matrix</tag>
+      
+      <tag>Binary Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 152. Maximum Product Subarray - 解題紀錄</title>
+    <link href="/LeetCode-152-Maximum-Product-Subarray-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-152-Maximum-Product-Subarray-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/maximum-product-subarray">連結</a><br>難度：Medium</p><p>找連續的 subarray 中，最大的乘積</p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>由於有負數，負負得正，答案有可能會包含負數<br>因此用 2 個變數 <code>cur_max</code> 和 <code>cur_min</code><br>紀錄目前包含當前元素的連續 subarray 的最大乘積和最小乘積</p><p>先思考沒有負數的情況<br>每次更新時<br><code>cur_max</code> 會是 <code>max(當前元素, cur_max)</code><br><code>cur_min</code> 會是 <code>min(當前元素, cur_min)</code></p><p>如果有負數的話，若當前元素是負數<br>原本最大值乘上負數會變為最小值<br>原本最小值乘上負數會變為最大值<br>因此 <code>cur_max</code> 和 <code>cur_min</code> 要先對調，答案才會正確<br>紀錄最大的 <code>cur_max</code> 即為答案</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxProduct</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        max_product = cur_max = cur_min = nums[<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> nums[<span class="hljs-number">1</span>:]:<br>            <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">0</span>:<br>                cur_max, cur_min = cur_min, cur_max<br>            cur_max = <span class="hljs-built_in">max</span>(n, cur_max * n)<br>            cur_min = <span class="hljs-built_in">min</span>(n, cur_min * n)<br>            <span class="hljs-keyword">if</span> cur_max &gt; max_product:<br>                max_product = cur_max<br>        <span class="hljs-keyword">return</span> max_product<br></code></pre></td></tr></table></figure><p>Runtime：5ms - Beats 93.98%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxProduct</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> cur_max = nums[<span class="hljs-number">0</span>], cur_min = nums[<span class="hljs-number">0</span>];<br>        <span class="hljs-type">int</span> max_product = cur_max, n;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;<br>            n = nums[i];<br>            <span class="hljs-keyword">if</span> (n &lt; <span class="hljs-number">0</span>)<br>                <span class="hljs-built_in">swap</span>(cur_max, cur_min);<br><br>            cur_max = <span class="hljs-built_in">max</span>(n, cur_max * n);<br>            cur_min = <span class="hljs-built_in">min</span>(n, cur_min * n);<br><br>            <span class="hljs-keyword">if</span> (cur_max &gt; max_product)<br>                max_product = cur_max;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max_product;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Greedy</tag>
+      
+      <tag>Dynamic Programming</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 53. Maximum Subarray - 解題紀錄</title>
+    <link href="/LeetCode-53-Maximum-Subarray-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-53-Maximum-Subarray-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/maximum-subarray">連結</a><br>難度：Medium</p><p>找連續的 subarray 中，最大的總和</p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>用一個 <code>cur_sum</code> 變數<br>表示目前包含當前元素的連續 subarray 總和<br>若當前元素不為負數，加進 <code>cur_sum</code> 中，延伸 subarray<br>若為負數，將 <code>cur_sum</code> 變為從當前元素開始<br>紀錄最大的 <code>cur_sum</code> 即可</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxSubArray</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        max_sum = cur_sum = nums[<span class="hljs-number">0</span>]<br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> nums[<span class="hljs-number">1</span>:]:<br>            <span class="hljs-keyword">if</span> cur_sum &gt;= <span class="hljs-number">0</span>:<br>                cur_sum += n<br>            <span class="hljs-keyword">else</span>:<br>                cur_sum = n<br>            <span class="hljs-keyword">if</span> cur_sum &gt; max_sum:<br>                max_sum = cur_sum<br>        <span class="hljs-keyword">return</span> max_sum<br></code></pre></td></tr></table></figure><p>Runtime：7ms - Beats 99.82%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-type">int</span> cur_sum = nums[<span class="hljs-number">0</span>], max_sum = cur_sum;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;<br>            <span class="hljs-keyword">if</span> (cur_sum &gt;= <span class="hljs-number">0</span>)<br>                cur_sum += nums[i];<br>            <span class="hljs-keyword">else</span><br>                cur_sum = nums[i];<br><br>            <span class="hljs-keyword">if</span> (cur_sum &gt; max_sum)<br>                max_sum = cur_sum;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max_sum;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Greedy</tag>
+      
+      <tag>Dynamic Programming</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 234. Palindrome Linked List - 解題紀錄</title>
+    <link href="/LeetCode-234-Palindrome-Linked-List-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-234-Palindrome-Linked-List-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/palindrome-linked-list">連結</a><br>難度：Easy</p><p>判斷 linked list 是不是回文</p><h2 id="解法1：stack"><a href="#解法1：stack" class="headerlink" title="解法1：stack"></a>解法1：stack</h2><p>將所有元素放進 stack 裡<br>接著再遍歷一次 linked list<br>判斷 pop 出來的元素是否和當前 node 相同<br>若不相同代表不是回文</p><p>但題目希望用 O(1) 的空間<br>也就是不能用額外的記憶體空間存元素<br>stack 的解法很簡單，就不貼了</p><h2 id="解法2：快慢指標"><a href="#解法2：快慢指標" class="headerlink" title="解法2：快慢指標"></a>解法2：快慢指標</h2><p>用快慢指標找到中點<br>接著反轉後半段 list<br>然後比較前半段和後半段</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isPalindrome</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># 快慢指標找中點</span><br>        slow = fast = head<br>        <span class="hljs-keyword">while</span> fast <span class="hljs-keyword">and</span> fast.<span class="hljs-built_in">next</span>:<br>            slow = slow.<span class="hljs-built_in">next</span><br>            fast = fast.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span><br><br>        <span class="hljs-comment"># 反轉後半段</span><br>        node = slow<br>        pre_node = <span class="hljs-literal">None</span><br>        <span class="hljs-keyword">while</span> node:<br>            next_node = node.<span class="hljs-built_in">next</span><br>            node.<span class="hljs-built_in">next</span> = pre_node<br>            pre_node = node<br>            node = next_node<br><br>        <span class="hljs-comment"># 比較前半段和後半段</span><br>        left, right = head, pre_node<br>        <span class="hljs-keyword">while</span> right:<br>            <span class="hljs-keyword">if</span> left.val != right.val:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>            left = left.<span class="hljs-built_in">next</span><br>            right = right.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure><p>Runtime：34ms - Beats 55.23%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        <span class="hljs-comment">// 快慢指標找中點</span><br>        ListNode *slow = head, *fast = head;<br>        <span class="hljs-keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;<br>            slow = slow-&gt;next;<br>            fast = fast-&gt;next-&gt;next;<br>        &#125;<br><br>        <span class="hljs-comment">// 反轉後半段</span><br>        ListNode *pre_node = <span class="hljs-literal">NULL</span>, *node = slow, *next_node;<br>        <span class="hljs-keyword">while</span> (node) &#123;<br>            next_node = node-&gt;next;<br>            node-&gt;next = pre_node;<br>            pre_node = node;<br>            node = next_node;<br>        &#125;<br><br>        <span class="hljs-comment">// 比較前半段和後半段</span><br>        ListNode *left = head, *right = pre_node;<br>        <span class="hljs-keyword">while</span> (right) &#123;<br>            <span class="hljs-keyword">if</span> (left-&gt;val != right-&gt;val)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            left = left-&gt;next;<br>            right = right-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Stack</tag>
+      
+      <tag>Two Pointers</tag>
+      
+      <tag>Linked List</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 168. Excel Sheet Column Title - 解題紀錄</title>
+    <link href="/LeetCode-168-Excel-Sheet-Column-Title-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-168-Excel-Sheet-Column-Title-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/excel-sheet-column-title">連結</a><br>難度：Easy</p><p>承<a href="/LeetCode-171-Excel-Sheet-Column-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">上一題</a><br>改成由 column 數求字串</p><h2 id="解法：短除法"><a href="#解法：短除法" class="headerlink" title="解法：短除法"></a>解法：短除法</h2><p>看成 26 進位數，用短除法求每一位數</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">convertToTitle</span>(<span class="hljs-params">self, columnNumber: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>        ans = <span class="hljs-string">&#x27;&#x27;</span><br>        <span class="hljs-keyword">while</span> columnNumber:<br>            ans = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;A&#x27;</span>) + (columnNumber - <span class="hljs-number">1</span>) % <span class="hljs-number">26</span>) + ans<br>            columnNumber = (columnNumber - <span class="hljs-number">1</span>) // <span class="hljs-number">26</span><br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">convertToTitle</span><span class="hljs-params">(<span class="hljs-type">int</span> columnNumber)</span> </span>&#123;<br>        string ans = <span class="hljs-string">&quot;&quot;</span>;<br>        <span class="hljs-type">char</span> ch;<br>        <span class="hljs-keyword">while</span> (columnNumber) &#123;<br>            ch = <span class="hljs-string">&#x27;A&#x27;</span> + (columnNumber - <span class="hljs-number">1</span>) % <span class="hljs-number">26</span>;<br>            ans = ch + ans;<br>            columnNumber = (columnNumber - <span class="hljs-number">1</span>) / <span class="hljs-number">26</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 171. Excel Sheet Column Number - 解題紀錄</title>
+    <link href="/LeetCode-171-Excel-Sheet-Column-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-171-Excel-Sheet-Column-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/excel-sheet-column-number">連結</a><br>難度：Easy</p><p>給定 Excel 裡的 column title 字串<br>回傳對應的 column 數<br>例如<br>A -&gt; 1<br>B -&gt; 2<br>C -&gt; 3<br>…<br>Z -&gt; 26<br>AA -&gt; 27<br>AB -&gt; 28<br>…</p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>A 到 Z 對應的數字 1 到 26<br>先轉成 ascii 再減去 ‘A’ 的 ascii 即可求出<br>接著是計算值的部份</p><h3 id="寫法1：暴力"><a href="#寫法1：暴力" class="headerlink" title="寫法1：暴力"></a>寫法1：暴力</h3><p>假設由右而左每個位置對應的數字為 $a, b, c, …$<br>那麼答案就是 $a \cdot 26^0 + b \cdot 26^1 + c \cdot 26^2 + \dots$</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">titleToNumber</span>(<span class="hljs-params">self, columnTitle: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        n = <span class="hljs-built_in">len</span>(columnTitle)<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            ans += (<span class="hljs-built_in">ord</span>(columnTitle[i]) - <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;A&#x27;</span>) + <span class="hljs-number">1</span>) * (<span class="hljs-number">26</span> ** (n - i - <span class="hljs-number">1</span>))<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">titleToNumber</span><span class="hljs-params">(string columnTitle)</span> </span>&#123;<br>        <span class="hljs-type">int</span> n = columnTitle.<span class="hljs-built_in">length</span>(), ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>            ans += (columnTitle[i] - <span class="hljs-string">&#x27;A&#x27;</span> + <span class="hljs-number">1</span>) * <span class="hljs-built_in">pow</span>(<span class="hljs-number">26</span>, n - i - <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="寫法2：優化"><a href="#寫法2：優化" class="headerlink" title="寫法2：優化"></a>寫法2：優化</h3><p>但其實可看成 26 進位的數字去計算<br>例如 10 進位的 124<br>可以這樣算：<br>1<br>1 * 10 + 2<br>12 * 10 + 4<br>就能少去次方的計算</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">titleToNumber</span>(<span class="hljs-params">self, columnTitle: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> columnTitle:<br>            ans = ans * <span class="hljs-number">26</span> + (<span class="hljs-built_in">ord</span>(char) - <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;A&#x27;</span>) + <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">titleToNumber</span><span class="hljs-params">(string columnTitle)</span> </span>&#123;<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : columnTitle)<br>            ans = ans * <span class="hljs-number">26</span> + (c - <span class="hljs-string">&#x27;A&#x27;</span> + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 142. Linked List Cycle II - 解題紀錄</title>
+    <link href="/LeetCode-142-Linked-List-Cycle-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-142-Linked-List-Cycle-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/linked-list-cycle-ii">連結</a><br>難度：Medium</p><p>承<a href="/LeetCode-141-Linked-List-Cycle-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">上一題</a><br>回傳 linked list 裡 cycle 的起點 node<br>如果沒有 cycle 的話，回傳 None</p><h2 id="解法1：set"><a href="#解法1：set" class="headerlink" title="解法1：set"></a>解法1：set</h2><p>和上一題相同，只是變成回傳 node</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">detectCycle</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        visited = <span class="hljs-built_in">set</span>()<br>        node = head<br>        <span class="hljs-keyword">while</span> node:<br>            <span class="hljs-keyword">if</span> node <span class="hljs-keyword">in</span> visited:<br>                <span class="hljs-keyword">return</span> node<br>            visited.add(node)<br>            node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure><p>Runtime：45ms - Beats 68.77%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode *<span class="hljs-title">detectCycle</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        set&lt;ListNode*&gt; visited;<br>        ListNode* node = head;<br>        <span class="hljs-keyword">while</span> (node) &#123;<br>            <span class="hljs-keyword">if</span> (visited.<span class="hljs-built_in">count</span>(node))<br>                <span class="hljs-keyword">return</span> node;<br>            visited.<span class="hljs-built_in">insert</span>(node);<br>            node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：10ms - Beats 46.18%</p><h2 id="解法2：快慢指標"><a href="#解法2：快慢指標" class="headerlink" title="解法2：快慢指標"></a>解法2：快慢指標</h2><p>首先和上一題相同，判斷是否有 cycle<br>以及找到相遇點</p><p>接著分別從 head 和相遇點走<br>相遇時就是 cycle 的起點 node<br>這部分可由數學證明<br>a：從 head 到 cycle 起點的距離<br>b：cycle 起點到相遇點的距離<br>c：相遇點回到 cycle 起點的距離<br>(b + c 為 cycle 的長度)</p><p>slow 走了 $a+b$ 的距離<br>fast 走了 $a+b+n(b+c)$ 的距離<br>fast 走的距離為 slow 的 2 倍<br>$a+b+n(b+c)&#x3D;2(a+b)$<br>$a+b&#x3D;n(b+c)$<br>$a&#x3D;(n-1)(b+c)+c$<br>取 $n&#x3D;1$，得 $a&#x3D;c$</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">detectCycle</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        <span class="hljs-comment"># 判斷是否有 cycle，以及找相遇點</span><br>        slow = fast = head<br>        <span class="hljs-keyword">while</span> fast <span class="hljs-keyword">and</span> fast.<span class="hljs-built_in">next</span>:<br>            slow = slow.<span class="hljs-built_in">next</span><br>            fast = fast.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">if</span> slow == fast:<br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br><br>        <span class="hljs-comment"># 一個從頭走，一個從相遇點走，相遇時即為 cycle 的起點 node</span><br>        node = head<br>        <span class="hljs-keyword">while</span> node != fast:<br>            fast = fast.<span class="hljs-built_in">next</span><br>            node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> node<br></code></pre></td></tr></table></figure><p>Runtime：40ms - Beats 90.11%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode *<span class="hljs-title">detectCycle</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        <span class="hljs-comment">// 判斷是否有 cycle，以及找相遇點</span><br>        ListNode *slow = head, *fast = head;<br>        <span class="hljs-keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;<br>            slow = slow-&gt;next;<br>            fast = fast-&gt;next-&gt;next;<br>            <span class="hljs-keyword">if</span> (slow == fast)<br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!fast || !fast-&gt;next)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br><br>        <span class="hljs-comment">// 一個從頭走，一個從相遇點走，相遇時即為 cycle 的起點 node</span><br>        ListNode* node = head;<br>        <span class="hljs-keyword">while</span> (node != fast) &#123;<br>            node = node-&gt;next;<br>            fast = fast-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> node;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：3ms - Beats 98.19%</p><h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://medium.com/@ChYuan/leetcode-no-142-linked-list-cycle-ii-%E5%BF%83%E5%BE%97-medium-c3cad0462d3">LeetCode No.142(Linked List Cycle II) 心得(Medium)</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Two Pointers</tag>
+      
+      <tag>Linked List</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 141. Linked List Cycle - 解題紀錄</title>
+    <link href="/LeetCode-141-Linked-List-Cycle-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-141-Linked-List-Cycle-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/linked-list-cycle">連結</a><br>難度：Easy</p><p>判斷 linked list 裡是否存在 cycle</p><h2 id="解法1：set"><a href="#解法1：set" class="headerlink" title="解法1：set"></a>解法1：set</h2><p>一直遍歷 node<br>將每次遍歷到的 node 加進 set 裡<br>若 node 有在 set 裡代表存在 cycle</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">hasCycle</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        visited = <span class="hljs-built_in">set</span>()<br>        node = head<br>        <span class="hljs-keyword">while</span> node:<br>            <span class="hljs-keyword">if</span> node <span class="hljs-keyword">in</span> visited:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>            visited.add(node)<br>            node = node.<span class="hljs-built_in">next</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure><p>Runtime：44ms - Beats 80.73%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasCycle</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        set&lt;ListNode*&gt; visited;<br>        ListNode* node = head;<br>        <span class="hljs-keyword">while</span> (node) &#123;<br>            <span class="hljs-keyword">if</span> (visited.<span class="hljs-built_in">count</span>(node))<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            visited.<span class="hljs-built_in">insert</span>(node);<br>            node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：10ms - Beats 42.45%</p><h2 id="解法2：快慢指標"><a href="#解法2：快慢指標" class="headerlink" title="解法2：快慢指標"></a>解法2：快慢指標</h2><p>用兩個快慢指標 fast 和 slow<br>slow 每次走一步，fast 每次走兩步<br>如果兩個指標在某個時候相遇，表示有 cycle</p><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">hasCycle</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        slow = fast = head<br>        <span class="hljs-keyword">while</span> fast <span class="hljs-keyword">and</span> fast.<span class="hljs-built_in">next</span>:<br>            slow = slow.<span class="hljs-built_in">next</span><br>            fast = fast.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">if</span> slow == fast:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure><p>Runtime：35ms - Beats 98.65%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">hasCycle</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;<br>        ListNode *slow = head, *fast = head;<br>        <span class="hljs-keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;<br>            slow = slow-&gt;next;<br>            fast = fast-&gt;next-&gt;next;<br>            <span class="hljs-keyword">if</span> (slow == fast)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：8ms - Beats 80.76%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Two Pointers</tag>
+      
+      <tag>Linked List</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 24. Swap Nodes in Pairs - 解題紀錄</title>
+    <link href="/LeetCode-24-Swap-Nodes-in-Pairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
+    <url>/LeetCode-24-Swap-Nodes-in-Pairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/swap-nodes-in-pairs">連結</a><br>難度：Medium</p><p>將 linked list 裡的 node 兩兩為一組進行反轉<br>剩下不到兩個的部份不用反轉</p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>將當前 node 指向下下一個 node<br>下一個 node 指向當前 node<br>前一個 node 指向下一個 node</p><p>然後用一個 dummy，並將其 next 指向 head<br>最後回傳 dummy.next 即可</p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">swapPairs</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        dummy = ListNode(<span class="hljs-built_in">next</span>=head)<br>        node = dummy.<span class="hljs-built_in">next</span><br>        pre_node = dummy<br><br>        <span class="hljs-keyword">while</span> node <span class="hljs-keyword">and</span> node.<span class="hljs-built_in">next</span>:<br>            tmp = node.<span class="hljs-built_in">next</span><br>            node.<span class="hljs-built_in">next</span> = tmp.<span class="hljs-built_in">next</span><br>            tmp.<span class="hljs-built_in">next</span> = node<br><br>            pre_node.<span class="hljs-built_in">next</span> = tmp<br>            pre_node = node<br>            node = node.<span class="hljs-built_in">next</span><br><br>        <span class="hljs-keyword">return</span> dummy.<span class="hljs-built_in">next</span><br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">swapPairs</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;<br>        <span class="hljs-function">ListNode <span class="hljs-title">dummy</span><span class="hljs-params">(<span class="hljs-number">0</span>, head)</span></span>;<br>        ListNode *pre_node = &amp;dummy, *node = head, *tmp;<br><br>        <span class="hljs-keyword">while</span> (node &amp;&amp; node-&gt;next) &#123;<br>            tmp = node-&gt;next;<br>            node-&gt;next = tmp-&gt;next;<br>            tmp-&gt;next = node;<br><br>            pre_node-&gt;next = tmp;<br>            pre_node = node;<br>            node = node-&gt;next;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dummy.next;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
+      <tag>Linked List</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 119. Pascal&#39;s Triangle II - 解題紀錄</title>
     <link href="/LeetCode-119-Pascal-s-Triangle-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
     <url>/LeetCode-119-Pascal-s-Triangle-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
@@ -70,11 +537,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Stack</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Stack</tag>
       
       <tag>Array</tag>
       
@@ -180,13 +647,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>String</tag>
-      
-      <tag>Stack</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Stack</tag>
       
     </tags>
     
@@ -207,13 +674,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>String</tag>
-      
-      <tag>Stack</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Stack</tag>
       
     </tags>
     
@@ -234,13 +701,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>String</tag>
-      
-      <tag>Stack</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Stack</tag>
       
     </tags>
     
@@ -261,13 +728,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Binary Tree</tag>
       
       <tag>BFS</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -288,15 +755,15 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Stack</tag>
+      <tag>Binary Tree</tag>
       
       <tag>Python</tag>
       
       <tag>C++</tag>
       
-      <tag>Binary Tree</tag>
-      
       <tag>DFS</tag>
+      
+      <tag>Stack</tag>
       
     </tags>
     
@@ -317,15 +784,15 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Stack</tag>
+      <tag>Binary Tree</tag>
       
       <tag>Python</tag>
       
       <tag>C++</tag>
       
-      <tag>Binary Tree</tag>
-      
       <tag>DFS</tag>
+      
+      <tag>Stack</tag>
       
     </tags>
     
@@ -346,15 +813,15 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Stack</tag>
+      <tag>Binary Tree</tag>
       
       <tag>Python</tag>
       
       <tag>C++</tag>
       
-      <tag>Binary Tree</tag>
-      
       <tag>DFS</tag>
+      
+      <tag>Stack</tag>
       
     </tags>
     
@@ -392,7 +859,7 @@
     <link href="/LeetCode-92-Reverse-Linked-List-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/"/>
     <url>/LeetCode-92-Reverse-Linked-List-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/</url>
     
-    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/reverse-linked-list-ii">連結</a><br>難度：Medium</p><p>承<a href="https://leetcode.com/problems/reverse-linked-list">上一題</a><br>反轉 linked list 裡，位置在 left 到 right 之間的 node</p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>先找 left 的前一個 node<br>再用<a href="/LeetCode-206-Reverse-Linked-List-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">上一題的方式</a>反轉 left 到 right 之間的 node<br>最後把反轉後的最後一個 node 和第一個 node 接回去</p><p>為了避免需要處理存取 <code>.next</code> 時會取到 <code>None</code> 的情況<br>使用一個 <code>dummy</code>，讓它的 next 指向 head<br>最後再回傳 <code>dummy.next</code></p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">reverseBetween</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode], left: <span class="hljs-built_in">int</span>, right: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        dummy = ListNode(<span class="hljs-built_in">next</span>=head)<br>        left_pre_node = dummy <span class="hljs-comment"># 找 left 的前一個 node</span><br>        cnt = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> cnt &lt;= left - <span class="hljs-number">1</span>:<br>            left_pre_node = left_pre_node.<span class="hljs-built_in">next</span><br>            cnt += <span class="hljs-number">1</span><br><br>        node = left_pre_node.<span class="hljs-built_in">next</span><br>        pre_node = left_pre_node<br>        cnt = left<br>        <span class="hljs-keyword">while</span> cnt &lt;= right:<br>            next_node = node.<span class="hljs-built_in">next</span><br>            node.<span class="hljs-built_in">next</span> = pre_node<br>            pre_node = node<br>            node = next_node <span class="hljs-comment"># 遍歷完後，node 會是剩餘的第一個 node</span><br>            cnt += <span class="hljs-number">1</span><br><br>        left_pre_node.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span> = node <span class="hljs-comment"># 將反轉後的最後一個 node 接回剩餘的 node</span><br>        left_pre_node.<span class="hljs-built_in">next</span> = pre_node <span class="hljs-comment"># 指向反轉後的第一個 node</span><br>        <span class="hljs-keyword">return</span> dummy.<span class="hljs-built_in">next</span><br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">reverseBetween</span><span class="hljs-params">(ListNode* head, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> </span>&#123;<br>        <span class="hljs-function">ListNode <span class="hljs-title">dummy</span><span class="hljs-params">(<span class="hljs-number">0</span>, head)</span></span>;<br>        ListNode* left_pre_node = &amp;dummy; <span class="hljs-comment">// 找 left 的前一個 node</span><br>        <span class="hljs-type">int</span> cnt = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (cnt &lt;= left - <span class="hljs-number">1</span>) &#123;<br>            left_pre_node = left_pre_node-&gt;next;<br>            cnt++;<br>        &#125;<br><br>        ListNode *node = left_pre_node-&gt;next, *pre_node = left_pre_node, *next_node;<br>        cnt = left;<br>        <span class="hljs-keyword">while</span> (cnt &lt;= right) &#123;<br>            next_node = node-&gt;next;<br>            node-&gt;next = pre_node;<br>            pre_node = node;<br>            node = next_node; <span class="hljs-comment">// 遍歷完後，node 會是剩餘的第一個 node</span><br>            cnt++;<br>        &#125;<br><br>        left_pre_node-&gt;next-&gt;next = node; <span class="hljs-comment">// 將反轉後的最後一個 node 接回剩餘的 node</span><br>        left_pre_node-&gt;next = pre_node; <span class="hljs-comment">// 指向反轉後的第一個 node</span><br>        <span class="hljs-keyword">return</span> dummy.next;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a href="https://leetcode.com/problems/reverse-linked-list-ii">連結</a><br>難度：Medium</p><p>承<a href="https://leetcode.com/problems/reverse-linked-list">上一題</a><br>反轉 linked list 裡，位置在 left 到 right 之間的 node</p><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>先找 left 的前一個 node<br>再用<a href="/LeetCode-206-Reverse-Linked-List-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84">上一題的方式</a>反轉 left 到 right 之間的 node<br>最後把反轉後的最後一個 node 以及第一個 node 接回原 list</p><p>為了避免需要處理存取 <code>.next</code> 時會取到 <code>None</code> 的情況<br>使用一個 <code>dummy</code>，讓它的 next 指向 head<br>最後再回傳 <code>dummy.next</code></p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">reverseBetween</span>(<span class="hljs-params">self, head: <span class="hljs-type">Optional</span>[ListNode], left: <span class="hljs-built_in">int</span>, right: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        dummy = ListNode(<span class="hljs-built_in">next</span>=head)<br>        left_pre_node = dummy <span class="hljs-comment"># 找 left 的前一個 node</span><br>        cnt = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> cnt &lt;= left - <span class="hljs-number">1</span>:<br>            left_pre_node = left_pre_node.<span class="hljs-built_in">next</span><br>            cnt += <span class="hljs-number">1</span><br><br>        node = left_pre_node.<span class="hljs-built_in">next</span><br>        pre_node = left_pre_node<br>        cnt = left<br>        <span class="hljs-keyword">while</span> cnt &lt;= right:<br>            next_node = node.<span class="hljs-built_in">next</span><br>            node.<span class="hljs-built_in">next</span> = pre_node<br>            pre_node = node<br>            node = next_node <span class="hljs-comment"># 遍歷完後，node 會是剩餘的第一個 node</span><br>            cnt += <span class="hljs-number">1</span><br><br>        left_pre_node.<span class="hljs-built_in">next</span>.<span class="hljs-built_in">next</span> = node <span class="hljs-comment"># 將反轉後的最後一個 node 接回剩餘的 node</span><br>        left_pre_node.<span class="hljs-built_in">next</span> = pre_node <span class="hljs-comment"># 指向反轉後的第一個 node</span><br>        <span class="hljs-keyword">return</span> dummy.<span class="hljs-built_in">next</span><br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">reverseBetween</span><span class="hljs-params">(ListNode* head, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> </span>&#123;<br>        <span class="hljs-function">ListNode <span class="hljs-title">dummy</span><span class="hljs-params">(<span class="hljs-number">0</span>, head)</span></span>;<br>        ListNode* left_pre_node = &amp;dummy; <span class="hljs-comment">// 找 left 的前一個 node</span><br>        <span class="hljs-type">int</span> cnt = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (cnt &lt;= left - <span class="hljs-number">1</span>) &#123;<br>            left_pre_node = left_pre_node-&gt;next;<br>            cnt++;<br>        &#125;<br><br>        ListNode *node = left_pre_node-&gt;next, *pre_node = left_pre_node, *next_node;<br>        cnt = left;<br>        <span class="hljs-keyword">while</span> (cnt &lt;= right) &#123;<br>            next_node = node-&gt;next;<br>            node-&gt;next = pre_node;<br>            pre_node = node;<br>            node = next_node; <span class="hljs-comment">// 遍歷完後，node 會是剩餘的第一個 node</span><br>            cnt++;<br>        &#125;<br><br>        left_pre_node-&gt;next-&gt;next = node; <span class="hljs-comment">// 將反轉後的最後一個 node 接回剩餘的 node</span><br>        left_pre_node-&gt;next = pre_node; <span class="hljs-comment">// 指向反轉後的第一個 node</span><br>        <span class="hljs-keyword">return</span> dummy.next;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><p>Runtime：0ms - Beats 100.00%</p>]]></content>
     
     
     
@@ -681,11 +1148,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
       <tag>Union Find</tag>
       
@@ -710,11 +1177,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
       <tag>Matrix</tag>
       

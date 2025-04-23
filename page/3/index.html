@@ -222,7 +222,7 @@
 
 
   <p class="total-posts" style="margin-bottom: 1em;">
-    共 31 篇文章
+    共 48 篇文章
   </p>
 
 
@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/LeetCode-63-Unique-Paths-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 63. Unique Paths II - 解題紀錄
+        <a href="/LeetCode-42-Trapping-Rain-Water-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 42. Trapping Rain Water - 解題紀錄
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-63-Unique-Paths-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-42-Trapping-Rain-Water-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
         <div>
-          題目連結難度：Medium 承上一題多了障礙物，矩陣裡的值如果是 1 代表為障礙物，不能走 解法：DP寫法1：二維 DPPython1234567891011121314151617181920212223class Solution:    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -&gt; int:
+          題目連結難度：Hard 和這題差不多只是變成問下雨時坑洞的蓄水量為多少 解法：雙指標一樣 2 個 index，left 和 right更新 left 和 right 的方式和剛剛那題相同 不過由於水位高度只會到最小的高度超過最小高度就會溢出到另外一邊因此要紀錄左邊最大高度和右邊最大高度 每次更新 left 和 right 之前比較當前高度和左邊最大高度或右邊最大高度若當前高度較低，將當前蓄水量加進
         </div>
       </a>
 
@@ -249,8 +249,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-15 04:00" pubdate>
-              2025-04-15
+            <time datetime="2025-04-20 16:39" pubdate>
+              2025-04-20
             </time>
           </div>
         
@@ -265,7 +265,9 @@
             
               <a href="/tags/C/">#C++</a>
             
-              <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
+              <a href="/tags/Two-Pointers/">#Two Pointers</a>
+            
+              <a href="/tags/Array/">#Array</a>
             
           </div>
         
@@ -279,15 +281,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/LeetCode-62-Unique-Paths-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 62. Unique Paths - 解題紀錄
+        <a href="/LeetCode-11-Container-With-Most-Water-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 11. Container With Most Water - 解題紀錄
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-62-Unique-Paths-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-11-Container-With-Most-Water-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
         <div>
-          題目連結 給定一個 m x n 的表格從左上走到右下，只能往右或往下走求方法數 解法1：DP寫法1：二維 DPPython1234567class Solution:    def uniquePaths(self, m: int, n: int) -&gt; int:        dp = [[1] * n for _ in range(m)]        for i in range(1,
+          題目連結難度：Medium 給定 n 條高度不一的線兩條線能形成一個容器，用來裝水求最大的容器面積是多少 解法：雙指標維護 2 個 index，left 和 right分別從最左邊和最右邊開始每次比較左邊和右邊的高度若左邊較低，遞增 left若右邊較低，遞減 right過程中記錄最大面積即可 Python123456789101112131415class Solution:    def max
         </div>
       </a>
 
@@ -295,8 +297,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 16:18" pubdate>
-              2025-04-14
+            <time datetime="2025-04-20 16:10" pubdate>
+              2025-04-20
             </time>
           </div>
         
@@ -311,11 +313,11 @@
             
               <a href="/tags/C/">#C++</a>
             
-              <a href="/tags/Math/">#Math</a>
+              <a href="/tags/Two-Pointers/">#Two Pointers</a>
             
-              <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
+              <a href="/tags/Array/">#Array</a>
             
-              <a href="/tags/Combinatorics/">#Combinatorics</a>
+              <a href="/tags/Greedy/">#Greedy</a>
             
           </div>
         
@@ -329,15 +331,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/LeetCode-1137-N-th-Tribonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 1137. N-th Tribonacci Number - 解題紀錄
+        <a href="/LeetCode-289-Game-of-Life-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 289. Game of Life - 解題紀錄
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-1137-N-th-Tribonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-289-Game-of-Life-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
         <div>
-          題目連結難度：Easy 費氏數列的變形後面一項是前面三項相加求第 n 項 解法：一維 DP跟一般的費氏數列解法相同 Python123456class Solution:    def tribonacci(self, n: int) -&gt; int:        t = [0, 1, 1]        for i in range(3, n + 1):            t.appe
+          題目連結難度：Medium 給定一個只有 0 和 1 的 m x n 矩陣定義周圍的格子是上、下、左、右、左上、右上、左下、右下這 8 格現在要將矩陣中的每一格做轉換，轉換的規則為：  若當前格子為 1，且周圍為 1 的格子少於 2 格，則當前這格變為 0 若當前格子為 1，且周圍為 1 的格子剛好有 2 個或 3 個，則當前這格變為 1 若當前格子為 1，且周圍為 1 的格子多於 3 格，則當前
         </div>
       </a>
 
@@ -345,8 +347,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 10:21" pubdate>
-              2025-04-14
+            <time datetime="2025-04-20 15:11" pubdate>
+              2025-04-20
             </time>
           </div>
         
@@ -357,208 +359,12 @@
             
               <a href="/tags/LeetCode/">#LeetCode</a>
             
-              <a href="/tags/Python/">#Python</a>
-            
               <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/Math/">#Math</a>
-            
-              <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/LeetCode-509-Fibonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 509. Fibonacci Number - 解題紀錄
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-509-Fibonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-        <div>
-          題目連結難度：Easy 求費氏數列的第 n 項 解法：一維 DPPython123456class Solution:    def fib(self, n: int) -&gt; int:        f = [0, 1]        for i in range(2, n + 1):            f.append(f[i-1] + f[i-2])        return f[
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 10:02" pubdate>
-              2025-04-14
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/LeetCode/">#LeetCode</a>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-              <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/Math/">#Math</a>
-            
-              <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/LeetCode-70-Climbing-Stairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 70. Climbing Stairs - 解題紀錄
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-70-Climbing-Stairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-        <div>
-          題目連結難度：Easy 爬樓梯每次能爬 1 階或 2 階樓梯總共有 n 階求爬到第 n 階的方法數 解法：數列規律 + DP由於每次只能爬 1 階或 2 階所以如果要爬到第 n 階必定只能從第 n-1 階爬 1 階或是從第 n-2 階爬 2 階設爬到第 n 階之方法數為 f(n)因此 f(n) = f(n-1) + f(n-2)接著用簡單的一維 DP 就能做完了 Python123456class
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 09:23" pubdate>
-              2025-04-14
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/LeetCode/">#LeetCode</a>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-              <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/Math/">#Math</a>
-            
-              <a href="/tags/Dynamic-Programming/">#Dynamic Programming</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/LeetCode-684-Redundant-Connection-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 684. Redundant Connection - 解題紀錄
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-684-Redundant-Connection-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-        <div>
-          題目連結難度：Medium 給定一個 graph這個 graph 原本是個有 n 個 node 的 tree從這個 tree 裡加上一條原本不是屬於這個 tree 的邊就變成了題目給定的 graph要你求出一條移除後會讓這個 graph 變回 tree 的邊如果有多個答案，要回傳出現在 input 裡最後面的那條邊 解法1：Union-Find使用 Union-Find (Disjoint-Set
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 06:39" pubdate>
-              2025-04-14
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/LeetCode/">#LeetCode</a>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-              <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/BFS/">#BFS</a>
-            
-              <a href="/tags/Union-Find/">#Union Find</a>
-            
-              <a href="/tags/Graph/">#Graph</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/LeetCode-130-Surrounded-Regions-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 130. Surrounded Regions - 解題紀錄
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-130-Surrounded-Regions-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-        <div>
-          題目連結難度：Medium 給定一個 m x n 的矩陣，裡面會有 O 或 XO 上下左右連起來形成的區域若區域中沒有任何 O 是在邊緣則要將該區域的所有 O 變成 X 並且只能 in-place 修改原矩陣不能用額外的矩陣存 解法1：BFS 暴力一般的 BFS 即可visited 的部份不使用 set，因為時間會是 O(log n)用一個額外的二維矩陣即可雖然需要額外的記憶體空間但時間是 O(1
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 03:49" pubdate>
-              2025-04-14
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/LeetCode/">#LeetCode</a>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-              <a href="/tags/C/">#C++</a>
-            
-              <a href="/tags/BFS/">#BFS</a>
             
               <a href="/tags/Matrix/">#Matrix</a>
             
+              <a href="/tags/Simulation/">#Simulation</a>
+            
           </div>
         
       </div>
@@ -571,15 +377,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/LeetCode-80-Remove-Duplicates-from-Sorted-Array-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 80. Remove Duplicates from Sorted Array II - 解題紀錄
+        <a href="/LeetCode-32-Longest-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 32. Longest Valid Parentheses - 解題紀錄
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-80-Remove-Duplicates-from-Sorted-Array-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-32-Longest-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
         <div>
-          題目連結難度：Medium 承上一題給定一個已經由小到大排序的 array要你移除重複的元素，使得每個元素最多出現 2 次並且只能 in-place 修改原 array不能用額外的記憶體空間存 最後只需要回傳 k新的 array 不用回傳，只要修改原始的 arrayk 代表修改後的 array 前 k 個元素符合題目要求而第 k 個之後的元素不用管 解法1：雙指標 (index 從 1 開始)跟前
+          題目連結難度：Hard 給定只含有左括號和右括號的字串求最長的有正確括起來的 substring 的長度 解法：stack和這題差不多只是變成求最大的長度既然求長度，就要將 index 放入 stack我們改成不放字元，只放入 index而這個 index 會是上一個沒有辦法對應的括號的 index當括號能對應時就可透過當前遍歷的 index 和 stack 最上方的 index 計算出來而一開始
         </div>
       </a>
 
@@ -587,8 +393,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 00:51" pubdate>
-              2025-04-14
+            <time datetime="2025-04-19 07:18" pubdate>
+              2025-04-19
             </time>
           </div>
         
@@ -603,9 +409,9 @@
             
               <a href="/tags/C/">#C++</a>
             
-              <a href="/tags/Two-Pointers/">#Two Pointers</a>
+              <a href="/tags/String/">#String</a>
             
-              <a href="/tags/Array/">#Array</a>
+              <a href="/tags/Stack/">#Stack</a>
             
           </div>
         
@@ -619,15 +425,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/LeetCode-26-Remove-Duplicates-from-Sorted-Array-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 26. Remove Duplicates from Sorted Array - 解題紀錄
+        <a href="/LeetCode-20-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 20. Valid Parentheses - 解題紀錄
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-26-Remove-Duplicates-from-Sorted-Array-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-20-Valid-Parentheses-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
         <div>
-          題目連結難度：Easy 給定一個已經由小到大排序的 array要你移除重複的元素，使得每個元素只出現一次並且只能 in-place 修改原 array不能用額外的記憶體空間存 最後只需要回傳 k新的 array 不用回傳，只要修改原始的 arrayk 代表修改後的 array 前 k 個元素符合題目要求而第 k 個之後的元素不用管 解法：雙指標維護 2 個 indexi：遍歷所有元素k：要覆寫的位
+          題目連結難度：Easy 給定只含有括號字元 ()&#123;&#125;[] 的字串判斷是否有正確括起來 解法：stack用一個 stack遍歷字串每個字元當字元是左括號時，放入 stack如果是右括號，判斷 stack 最上面的字元是否為對應的左括號如果是的話，拿掉 stack 最上面的字元如果不是，或者 stack 為空的話，代表無法對應 遍歷完所有字元後，回傳 stack 是否為空若不為空代
         </div>
       </a>
 
@@ -635,8 +441,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-14 00:15" pubdate>
-              2025-04-14
+            <time datetime="2025-04-19 06:59" pubdate>
+              2025-04-19
             </time>
           </div>
         
@@ -651,9 +457,9 @@
             
               <a href="/tags/C/">#C++</a>
             
-              <a href="/tags/Two-Pointers/">#Two Pointers</a>
+              <a href="/tags/String/">#String</a>
             
-              <a href="/tags/Array/">#Array</a>
+              <a href="/tags/Stack/">#Stack</a>
             
           </div>
         
@@ -667,15 +473,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/LeetCode-82-Remove-Duplicates-from-Sorted-List-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
-          LeetCode 82. Remove Duplicates from Sorted List II - 解題紀錄
+        <a href="/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 1047. Remove All Adjacent Duplicates In String - 解題紀錄
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-82-Remove-Duplicates-from-Sorted-List-II-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-1047-Remove-All-Adjacent-Duplicates-In-String-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
         <div>
-          題目連結難度：Medium 承上一題給定一個已排序好的 linked list除了移除重複的 node 以外，還要移除 node 本身也就是移除所有含有重複值的 node，只留下沒有重複的 node 解法遍歷 node 時，若遇到當前 node 的值與下一個 node 相同則一直往後走，直到 node 的值與下一個 node 不同這部份用一個第二層的 while 迴圈即可接著判斷 pre_node
+          題目連結難度：Easy 每次將字串中相鄰的相同字元刪除掉一直做到底，回傳最後結果而題目說不管怎麼做，答案都會是唯一的 解法：stack用一個 stack遍歷字串中每一個字元時判斷字元是否和 stack 最上面的字元相同若不相同，將字元放入 stack若相同，將 stack 最上面的字元拿掉而最後 stack 裡剩下的字元組成的字串就是答案 Python123456789class Solution
         </div>
       </a>
 
@@ -683,8 +489,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-04-13 09:27" pubdate>
-              2025-04-13
+            <time datetime="2025-04-18 04:35" pubdate>
+              2025-04-18
             </time>
           </div>
         
@@ -699,7 +505,207 @@
             
               <a href="/tags/C/">#C++</a>
             
-              <a href="/tags/Linked-List/">#Linked-List</a>
+              <a href="/tags/String/">#String</a>
+            
+              <a href="/tags/Stack/">#Stack</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/LeetCode-102-Binary-Tree-Level-Order-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 102. Binary Tree Level Order Traversal - 解題紀錄
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-102-Binary-Tree-Level-Order-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+        <div>
+          題目連結難度：Medium 回傳 binary tree 裡每一層的 node 解法：BFSPython12345678910111213141516class Solution:    def levelOrder(self, root: Optional[TreeNode]) -&gt; List[List[int]]:        ans = []        if root:
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-04-18 03:31" pubdate>
+              2025-04-18
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LeetCode/">#LeetCode</a>
+            
+              <a href="/tags/Binary-Tree/">#Binary Tree</a>
+            
+              <a href="/tags/BFS/">#BFS</a>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/C/">#C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/LeetCode-145-Binary-Tree-Postorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 145. Binary Tree Postorder Traversal - 解題紀錄
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-145-Binary-Tree-Postorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+        <div>
+          題目連結難度：Easy binary tree 做後序遍歷 (postorder traversal)：左、右、中 解法1：遞迴Python12345678910111213class Solution:    def postorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:        ans = []
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-04-18 01:16" pubdate>
+              2025-04-18
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LeetCode/">#LeetCode</a>
+            
+              <a href="/tags/Binary-Tree/">#Binary Tree</a>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/C/">#C++</a>
+            
+              <a href="/tags/DFS/">#DFS</a>
+            
+              <a href="/tags/Stack/">#Stack</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/LeetCode-94-Binary-Tree-Inorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 94. Binary Tree Inorder Traversal - 解題紀錄
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-94-Binary-Tree-Inorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+        <div>
+          題目連結難度：Easy binary tree 做中序遍歷 (inorder traversal)：左、中、右 解法1：遞迴Python12345678910111213class Solution:    def inorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:        ans = []        def
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-04-18 00:50" pubdate>
+              2025-04-18
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LeetCode/">#LeetCode</a>
+            
+              <a href="/tags/Binary-Tree/">#Binary Tree</a>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/C/">#C++</a>
+            
+              <a href="/tags/DFS/">#DFS</a>
+            
+              <a href="/tags/Stack/">#Stack</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/LeetCode-144-Binary-Tree-Preorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+          LeetCode 144. Binary Tree Preorder Traversal - 解題紀錄
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/LeetCode-144-Binary-Tree-Preorder-Traversal-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" target="_self">
+        <div>
+          題目連結難度：Easy binary tree 做前序遍歷 (preorder traversal)：中、左、右 解法1：遞迴Python12345678910111213class Solution:    def preorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:        ans = []        d
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-04-18 00:21" pubdate>
+              2025-04-18
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LeetCode/">#LeetCode</a>
+            
+              <a href="/tags/Binary-Tree/">#Binary Tree</a>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/C/">#C++</a>
+            
+              <a href="/tags/DFS/">#DFS</a>
+            
+              <a href="/tags/Stack/">#Stack</a>
             
           </div>
         
@@ -711,7 +717,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
