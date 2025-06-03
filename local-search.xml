@@ -49,9 +49,9 @@
       
       <tag>C++</tag>
       
-      <tag>String</tag>
-      
       <tag>Array</tag>
+      
+      <tag>String</tag>
       
       <tag>Heap (Priority Queue)</tag>
       
@@ -128,11 +128,11 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -209,11 +209,11 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -238,11 +238,11 @@
       
       <tag>BFS</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -267,11 +267,11 @@
       
       <tag>BFS</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -435,9 +435,9 @@
       
       <tag>C++</tag>
       
-      <tag>Stack</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Stack</tag>
       
       <tag>Linked List</tag>
       
@@ -651,9 +651,9 @@
       
       <tag>C++</tag>
       
-      <tag>Stack</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Stack</tag>
       
       <tag>Monotonic Stack</tag>
       
@@ -867,13 +867,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -896,13 +896,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -925,13 +925,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -1152,9 +1152,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
       <tag>Combinatorics</tag>
       
@@ -1181,9 +1181,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -1208,9 +1208,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -1235,9 +1235,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
