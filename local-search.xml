@@ -39,9 +39,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Array</tag>
       
       <tag>Heap (Priority Queue)</tag>
       
@@ -147,11 +147,11 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -176,9 +176,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -228,11 +228,11 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -255,13 +255,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
+      <tag>BFS</tag>
       
       <tag>Python</tag>
       
       <tag>C++</tag>
       
-      <tag>BFS</tag>
+      <tag>DFS</tag>
       
     </tags>
     
@@ -284,13 +284,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
+      <tag>BFS</tag>
       
       <tag>Python</tag>
       
       <tag>C++</tag>
       
-      <tag>BFS</tag>
+      <tag>DFS</tag>
       
     </tags>
     
@@ -311,11 +311,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
       <tag>Matrix</tag>
       
@@ -396,9 +396,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
       <tag>Greedy</tag>
       
@@ -425,9 +425,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
       <tag>Greedy</tag>
       
@@ -456,9 +456,9 @@
       
       <tag>Stack</tag>
       
-      <tag>Linked List</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Linked List</tag>
       
     </tags>
     
@@ -537,9 +537,9 @@
       
       <tag>C++</tag>
       
-      <tag>Linked List</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Linked List</tag>
       
     </tags>
     
@@ -564,9 +564,9 @@
       
       <tag>C++</tag>
       
-      <tag>Linked List</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Linked List</tag>
       
     </tags>
     
@@ -616,9 +616,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -643,9 +643,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -699,9 +699,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -726,9 +726,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Array</tag>
       
       <tag>Greedy</tag>
       
@@ -859,11 +859,11 @@
       
       <tag>Binary Tree</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
     </tags>
     
@@ -886,13 +886,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -915,13 +915,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -944,13 +944,13 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -1171,9 +1171,9 @@
       
       <tag>C++</tag>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
       <tag>Combinatorics</tag>
       
@@ -1200,9 +1200,9 @@
       
       <tag>C++</tag>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -1227,9 +1227,9 @@
       
       <tag>C++</tag>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -1254,9 +1254,9 @@
       
       <tag>C++</tag>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -1277,11 +1277,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
       <tag>Union Find</tag>
       
@@ -1306,11 +1306,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>BFS</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>BFS</tag>
       
       <tag>Matrix</tag>
       
@@ -1337,9 +1337,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1364,9 +1364,9 @@
       
       <tag>C++</tag>
       
-      <tag>Array</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
