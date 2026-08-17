@@ -19,26 +19,29 @@
   <meta name="author" content="Citrus">
   <meta name="keywords" content="">
   
-    <meta name="description" content="題目連結難度：Easy 求費氏數列的第 n 項 解法：一維 DPPython123456class Solution:    def fib(self, n: int) -&gt; int:        f &#x3D; [0, 1]        for i in range(2, n + 1):            f.append(f[i-1] + f[i-2])        return f[">
+    <meta name="description" content="Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)          leo set effect      black fedora and brindle set effect      bdl set effect for ninja       Stat difference from 2+2+2 to full bd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 509. Fibonacci Number - 解題紀錄">
-<meta property="og:url" content="https://citrus0610.github.io/LeetCode-509-Fibonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/">
+<meta property="og:title" content="ReDragonica - ninja bdl vs. 2+2+2">
+<meta property="og:url" content="https://citrus0610.github.io/ReDragonica%20-%20ninja%20bdl%20vs.%20222/">
 <meta property="og:site_name" content="Citrus Blog">
-<meta property="og:description" content="題目連結難度：Easy 求費氏數列的第 n 項 解法：一維 DPPython123456class Solution:    def fib(self, n: int) -&gt; int:        f &#x3D; [0, 1]        for i in range(2, n + 1):            f.append(f[i-1] + f[i-2])        return f[">
+<meta property="og:description" content="Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)          leo set effect      black fedora and brindle set effect      bdl set effect for ninja       Stat difference from 2+2+2 to full bd">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-14T02:02:02.000Z">
-<meta property="article:modified_time" content="2025-04-14T19:19:31.629Z">
+<meta property="og:image" content="https://citrus0610.github.io/images/ninja-222-1.png">
+<meta property="og:image" content="https://citrus0610.github.io/images/ninja-222-2.png">
+<meta property="og:image" content="https://citrus0610.github.io/images/leo-effect.png">
+<meta property="og:image" content="https://citrus0610.github.io/images/black-fedora.png">
+<meta property="og:image" content="https://citrus0610.github.io/images/ninja-bdl.png">
+<meta property="og:image" content="https://citrus0610.github.io/images/vowbuff.png">
+<meta property="article:published_time" content="2026-08-15T11:13:29.000Z">
+<meta property="article:modified_time" content="2026-08-17T14:24:59.526Z">
 <meta property="article:author" content="Citrus">
-<meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="Math">
-<meta property="article:tag" content="Dynamic Programming">
+<meta property="article:tag" content="ReDragonica">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://citrus0610.github.io/images/ninja-222-1.png">
   
   
   
-  <title>LeetCode 509. Fibonacci Number - 解題紀錄 - Citrus Blog</title>
+  <title>ReDragonica - ninja bdl vs. 2+2+2 - Citrus Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +207,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 509. Fibonacci Number - 解題紀錄</span>
+            <span id="subtitle">ReDragonica - ninja bdl vs. 2+2+2</span>
           
         </div>
 
@@ -215,8 +218,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-14 10:02" pubdate>
-          April 14, 2025 am
+        <time datetime="2026-08-15 19:13" pubdate>
+          August 15, 2026 pm
         </time>
       </span>
     
@@ -227,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          132 words
+          484 words
         
       </span>
     
@@ -238,7 +241,7 @@
         
         
         
-          2 mins
+          5 mins
         
       </span>
     
@@ -275,21 +278,311 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 509. Fibonacci Number - 解題紀錄</h1>
+            <h1 id="seo-header">ReDragonica - ninja bdl vs. 2+2+2</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/fibonacci-number">連結</a><br>難度：Easy</p>
-<p>求費氏數列的第 n 項</p>
-<h2 id="解法：一維-DP"><a href="#解法：一維-DP" class="headerlink" title="解法：一維 DP"></a>解法：一維 DP</h2><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fib</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        f = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, n + <span class="hljs-number">1</span>):<br>            f.append(f[i-<span class="hljs-number">1</span>] + f[i-<span class="hljs-number">2</span>])<br>        <span class="hljs-keyword">return</span> f[n]<br></code></pre></td></tr></table></figure>
-<p>Runtime：24ms - Beats 99.19%</p>
-<p>將空間複雜度優化為 O(1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fib</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> n<br><br>        f1, f2 = <span class="hljs-number">0</span>, <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, n + <span class="hljs-number">1</span>):<br>            f1, f2 = f2, f1 + f2<br>        <span class="hljs-keyword">return</span> f2<br></code></pre></td></tr></table></figure>
-<p>Runtime：31ms - Beats 93.70%</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>)<br>            <span class="hljs-keyword">return</span> n;<br><br>        <span class="hljs-type">int</span> f1 = <span class="hljs-number">0</span>, f2 = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> tmp = f2;<br>            f2 = f1 + f2;<br>            f1 = tmp;<br>        &#125;<br>        <span class="hljs-keyword">return</span> f2;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<p>Runtime：0ms - Beats 100.00%</p>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a target="_blank" rel="noopener" href="https://dwye.dev/post/python-fibonacci/">Python 費氏數列解法（一）</a></p>
+                <h2 id="Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl"><a href="#Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl" class="headerlink" title="Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)"></a>Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)</h2><div align="left">
+  <img src="/images/ninja-222-1.png" srcset="/img/loading.gif" lazyload>
+</div><br>
+<div align="left">
+  <img src="/images/ninja-222-2.png" srcset="/img/loading.gif" lazyload>
+</div><br>
+leo set effect
+<div align="left">
+  <img src="/images/leo-effect.png" srcset="/img/loading.gif" lazyload>
+</div>
+black fedora and brindle set effect
+<div align="left">
+  <img src="/images/black-fedora.png" srcset="/img/loading.gif" lazyload>
+</div>
+bdl set effect for ninja
+<div align="left">
+  <img src="/images/ninja-bdl.png" srcset="/img/loading.gif" lazyload>
+</div><br>
+
+<p>Stat difference from 2+2+2 to full bdl</p>
+<ul>
+<li>CD: $120-30&#x3D;90$<br>(bdl 120, leo 30)</li>
+<li>FCR: $5.5-3&#x3D;2.5$<br>(bdl 5.5, leo 3)</li>
+<li>patk: $120 \times 8 &#x3D; 960$<br>(bdl 120 str, 1str &#x3D; 8patk for ninja)</li>
+<li>spell dmg: $-(10+10+10)&#x3D;-30$<br>(leo 10, black fedora 10, brindle set 10)</li>
+<li>awaken spell dmg: $-20$<br>(black fedora 20)</li>
+<li>boss dmg: $10$<br>(bdl 10)</li>
+</ul>
+<p>Assume CD 725 means the CD multiplier is 725&#x2F;100 &#x3D; 7.25<br>and we don’t consider 110 agi</p>
+<h3 id="Without-vowbuff"><a href="#Without-vowbuff" class="headerlink" title="Without vowbuff"></a>Without vowbuff</h3><table>
+<thead>
+<tr>
+<th align="left">Stat</th>
+<th align="left">Full bdl</th>
+<th align="left">Full leo + black fedora</th>
+<th align="left">Multiplier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">patk</td>
+<td align="left">$30700+960&#x3D;31660$</td>
+<td align="left">30700</td>
+<td align="left">$30700&#x2F;31660&#x3D;0.970$</td>
+</tr>
+<tr>
+<td align="left">CD</td>
+<td align="left">$698+90&#x3D;788$</td>
+<td align="left">698</td>
+<td align="left">$698&#x2F;788&#x3D;0.886$</td>
+</tr>
+<tr>
+<td align="left">FCR</td>
+<td align="left">$58.2+2.5&#x3D;60.7$</td>
+<td align="left">58.2</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">spell dmg</td>
+<td align="left">$45-30&#x3D;15$</td>
+<td align="left">45</td>
+<td align="left">$1.45&#x2F;1.15&#x3D;1.261$</td>
+</tr>
+<tr>
+<td align="left">awaken spell dmg</td>
+<td align="left">$80-20&#x3D;60%$</td>
+<td align="left">80</td>
+<td align="left">$1.80&#x2F;1.60&#x3D;1.125$</td>
+</tr>
+<tr>
+<td align="left">boss dmg</td>
+<td align="left">$37.5+10%&#x3D;47.5%$</td>
+<td align="left">37.5</td>
+<td align="left">$1.375&#x2F;1.475&#x3D;0.932$</td>
+</tr>
+</tbody></table>
+<p>expected value of multiplier on non-crit and crit<br>$&#x3D; (1 - FCR) + FCR \times CD&#x2F;100$</p>
+<ul>
+<li>full bdl: $(1 - 0.607) + 0.607 \times 7.88 &#x3D; 5.176$</li>
+<li>2+2+2: $(1 - 0.582) + 0.582 \times 6.98 &#x3D; 4.480$</li>
+</ul>
+<p>$4.48&#x2F;5.176&#x3D;0.866$</p>
+<table>
+<thead>
+<tr>
+<th align="left">Target</th>
+<th align="left">Skill</th>
+<th align="left">Crit &#x2F; Non-crit</th>
+<th align="left">Multiplier</th>
+<th align="left">Result compared to bdl</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">on boss</td>
+<td align="left">non-awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$0.970 \times 0.932 \times 1.261 &#x3D; 1.140$</td>
+<td align="left"><strong>+14.0%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$1.140 \times 0.886 &#x3D; 1.010$</td>
+<td align="left"><strong>+1.0%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$1.140 \times 0.866 &#x3D; 0.987$</td>
+<td align="left"><strong>-1.3%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$1.140 \times 1.125 &#x3D; 1.282$</td>
+<td align="left"><strong>+28.2%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$1.010 \times 1.125 &#x3D; 1.136$</td>
+<td align="left"><strong>+13.6%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$0.987 \times 1.125 &#x3D; 1.111$</td>
+<td align="left"><strong>+11.1%</strong></td>
+</tr>
+<tr>
+<td align="left">on mob</td>
+<td align="left">non-awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$0.970 \times 1.261 &#x3D; 1.223$</td>
+<td align="left"><strong>+22.3%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$1.223 \times 0.886 &#x3D; 1.084$</td>
+<td align="left"><strong>+8.4%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$1.223 \times 0.866 &#x3D; 1.059$</td>
+<td align="left"><strong>+5.9%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$1.223 \times 1.125 &#x3D; 1.376$</td>
+<td align="left"><strong>+37.6%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$1.084 \times 1.125 &#x3D; 1.219$</td>
+<td align="left"><strong>+21.9%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$1.059 \times 1.125 &#x3D; 1.192$</td>
+<td align="left"><strong>+19.2%</strong></td>
+</tr>
+</tbody></table>
+<h3 id="With-vowbuff"><a href="#With-vowbuff" class="headerlink" title="With vowbuff"></a>With vowbuff</h3><p>vowbuff +20 spell dmg and +100 awaken spell dmg</p>
+<div align="left">
+  <img src="/images/vowbuff.png" srcset="/img/loading.gif" lazyload>
+</div><br>
+
+<table>
+<thead>
+<tr>
+<th align="left">Stat</th>
+<th align="left">Full bdl</th>
+<th align="left">Full leo + black fedora</th>
+<th align="left">Multiplier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">spell dmg</td>
+<td align="left">$15+20&#x3D;35%$</td>
+<td align="left">$45+20&#x3D;65%$</td>
+<td align="left">$1.65&#x2F;1.35&#x3D;1.222$</td>
+</tr>
+<tr>
+<td align="left">awaken spell dmg</td>
+<td align="left">$60+100&#x3D;160%$</td>
+<td align="left">$80+100&#x3D;180%$</td>
+<td align="left">$2.8&#x2F;2.6&#x3D;1.077$</td>
+</tr>
+</tbody></table>
+<p>other stats keep the same</p>
+<table>
+<thead>
+<tr>
+<th align="left">Target</th>
+<th align="left">Skill</th>
+<th align="left">Crit &#x2F; Non-crit</th>
+<th align="left">Multiplier</th>
+<th align="left">Result compared to bdl</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">on boss</td>
+<td align="left">non-awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$0.970 \times 0.932 \times 1.222 &#x3D; 1.105$</td>
+<td align="left"><strong>+10.5%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$1.105 \times 0.886 &#x3D; 0.979$</td>
+<td align="left"><strong>-2.1%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$1.105 \times 0.866 &#x3D; 0.957$</td>
+<td align="left"><strong>-4.3%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$1.105 \times 1.077 &#x3D; 1.190$</td>
+<td align="left"><strong>+19.0%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$0.979 \times 1.077 &#x3D; 1.054$</td>
+<td align="left"><strong>+5.4%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$0.957 \times 1.077 &#x3D; 1.031$</td>
+<td align="left"><strong>+3.1%</strong></td>
+</tr>
+<tr>
+<td align="left">on mob</td>
+<td align="left">non-awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$0.970 \times 1.222 &#x3D; 1.185$</td>
+<td align="left"><strong>+18.5%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$1.185 \times 0.886 &#x3D; 1.050$</td>
+<td align="left"><strong>+5.0%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$1.185 \times 0.866 &#x3D; 1.026$</td>
+<td align="left"><strong>+2.6%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">awaken</td>
+<td align="left">non-crit</td>
+<td align="left">$1.185 \times 1.077 &#x3D; 1.276$</td>
+<td align="left"><strong>+27.6%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">crit</td>
+<td align="left">$1.050 \times 1.077 &#x3D; 1.131$</td>
+<td align="left"><strong>+13.1%</strong></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">expected</td>
+<td align="left">$1.026 \times 1.077 &#x3D; 1.105$</td>
+<td align="left"><strong>+10.5%</strong></td>
+</tr>
+</tbody></table>
+<p>without vowbuff, only the expected dmg of non-awaken skill on boss decreases a bit<br>with vowbuff, only the crit dmg and expected dmg of non-awaken skill on boss decreases a bit<br>all other dmgs increased<br>Therefore, 2+2+2 is better than full bdl</p>
 
                 
               </div>
@@ -302,15 +595,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/LeetCode/" class="print-no-link">#LeetCode</a>
-      
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
-      
-        <a href="/tags/C/" class="print-no-link">#C++</a>
-      
-        <a href="/tags/Math/" class="print-no-link">#Math</a>
-      
-        <a href="/tags/Dynamic-Programming/" class="print-no-link">#Dynamic Programming</a>
+        <a href="/tags/ReDragonica/" class="print-no-link">#ReDragonica</a>
       
     </div>
   
@@ -322,8 +607,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 509. Fibonacci Number - 解題紀錄</div>
-      <div>https://citrus0610.github.io/LeetCode-509-Fibonacci-Number-解題紀錄/</div>
+      <div>ReDragonica - ninja bdl vs. 2+2+2</div>
+      <div>https://citrus0610.github.io/ReDragonica - ninja bdl vs. 222/</div>
     </div>
     <div class="license-meta">
       
@@ -335,7 +620,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 14, 2025</div>
+          <div>August 15, 2026</div>
         </div>
       
       
@@ -367,9 +652,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/LeetCode-1137-N-th-Tribonacci-Number-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 1137. N-th Tribonacci Number - 解題紀錄">
+                      <a href="/ReDragonica%20-%20fate/" title="ReDragonica - fate">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 1137. N-th Tribonacci Number - 解題紀錄</span>
+                        <span class="hidden-mobile">ReDragonica - fate</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -377,8 +662,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LeetCode-70-Climbing-Stairs-%E8%A7%A3%E9%A1%8C%E7%B4%80%E9%8C%84/" title="LeetCode 70. Climbing Stairs - 解題紀錄">
-                        <span class="hidden-mobile">LeetCode 70. Climbing Stairs - 解題紀錄</span>
+                      <a href="/ReDragonica%20-%20OL%20bdl%20vs.%20leo/" title="ReDragonica - OL bdl vs. leo/2+2+2">
+                        <span class="hidden-mobile">ReDragonica - OL bdl vs. leo/2+2+2</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
