@@ -21,20 +21,20 @@
   
     <meta name="description" content="&#x2F;* 針對 MathJax 3 的強效左對齊與左側縮排 *&#x2F;   mjx-container[display&#x3D;&quot;true&quot;], .MathJax_Display {     text-align: left !important;     justify-content: flex-start !important;   }   &#x2F;* 針對 KaTeX 的強效左對齊 *&#x2F;   .katex-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReDragonica - fate">
-<meta property="og:url" content="https://citrus0610.github.io/ReDragonica%20-%20fate/">
+<meta property="og:title" content="ReDragonica - Math Proof of the Expected Dmg Multiplier for 4 Fate">
+<meta property="og:url" content="https://citrus0610.github.io/ReDragonica%20-%20Math%20Proof%20of%20the%20Expected%20Dmg%20Multiplier%20for%204%20Fate/">
 <meta property="og:site_name" content="Citrus Blog">
 <meta property="og:description" content="&#x2F;* 針對 MathJax 3 的強效左對齊與左側縮排 *&#x2F;   mjx-container[display&#x3D;&quot;true&quot;], .MathJax_Display {     text-align: left !important;     justify-content: flex-start !important;   }   &#x2F;* 針對 KaTeX 的強效左對齊 *&#x2F;   .katex-">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-08-17T01:47:31.000Z">
-<meta property="article:modified_time" content="2026-08-17T12:22:03.540Z">
+<meta property="article:modified_time" content="2026-08-18T06:52:48.560Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="ReDragonica">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>ReDragonica - fate - Citrus Blog</title>
+  <title>ReDragonica - Math Proof of the Expected Dmg Multiplier for 4 Fate - Citrus Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">ReDragonica - fate</span>
+            <span id="subtitle">ReDragonica - Math Proof of the Expected Dmg Multiplier for 4 Fate</span>
           
         </div>
 
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          566 words
+          580 words
         
       </span>
     
@@ -271,7 +271,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ReDragonica - fate</h1>
+            <h1 id="seo-header">ReDragonica - Math Proof of the Expected Dmg Multiplier for 4 Fate</h1>
             
             
               <div class="markdown-body">
@@ -351,22 +351,26 @@ E_{CD} &= \pi_0 \cdot y + \pi_1 \cdot (y + 150) + \pi_2 \cdot (y + 300) + \pi_3 
 \end{aligned}
 $$
 </div>
-
+Assume CD 725 means the CD multiplier is 725/100 = 7.25
 <div class="math-scroll-wrapper">
-Assume CD 725 means the CD multiplier is 725/100 = 7.25<br>
-The expected value of dmg multiplier is
+The noraml expected value of dmg multiplier is
 $$
 \begin{aligned}
-E_{dmg} &= (1 - x) + x \times \frac{E_{CD}}{100} \\
+E_{normal} &= (1 - FCR) + FCR \times \frac{CD}{100}
+\end{aligned}
+$$
+</div>
+<div class="math-scroll-wrapper">
+So the expected value of dmg multiplier for fate is
+$$
+\begin{aligned}
+E_{fate} &= (1 - x) + x \times \frac{E_{CD}}{100} \\
 &= (1 - x) + x \times \left[ \frac{y}{100} + 1.5 \times \frac{(1-x) - (1-x)^6}{x} \right] \\
 &= (1 - x) + \frac{y \cdot x}{100} + 1.5 \times (1-x) - 1.5 \times (1-x)^6 \\
 &= \frac{x \cdot y}{100} + 2.5(1-x) - 1.5(1-x)^6
 \end{aligned}
 $$
 </div>
-
-
-
                 
               </div>
             
@@ -390,8 +394,8 @@ $$
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ReDragonica - fate</div>
-      <div>https://citrus0610.github.io/ReDragonica - fate/</div>
+      <div>ReDragonica - Math Proof of the Expected Dmg Multiplier for 4 Fate</div>
+      <div>https://citrus0610.github.io/ReDragonica - Math Proof of the Expected Dmg Multiplier for 4 Fate/</div>
     </div>
     <div class="license-meta">
       
