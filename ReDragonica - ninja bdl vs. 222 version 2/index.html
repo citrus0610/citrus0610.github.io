@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://citrus0610.github.io/images/ninja-bdl.png">
 <meta property="og:image" content="https://citrus0610.github.io/images/vowbuff.png">
 <meta property="article:published_time" content="2026-08-15T11:13:29.000Z">
-<meta property="article:modified_time" content="2026-09-01T06:33:32.979Z">
+<meta property="article:modified_time" content="2026-09-01T06:51:44.546Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="ReDragonica">
 <meta name="twitter:card" content="summary_large_image">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          725 words
+          829 words
         
       </span>
     
@@ -310,6 +310,7 @@ bdl set effect for ninja
 <li>spell dmg: $-(10+10+10)&#x3D;-30$<br>(leo 10, black fedora 10, brindle set 10)</li>
 <li>awaken spell dmg: $-20$<br>(black fedora 20)</li>
 <li>boss dmg: $10$<br>(bdl 10)</li>
+<li>back dmg: $0$ (we assume the chaotic are the same)</li>
 </ul>
 <p>Assume CD 725 means the CD multiplier is 725&#x2F;100 &#x3D; 7.25<br>and we don’t consider 110 agi</p>
 <h3 id="Without-vowbuff"><a href="#Without-vowbuff" class="headerlink" title="Without vowbuff"></a>Without vowbuff</h3><table>
@@ -327,28 +328,33 @@ bdl set effect for ninja
 </tr>
 <tr>
 <td align="left">CD</td>
-<td align="left">$698+90&#x3D;788%$</td>
-<td align="left">698%</td>
+<td align="left">$698+90&#x3D;788$</td>
+<td align="left">698</td>
 </tr>
 <tr>
 <td align="left">FCR</td>
-<td align="left">$58.2+2.5&#x3D;60.7%$</td>
-<td align="left">58.2%</td>
+<td align="left">$58.2+2.5&#x3D;60.7$</td>
+<td align="left">58.2</td>
 </tr>
 <tr>
 <td align="left">spell dmg</td>
-<td align="left">$45-30&#x3D;15%$</td>
-<td align="left">45%</td>
+<td align="left">$45-30&#x3D;15$</td>
+<td align="left">45</td>
 </tr>
 <tr>
 <td align="left">awaken spell dmg</td>
-<td align="left">$80-20&#x3D;60%$</td>
-<td align="left">80%</td>
+<td align="left">$80-20&#x3D;60$</td>
+<td align="left">80</td>
 </tr>
 <tr>
 <td align="left">boss dmg</td>
 <td align="left">$37.5+10&#x3D;47.5$</td>
-<td align="left">37.5%</td>
+<td align="left">37.5</td>
+</tr>
+<tr>
+<td align="left">back dmg</td>
+<td align="left">118.8</td>
+<td align="left">118.8</td>
 </tr>
 </tbody></table>
 <p>expected value of multiplier on non-crit and crit<br>$&#x3D; (1 - FCR) + FCR \times CD&#x2F;100$</p>
@@ -358,8 +364,8 @@ bdl set effect for ninja
 </ul>
 <p><strong>Formula:</strong></p>
 <ul>
-<li>non-awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{crit multiplier}$</li>
-<li>awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{awaken spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{crit multiplier}$</li>
+<li>non-awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{back dmg multiplier} \times \text{crit multiplier}$</li>
+<li>awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{awaken spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{back dmg multiplier} \times \text{crit multiplier}$</li>
 </ul>
 <table>
 <thead>
@@ -376,96 +382,96 @@ bdl set effect for ninja
 <td align="left">on boss</td>
 <td align="left">non-awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.15 \times 1.475 &#x3D; 53703.1$</td>
-<td align="left">$30700 \times 1.45 \times 1.375 &#x3D; 61208.1$</td>
+<td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 &#x3D; 117510.6$</td>
+<td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 &#x3D; 133932.1$</td>
 <td align="left"><strong>+14.0%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.15 \times 1.475 \times 7.88 &#x3D; 423180.4$</td>
-<td align="left">$30700 \times 1.45 \times 1.375 \times 6.98 &#x3D; 427232.7$</td>
+<td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 \times 7.88 &#x3D; 925983.3$</td>
+<td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 \times 6.98 &#x3D; 934846.3$</td>
 <td align="left"><strong>+1.0%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.15 \times 1.475 \times 5.176 &#x3D; 277967.3$</td>
-<td align="left">$30700 \times 1.45 \times 1.375 \times 4.480 &#x3D; 274212.4$</td>
+<td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 \times 5.176 &#x3D; 608234.8$</td>
+<td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 \times 4.480 &#x3D; 600015.9$</td>
 <td align="left"><strong>-1.3%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left">awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 &#x3D; 85925.0$</td>
-<td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 &#x3D; 110174.6$</td>
+<td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 &#x3D; 188016.9$</td>
+<td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 &#x3D; 241077.8$</td>
 <td align="left"><strong>+28.2%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 7.88 &#x3D; 677088.7$</td>
-<td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 6.98 &#x3D; 769018.9$</td>
+<td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 \times 7.88 &#x3D; 1481573.3$</td>
+<td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 \times 6.98 &#x3D; 1682723.3$</td>
 <td align="left"><strong>+13.6%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 5.176 &#x3D; 444747.6$</td>
-<td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 4.480 &#x3D; 493582.3$</td>
+<td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 \times 5.176 &#x3D; 973175.7$</td>
+<td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 \times 4.480 &#x3D; 1080029.7$</td>
 <td align="left"><strong>+11.1%</strong></td>
 </tr>
 <tr>
 <td align="left">on mob</td>
 <td align="left">non-awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.15 &#x3D; 36409.0$</td>
-<td align="left">$30700 \times 1.45 &#x3D; 44515.0$</td>
+<td align="left">$31660 \times 1.15 \times 2.188 &#x3D; 79654.6$</td>
+<td align="left">$30700 \times 1.45 \times 2.188 &#x3D; 97397.9$</td>
 <td align="left"><strong>+22.3%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.15 \times 7.88 &#x3D; 286902.9$</td>
-<td align="left">$30700 \times 1.45 \times 6.98 &#x3D; 310714.7$</td>
+<td align="left">$31660 \times 1.15 \times 2.188 \times 7.88 &#x3D; 627678.5$</td>
+<td align="left">$30700 \times 1.45 \times 2.188 \times 6.98 &#x3D; 679837.2$</td>
 <td align="left"><strong>+8.3%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.15 \times 5.176 &#x3D; 188453.0$</td>
-<td align="left">$30700 \times 1.45 \times 4.480 &#x3D; 199427.2$</td>
+<td align="left">$31660 \times 1.15 \times 2.188 \times 5.176 &#x3D; 412292.3$</td>
+<td align="left">$30700 \times 1.45 \times 2.188 \times 4.480 &#x3D; 436342.5$</td>
 <td align="left"><strong>+5.8%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left">awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.15 \times 1.60 &#x3D; 58254.4$</td>
-<td align="left">$30700 \times 1.45 \times 1.80 &#x3D; 80127.0$</td>
+<td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 &#x3D; 127447.4$</td>
+<td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 &#x3D; 175316.2$</td>
 <td align="left"><strong>+37.5%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.15 \times 1.60 \times 7.88 &#x3D; 459044.7$</td>
-<td align="left">$30700 \times 1.45 \times 1.80 \times 6.98 &#x3D; 559286.5$</td>
+<td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 \times 7.88 &#x3D; 1004285.6$</td>
+<td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 \times 6.98 &#x3D; 1223707.0$</td>
 <td align="left"><strong>+21.8%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.15 \times 1.60 \times 5.176 &#x3D; 301524.8$</td>
-<td align="left">$30700 \times 1.45 \times 1.80 \times 4.480 &#x3D; 358969.0$</td>
+<td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 \times 5.176 &#x3D; 659667.7$</td>
+<td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 \times 4.480 &#x3D; 785416.5$</td>
 <td align="left"><strong>+19.1%</strong></td>
 </tr>
 </tbody></table>
@@ -484,13 +490,18 @@ bdl set effect for ninja
 </thead>
 <tbody><tr>
 <td align="left">spell dmg</td>
-<td align="left">$15+20&#x3D;35%$</td>
-<td align="left">$45+20&#x3D;65%$</td>
+<td align="left">$15+20&#x3D;35$</td>
+<td align="left">$45+20&#x3D;65$</td>
 </tr>
 <tr>
 <td align="left">awaken spell dmg</td>
-<td align="left">$60+100&#x3D;160%$</td>
-<td align="left">$80+100&#x3D;180%$</td>
+<td align="left">$60+100&#x3D;160$</td>
+<td align="left">$80+100&#x3D;180$</td>
+</tr>
+<tr>
+<td align="left">back dmg</td>
+<td align="left">118.8</td>
+<td align="left">118.8</td>
 </tr>
 </tbody></table>
 <table>
@@ -508,96 +519,96 @@ bdl set effect for ninja
 <td align="left">on boss</td>
 <td align="left">non-awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.35 \times 1.475 &#x3D; 63045.2$</td>
-<td align="left">$30700 \times 1.65 \times 1.375 &#x3D; 69650.6$</td>
+<td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 &#x3D; 137932.4$</td>
+<td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 &#x3D; 152391.9$</td>
 <td align="left"><strong>+10.5%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.35 \times 1.475 \times 7.88 &#x3D; 496796.4$</td>
-<td align="left">$30700 \times 1.65 \times 1.375 \times 6.98 &#x3D; 486161.4$</td>
+<td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 \times 7.88 &#x3D; 1086907.4$</td>
+<td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 \times 6.98 &#x3D; 1063695.5$</td>
 <td align="left"><strong>-2.1%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.35 \times 1.475 \times 5.176 &#x3D; 326322.1$</td>
-<td align="left">$30700 \times 1.65 \times 1.375 \times 4.480 &#x3D; 312034.8$</td>
+<td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 \times 5.176 &#x3D; 713938.1$</td>
+<td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 \times 4.480 &#x3D; 682715.8$</td>
 <td align="left"><strong>-4.4%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left">awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 &#x3D; 163917.6$</td>
-<td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 &#x3D; 195021.7$</td>
+<td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 &#x3D; 358624.3$</td>
+<td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 &#x3D; 426697.4$</td>
 <td align="left"><strong>+19.0%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 7.88 &#x3D; 1291670.7$</td>
-<td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 6.98 &#x3D; 1361248.8$</td>
+<td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 \times 7.88 &#x3D; 2825959.3$</td>
+<td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 \times 6.98 &#x3D; 2978348.1$</td>
 <td align="left"><strong>+5.4%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 5.176 &#x3D; 848437.4$</td>
-<td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 4.480 &#x3D; 873697.5$</td>
+<td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 \times 5.176 &#x3D; 1856239.1$</td>
+<td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 \times 4.480 &#x3D; 1911607.1$</td>
 <td align="left"><strong>+3.0%</strong></td>
 </tr>
 <tr>
 <td align="left">on mob</td>
 <td align="left">non-awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.35 &#x3D; 42741.0$</td>
-<td align="left">$30700 \times 1.65 &#x3D; 50655.0$</td>
+<td align="left">$31660 \times 1.35 \times 2.188 &#x3D; 93513.5$</td>
+<td align="left">$30700 \times 1.65 \times 2.188 &#x3D; 110831.8$</td>
 <td align="left"><strong>+18.5%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.35 \times 7.88 &#x3D; 336799.1$</td>
-<td align="left">$30700 \times 1.65 \times 6.98 &#x3D; 353571.9$</td>
+<td align="left">$31660 \times 1.35 \times 2.188 \times 7.88 &#x3D; 736886.4$</td>
+<td align="left">$30700 \times 1.65 \times 2.188 \times 6.98 &#x3D; 773606.1$</td>
 <td align="left"><strong>+5.0%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.35 \times 5.176 &#x3D; 221227.4$</td>
-<td align="left">$30700 \times 1.65 \times 4.480 &#x3D; 226934.4$</td>
+<td align="left">$31660 \times 1.35 \times 2.188 \times 5.176 &#x3D; 484025.9$</td>
+<td align="left">$30700 \times 1.65 \times 2.188 \times 4.480 &#x3D; 496526.5$</td>
 <td align="left"><strong>+2.6%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left">awaken</td>
 <td align="left">non-crit</td>
-<td align="left">$31660 \times 1.35 \times 2.60 &#x3D; 111126.6$</td>
-<td align="left">$30700 \times 1.65 \times 2.80 &#x3D; 141834.0$</td>
+<td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 &#x3D; 243135.1$</td>
+<td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 &#x3D; 310329.1$</td>
 <td align="left"><strong>+27.6%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">crit</td>
-<td align="left">$31660 \times 1.35 \times 2.60 \times 7.88 &#x3D; 875677.6$</td>
-<td align="left">$30700 \times 1.65 \times 2.80 \times 6.98 &#x3D; 990001.3$</td>
+<td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 \times 7.88 &#x3D; 1915904.8$</td>
+<td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 \times 6.98 &#x3D; 2166097.1$</td>
 <td align="left"><strong>+13.1%</strong></td>
 </tr>
 <tr>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">expected</td>
-<td align="left">$31660 \times 1.35 \times 2.60 \times 5.176 &#x3D; 575191.3$</td>
-<td align="left">$30700 \times 1.65 \times 2.80 \times 4.480 &#x3D; 635416.3$</td>
+<td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 \times 5.176 &#x3D; 1258467.2$</td>
+<td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 \times 4.480 &#x3D; 1350229.4$</td>
 <td align="left"><strong>+10.5%</strong></td>
 </tr>
 </tbody></table>
