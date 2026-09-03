@@ -4,11 +4,30 @@
   
   
   <entry>
+    <title>ReDragonica - Accurate ATK Formula on Savage - old version</title>
+    <link href="/ReDragonica%20-%20savage%20atk%20formula%20old%20version/"/>
+    <url>/ReDragonica%20-%20savage%20atk%20formula%20old%20version/</url>
+    
+    <content type="html"><![CDATA[<h2 id="ATK-formula"><a href="#ATK-formula" class="headerlink" title="ATK formula"></a>ATK formula</h2><div align="left">    <img src="/images/savage-atk-details-1.png"><br><br>    <img src="/images/savage-atk-details-2.png"></div><br><ul><li>total str &#x3D; 1301</li><li>char &#x3D; total str * 5<br>&#x3D; 1301 * 5 &#x3D; 6505</li><li>item &#x3D; 18227</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6505 + 18227) * 0.25<br>&#x3D; 6183</li><li>basic atk bonus &#x3D; 10%</li><li>passive atk &#x3D; 520</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6505 * 1.1 + 18227 + 520) * 1.25<br>&#x3D; 32378.1</li></ul><h2 id="Char"><a href="#Char" class="headerlink" title="Char"></a>Char</h2><p>value of char is only affected by total str, which is total str * 5</p><p>my leo shoe has str 38 + 15 &#x3D; 53</p><div align="left">    <img src="/images/savage-take-off-leo-shoe.png"></div><br><p>after we take off the leo shoe<br>(str -53)</p><div align="left">    <img src="/images/savage-after-take-off-leo-shoe.png"></div><br><ul><li>total str &#x3D; 1301 - 53 &#x3D; 1248</li><li>char &#x3D; total str * 5<br>&#x3D; 1248 * 5 &#x3D; 6240</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6240 * 1.1 + 18227 + 520) * 1.25<br>&#x3D; 32013.7</li></ul><h2 id="Basic-atk-bonus"><a href="#Basic-atk-bonus" class="headerlink" title="Basic atk bonus"></a>Basic atk bonus</h2><p>savage’s original basic atk bonus is 5%<br>home buff has atk power buff 5%, which adds on the basic atk bonus<br>So the basic atk bonus is 5% + 5% &#x3D; 10%</p><div align="left">    <img src="/images/hb-atk-buff.png"></div><br><p>after we delete the atk power buff 5%</p><div align="left">    <img src="/images/savage-delete-hb-atk-buff.png"></div><br><p>the basic atk bonus becomes 5%</p><ul><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6505 * 1.05 + 18227 + 520) * 1.25<br>&#x3D; 31971.5<br>$\approx$ 31972</li></ul><h2 id="Passive-atk"><a href="#Passive-atk" class="headerlink" title="Passive atk"></a>Passive atk</h2><p>passive atk is from this 2 passive skills, which is 200 + 320 &#x3D; 520</p><div align="left">    <img src="/images/savage-passive-skill1.png">    <br><br>    <img src="/images/savage-passive-skill2.png"></div><h2 id="Final-dmg-amplification"><a href="#Final-dmg-amplification" class="headerlink" title="Final dmg amplification (%)"></a>Final dmg amplification (%)</h2><p>set effect of bonus physical atk dmg on F8 accesories directly adds the percentage on final dmg amplification (%)</p><div align="left">    vital 15%<br>    <img src="/images/vital-set-effect.png"><br>    swif 20%<br>    <img src="/images/swif-set-effect.png"><br>    gambit 100%<br>    <img src="/images/gambit-set-effect.png"><br>    titan 5%<br>    <img src="/images/titan-set-effect.png"><br>    bangle: 10%<br>    <img src="/images/bangle-set-effect.png"></div><br><p>my bangle has str 8 and bonus physical atk dmg 10%</p><div align="left">    <img src="/images/savage-take-off-bangle.png"></div><br><p>after we take off the bangle<br>(str -8, final dmg amplification -10%)</p><div align="left">    <img src="/images/savage-after-take-off-bangle.png"></div><br><ul><li>total str &#x3D; 1301 - 8 &#x3D; 1293</li><li>char &#x3D; total str * 5<br>&#x3D; 1293 * 5 &#x3D; 6465</li><li>final dmg amplification &#x3D; 25% - 10% &#x3D; 15%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6465 + 18227) * 0.15<br>&#x3D; 3703.8</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6465 * 1.1 + 18227 + 520) * 1.15<br>&#x3D; 29737.2</li></ul><h2 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h2><ul><li>item &#x3D; max atk on weapon + max atk on IM weapon + fixed atk</li></ul><p>the total atk on my weapon is 13606 to 15236, so the max atk on weapon is 15236</p><div align="left">    <img src="/images/savage-wp-max-atk.png"></div><p>the max physical atk % is already calculated into the max atk<br>so we dont need to calculate this<br>if the max physical atk % is changed, the max atk will also change and display</p><p>the total atk on my IM weapon is 25 to 25, so the max atk on IM weapon is 25</p><div align="left">    <img src="/images/savage-im-wp-max-atk.png"></div><br><ul><li>fixed atk<br>&#x3D; item - max atk on weapon - max atk on IM weapon<br>&#x3D; 18227 - 15236 - 25<br>&#x3D; 2966</li></ul><p>we will look into this value later</p><p>my IM weapon has str 14 and max atk 25<br>after we take off the IM weapon<br>(str -14, max atk on IM weapon -25)</p><div align="left">    <img src="/images/savage-after-take-off-im-wp.png"></div><br><ul><li>total str &#x3D; 1301 - 14 &#x3D; 1287</li><li>char &#x3D; total str * 5<br>&#x3D; 1287 * 5 &#x3D; 6435</li><li>item &#x3D; 18227 - 25 &#x3D; 18202</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6435 + 18202) * 0.25<br>&#x3D; 6159.2</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6435 * 1.1 + 18202 + 520) * 1.25<br>&#x3D; 32250.6<br>$\approx$ 32251</li></ul><h2 id="Fixed-atk"><a href="#Fixed-atk" class="headerlink" title="Fixed atk"></a>Fixed atk</h2><p>fixed atk is from max min patk on f8 accesories and other gears that add atk directly</p><p>first, we take off f8 accesories, easter balloon and noble pin</p><div align="left">    <img src="/images/savage-after-take-off-fixed-atk-gears-1.png">    <br><br>    <img src="/images/savage-after-take-off-fixed-atk-gears-2.png"></div><br><ul><li>total str &#x3D; 1215</li><li>char &#x3D; total str * 5<br>&#x3D; 1215 * 5 &#x3D; 6075</li><li>item &#x3D; 15261<br>so it’s only from max atk on weapon and IM weapon, which is 15236 + 25 &#x3D; 15261<br>no fixed atk here</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6075 + 15261) * 0.25<br>&#x3D; 5334</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6075 * 1.1 + 15261 + 520) * 1.25<br>&#x3D; 28079.3<br>$\approx$ 28080</li></ul><p>we wear the fate neck<br>(patk +490)</p><div align="left">    <img src="/images/savage-fate-neck.png"><br><br>    <img src="/images/savage-after-wear-fate-neck.png"></div><br><ul><li>total str &#x3D; 1215</li><li>char &#x3D; total str * 5<br>&#x3D; 1215 * 5 &#x3D; 6075</li><li>item &#x3D; 15261 + 490 &#x3D; 15751<br>so patk 490 directly adds on it</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6075 + 15751) * 0.25<br>&#x3D; 5456.5</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6075 * 1.1 + 15751 + 520) * 1.25<br>&#x3D; 28691.8<br>$\approx$ 28692</li></ul><p>we wear the fate ear<br>(item +490, str +40)</p><div align="left">    <img src="/images/savage-fate-ear.png"><br><br>    <img src="/images/savage-after-wear-fate-ear.png"></div><br><ul><li>total str &#x3D; 1215 + 40 &#x3D; 1255</li><li>char &#x3D; total str * 5<br>&#x3D; 1255 * 5 &#x3D; 6275</li><li>item &#x3D; 15751 + 490 &#x3D; 16241</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6275 + 16241) * 0.25<br>&#x3D; 5629</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6275 * 1.1 + 16241 + 520) * 1.25<br>&#x3D; 29579.3<br>$\approx$ 29580</li></ul><p>we wear the easter balloon<br>(atk +288, str +6)</p><div align="left">    <img src="/images/savage-easter-balloon.png"><br><br>    <img src="/images/savage-after-wear-easter-balloon.png"></div><br><ul><li>total str &#x3D; 1255 + 6 &#x3D; 1261</li><li>char &#x3D; total str * 5<br>&#x3D; 1261 * 5 &#x3D; 6305</li><li>item &#x3D; 16529<br>so the easter balloon adds fixed atk 16529 - 16241 &#x3D; 288 on it, which is the atk 288 displayed</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6305 + 16529) * 0.25<br>&#x3D; 5708.5</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6305 * 1.1 + 16529 + 520) * 1.25<br>&#x3D; 29980.6<br>$\approx$ 29981</li></ul><p>the noble pin also adds atk, but not display<br>we wear the noble pin</p><div align="left">    <img src="/images/savage-noble-pin.png"><br><br>    <img src="/images/savage-after-wear-noble-pin.png"></div><br><ul><li>total str &#x3D; 1261</li><li>char &#x3D; total str * 5<br>&#x3D; 1261 * 5 &#x3D; 6305</li><li>item &#x3D; 16817<br>so the noble pin adds fixed atk 16817 - 16529 &#x3D; 288 on it</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6305 + 16817) * 0.25<br>&#x3D; 5780.5</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6305 * 1.1 + 16817 + 520) * 1.25<br>&#x3D; 30340.6<br>$\approx$ 30341</li></ul><p>we mentioned</p><ul><li>fixed atk<br>&#x3D; item - max atk on weapon - max atk on IM weapon<br>&#x3D; 18227 - 15236 - 25<br>&#x3D; 2966</li></ul><p>and these are another 3 accesories we weared</p><div align="left">    <img src="/images/savage-fate-belt.png"><br><br>    <img src="/images/savage-fate-ring.png"><br><br>    <img src="/images/savage-lifebane-ring.png"></div><br><p>so the fixed atk 2966 is from atk on the following gears:</p><ul><li>fate neck: 490 patk</li><li>fate belt: 470 patk</li><li>fate ring: 470 patk</li><li>fate ear: 490 patk</li><li>lifebane ring: 470 patk</li><li>easter balloon: 288 atk</li><li>noble pin: 288 atk</li></ul><p>which is 490 + 470 + 470 + 490 + 470 + 288 + 288 &#x3D; 2966</p><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>with this accurate atk formula, we can predict final atk when we change stats<br>or when we change to other f8 sets but keep all other stats the same</p><p>For example, if i change my 4 fate to 4 vital and keep stats the same<br>(str +100, final amplification +15%)</p><ul><li>total str &#x3D; 1301 + 100 &#x3D; 1401</li><li>char &#x3D; total str * 5<br>&#x3D; 1401 * 5 &#x3D; 7005</li><li>item &#x3D; 18227</li><li>final dmg amplification &#x3D; 25% + 15% &#x3D; 40%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (7005 + 18227) * 0.4<br>&#x3D; 10092.8</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (7005 * 1.1 + 18227 + 520) * 1.4<br>&#x3D; 37033.5<br>$\approx$ 37034</li></ul><p>the final atk will be changed from 32378 to 37034<br>when we get the accurate final atk, we can compare current set to other sets</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>ReDragonica</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ReDragonica - Accurate ATK Formula on Savage</title>
     <link href="/ReDragonica%20-%20savage%20atk%20formula/"/>
     <url>/ReDragonica%20-%20savage%20atk%20formula/</url>
     
-    <content type="html"><![CDATA[<h2 id="ATK-formula"><a href="#ATK-formula" class="headerlink" title="ATK formula"></a>ATK formula</h2><div align="left">    <img src="/images/savage-atk-details-1.png"><br><br>    <img src="/images/savage-atk-details-2.png"></div><br><ul><li>total str &#x3D; 1301</li><li>char &#x3D; total str * 5<br>&#x3D; 1301 * 5 &#x3D; 6505</li><li>item &#x3D; 18227</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6505 + 18227) * 0.25<br>&#x3D; 6183</li><li>basic atk bonus &#x3D; 10%</li><li>passive atk &#x3D; 520</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6505 * 1.1 + 18227 + 520) * 1.25<br>&#x3D; 32378.1</li></ul><h2 id="Char"><a href="#Char" class="headerlink" title="Char"></a>Char</h2><p>value of char is only affected by total str, which is total str * 5</p><p>my leo shoe has str 38 + 15 &#x3D; 53</p><div align="left">    <img src="/images/savage-take-off-leo-shoe.png"></div><br><p>after we take off the leo shoe<br>(str -53)</p><div align="left">    <img src="/images/savage-after-take-off-leo-shoe.png"></div><br><ul><li>total str &#x3D; 1301 - 53 &#x3D; 1248</li><li>char &#x3D; total str * 5<br>&#x3D; 1248 * 5 &#x3D; 6240</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6240 * 1.1 + 18227 + 520) * 1.25<br>&#x3D; 32013.7</li></ul><h2 id="Basic-atk-bonus"><a href="#Basic-atk-bonus" class="headerlink" title="Basic atk bonus"></a>Basic atk bonus</h2><p>savage’s original basic atk bonus is 5%<br>home buff has atk power buff 5%, which adds on the basic atk bonus<br>So the basic atk bonus is 5% + 5% &#x3D; 10%</p><div align="left">    <img src="/images/hb-atk-buff.png"></div><br><p>after we delete the atk power buff 5%</p><div align="left">    <img src="/images/savage-delete-hb-atk-buff.png"></div><br><p>the basic atk bonus becomes 5%</p><ul><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6505 * 1.05 + 18227 + 520) * 1.25<br>&#x3D; 31971.5<br>$\approx$ 31972</li></ul><h2 id="Passive-atk"><a href="#Passive-atk" class="headerlink" title="Passive atk"></a>Passive atk</h2><p>passive atk is from this 2 passive skills, which is 200 + 320 &#x3D; 520</p><div align="left">    <img src="/images/savage-passive-skill1.png">    <br><br>    <img src="/images/savage-passive-skill2.png"></div><h2 id="Final-dmg-amplification"><a href="#Final-dmg-amplification" class="headerlink" title="Final dmg amplification (%)"></a>Final dmg amplification (%)</h2><p>set effect of bonus physical atk dmg on F8 accesories directly adds the percentage on final dmg amplification (%)</p><div align="left">    vital 15%<br>    <img src="/images/vital-set-effect.png"><br>    swif 20%<br>    <img src="/images/swif-set-effect.png"><br>    gambit 100%<br>    <img src="/images/gambit-set-effect.png"><br>    titan 5%<br>    <img src="/images/titan-set-effect.png"><br>    bangle: 10%<br>    <img src="/images/bangle-set-effect.png"></div><br><p>my bangle has str 8 and bonus physical atk dmg 10%</p><div align="left">    <img src="/images/savage-take-off-bangle.png"></div><br><p>after we take off the bangle<br>(str -8, final dmg amplification -10%)</p><div align="left">    <img src="/images/savage-after-take-off-bangle.png"></div><br><ul><li>total str &#x3D; 1301 - 8 &#x3D; 1293</li><li>char &#x3D; total str * 5<br>&#x3D; 1293 * 5 &#x3D; 6465</li><li>final dmg amplification &#x3D; 25% - 10% &#x3D; 15%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6465 + 18227) * 0.15<br>&#x3D; 3703.8</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6465 * 1.1 + 18227 + 520) * 1.15<br>&#x3D; 29737.2</li></ul><h2 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h2><ul><li>item &#x3D; max atk on weapon + max atk on IM weapon + fixed atk</li></ul><p>the total atk on my weapon is 13606 to 15236, so the max atk on weapon is 15236</p><div align="left">    <img src="/images/savage-wp-max-atk.png"></div><p>the max physical atk % is already calculated into the max atk<br>so we dont need to calculate this<br>if the max physical atk % is changed, the max atk will also change and display</p><p>the total atk on my IM weapon is 25 to 25, so the max atk on IM weapon is 25</p><div align="left">    <img src="/images/savage-im-wp-max-atk.png"></div><br><ul><li>fixed atk<br>&#x3D; item - max atk on weapon - max atk on IM weapon<br>&#x3D; 18227 - 15236 - 25<br>&#x3D; 2966</li></ul><p>we will look into this value later</p><p>my IM weapon has str 14 and max atk 25<br>after we take off the IM weapon<br>(str -14, max atk on IM weapon -25)</p><div align="left">    <img src="/images/savage-after-take-off-im-wp.png"></div><br><ul><li>total str &#x3D; 1301 - 14 &#x3D; 1287</li><li>char &#x3D; total str * 5<br>&#x3D; 1287 * 5 &#x3D; 6435</li><li>item &#x3D; 18227 - 25 &#x3D; 18202</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6435 + 18202) * 0.25<br>&#x3D; 6159.2</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6435 * 1.1 + 18202 + 520) * 1.25<br>&#x3D; 32250.6<br>$\approx$ 32251</li></ul><h2 id="Fixed-atk"><a href="#Fixed-atk" class="headerlink" title="Fixed atk"></a>Fixed atk</h2><p>fixed atk is from max min patk on f8 accesories and other gears that add atk directly</p><p>first, we take off f8 accesories, easter balloon and noble pin</p><div align="left">    <img src="/images/savage-after-take-off-fixed-atk-gears-1.png">    <br><br>    <img src="/images/savage-after-take-off-fixed-atk-gears-2.png"></div><br><ul><li>total str &#x3D; 1215</li><li>char &#x3D; total str * 5<br>&#x3D; 1215 * 5 &#x3D; 6075</li><li>item &#x3D; 15261<br>so it’s only from max atk on weapon and IM weapon, which is 15236 + 25 &#x3D; 15261<br>no fixed atk here</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6075 + 15261) * 0.25<br>&#x3D; 5334</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6075 * 1.1 + 15261 + 520) * 1.25<br>&#x3D; 28079.3<br>$\approx$ 28080</li></ul><p>we wear the fate neck<br>(patk +490)</p><div align="left">    <img src="/images/savage-fate-neck.png"><br><br>    <img src="/images/savage-after-wear-fate-neck.png"></div><br><ul><li>total str &#x3D; 1215</li><li>char &#x3D; total str * 5<br>&#x3D; 1215 * 5 &#x3D; 6075</li><li>item &#x3D; 15261 + 490 &#x3D; 15751<br>so patk 490 directly adds on it</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6075 + 15751) * 0.25<br>&#x3D; 5456.5</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6075 * 1.1 + 15751 + 520) * 1.25<br>&#x3D; 28691.8<br>$\approx$ 28692</li></ul><p>we wear the fate ear<br>(item +490, str +40)</p><div align="left">    <img src="/images/savage-fate-ear.png"><br><br>    <img src="/images/savage-after-wear-fate-ear.png"></div><br><ul><li>total str &#x3D; 1215 + 40 &#x3D; 1255</li><li>char &#x3D; total str * 5<br>&#x3D; 1255 * 5 &#x3D; 6275</li><li>item &#x3D; 15751 + 490 &#x3D; 16241</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6275 + 16241) * 0.25<br>&#x3D; 5629</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6275 * 1.1 + 16241 + 520) * 1.25<br>&#x3D; 29579.3<br>$\approx$ 29580</li></ul><p>we wear the easter balloon<br>(atk +288, str +6)</p><div align="left">    <img src="/images/savage-easter-balloon.png"><br><br>    <img src="/images/savage-after-wear-easter-balloon.png"></div><br><ul><li>total str &#x3D; 1255 + 6 &#x3D; 1261</li><li>char &#x3D; total str * 5<br>&#x3D; 1261 * 5 &#x3D; 6305</li><li>item &#x3D; 16529<br>so the easter balloon adds fixed atk 16529 - 16241 &#x3D; 288 on it, which is the atk 288 displayed</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6305 + 16529) * 0.25<br>&#x3D; 5708.5</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6305 * 1.1 + 16529 + 520) * 1.25<br>&#x3D; 29980.6<br>$\approx$ 29981</li></ul><p>the noble pin also adds atk, but not display<br>we wear the noble pin</p><div align="left">    <img src="/images/savage-noble-pin.png"><br><br>    <img src="/images/savage-after-wear-noble-pin.png"></div><br><ul><li>total str &#x3D; 1261</li><li>char &#x3D; total str * 5<br>&#x3D; 1261 * 5 &#x3D; 6305</li><li>item &#x3D; 16817<br>so the noble pin adds fixed atk 16817 - 16529 &#x3D; 288 on it</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (6305 + 16817) * 0.25<br>&#x3D; 5780.5</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (6305 * 1.1 + 16817 + 520) * 1.25<br>&#x3D; 30340.6<br>$\approx$ 30341</li></ul><p>we mentioned</p><ul><li>fixed atk<br>&#x3D; item - max atk on weapon - max atk on IM weapon<br>&#x3D; 18227 - 15236 - 25<br>&#x3D; 2966</li></ul><p>and these are another 3 accesories we weared</p><div align="left">    <img src="/images/savage-fate-belt.png"><br><br>    <img src="/images/savage-fate-ring.png"><br><br>    <img src="/images/savage-lifebane-ring.png"></div><br><p>so the fixed atk 2966 is from atk on the following gears:</p><ul><li>fate neck: 490 patk</li><li>fate belt: 470 patk</li><li>fate ring: 470 patk</li><li>fate ear: 490 patk</li><li>lifebane ring: 470 patk</li><li>easter balloon: 288 atk</li><li>noble pin: 288 atk</li></ul><p>which is 490 + 470 + 470 + 490 + 470 + 288 + 288 &#x3D; 2966</p><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>with this accurate atk formula, we can predict final atk when we change stats<br>or when we change to other f8 sets but keep all other stats the same</p><p>For example, if i change my 4 fate to 4 vital and keep stats the same<br>(str +100, final amplification +15%)</p><ul><li>total str &#x3D; 1301 + 100 &#x3D; 1401</li><li>char &#x3D; total str * 5<br>&#x3D; 1401 * 5 &#x3D; 7005</li><li>item &#x3D; 18227</li><li>final dmg amplification &#x3D; 25% + 15% &#x3D; 40%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification (%)<br>&#x3D; (7005 + 18227) * 0.4<br>&#x3D; 10092.8</li><li>final atk<br>&#x3D; (char * basic atk bonus + item + passive atk) * final dmg amplification (%)<br>&#x3D; (7005 * 1.1 + 18227 + 520) * 1.4<br>&#x3D; 37033.5<br>$\approx$ 37034</li></ul><p>the final atk will be changed from 32378 to 37034<br>when we get the accurate final atk, we can compare current set to other sets</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="ATK-formula"><a href="#ATK-formula" class="headerlink" title="ATK formula"></a>ATK formula</h2><div align="left">    <img src="/images/savage-atk-details-1.png"><br><br>    <img src="/images/savage-atk-details-2.png"><br><br>    <img src="/images/savage-wp-max-atk.png"></div><br><ul><li>total str &#x3D; 1301</li><li>char &#x3D; total str * 5<br>&#x3D; 1301 * 5 &#x3D; 6505</li><li>item &#x3D; 18227</li><li>final dmg amplification % &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification %<br>&#x3D; (6505 + 18227) * 0.25<br>&#x3D; 6183</li><li>basic atk bonus % &#x3D; 10%</li><li>passive atk &#x3D; 520</li><li>weapon base max atk &#x3D; 6315</li><li>weapon enchant max atk &#x3D; 7533</li><li>weapon total max atk &#x3D; 15236</li><li>weapon max physical atk % &#x3D; 10% + 12% &#x3D; 22%<br>(need to include chaotic part)</li><li>final atk<br>&#x3D; [char * basic atk bonus + weapon enchant max atk + weapon base max atk * weapon max physical atk % + (item - weapon total max atk) + passive atk] * final dmg amplification %<br>&#x3D; [6505 * 1.1 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * 1.25<br>&#x3D; 32379.7</li></ul><h2 id="Char"><a href="#Char" class="headerlink" title="Char"></a>Char</h2><p>value of char is only affected by total str, which is total str * 5</p><p>my leo shoe has str 38 + 15 &#x3D; 53</p><div align="left">    <img src="/images/savage-take-off-leo-shoe.png"></div><br><p>after we take off the leo shoe<br>(str -53)</p><div align="left">    <img src="/images/savage-after-take-off-leo-shoe.png"></div><br><ul><li>total str &#x3D; 1301 - 53 &#x3D; 1248</li><li>char &#x3D; total str * 5<br>&#x3D; 1248 * 5 &#x3D; 6240</li><li>final atk<br>&#x3D; [6240 * 1.1 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * 1.25<br>&#x3D; 32015.3</li></ul><h2 id="Basic-atk-bonus"><a href="#Basic-atk-bonus" class="headerlink" title="Basic atk bonus"></a>Basic atk bonus</h2><p>savage’s original basic atk bonus is 5%<br>home buff has atk power buff 5%, which adds on the basic atk bonus<br>So the basic atk bonus is 5% + 5% &#x3D; 10%</p><div align="left">    <img src="/images/hb-atk-buff.png"></div><br><p>after we delete the atk power buff 5%</p><div align="left">    <img src="/images/savage-delete-hb-atk-buff.png"></div><br><p>the basic atk bonus becomes 5%</p><ul><li>final atk<br>&#x3D; [6505 * 1.05 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * 1.25<br>&#x3D; 31973.1</li></ul><h2 id="Passive-skills"><a href="#Passive-skills" class="headerlink" title="Passive skills"></a>Passive skills</h2><p>passive atk is from this 2 passive skills, which is 200 + 320 &#x3D; 520<br>if the claw mastery is only lv5, it only +125 atk and the passive atk becomes 125 + 320 &#x3D; 445</p><div align="left">    <img src="/images/savage-passive-skill1.png">    <br><br>    <img src="/images/savage-passive-skill2.png"></div><h2 id="Final-dmg-amplification"><a href="#Final-dmg-amplification" class="headerlink" title="Final dmg amplification %"></a>Final dmg amplification %</h2><p>set effect of bonus physical atk dmg on F8 accesories directly adds the percentage on final dmg amplification %</p><div align="left">    vital 15%<br>    <img src="/images/vital-set-effect.png"><br>    swif 20%<br>    <img src="/images/swif-set-effect.png"><br>    gambit 100%<br>    <img src="/images/gambit-set-effect.png"><br>    titan 5%<br>    <img src="/images/titan-set-effect.png"><br>    bangle: 10%<br>    <img src="/images/bangle-set-effect.png"></div><br><p>my bangle has str 8 and bonus physical atk dmg 10%</p><div align="left">    <img src="/images/savage-take-off-bangle.png"></div><br><p>after we take off the bangle<br>(str -8, final dmg amplification -10%)</p><div align="left">    <img src="/images/savage-after-take-off-bangle.png"></div><br><ul><li>total str &#x3D; 1301 - 8 &#x3D; 1293</li><li>char &#x3D; total str * 5<br>&#x3D; 1293 * 5 &#x3D; 6465</li><li>final dmg amplification % &#x3D; 25% - 10% &#x3D; 15%</li><li>final dmg amplification value<br>&#x3D; (char + item) * final dmg amplification %<br>&#x3D; (6465 + 18227) * 0.15<br>&#x3D; 3703.8</li><li>final atk<br>&#x3D; [6465 * 1.1 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * 1.15<br>&#x3D; 29738.7</li></ul><h2 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h2><ul><li>item &#x3D; weapon total max atk + fixed atk</li></ul><div align="left">    <img src="/images/savage-wp-max-atk.png"><br><br>    <img src="/images/savage-atk-details-3.png"></div><br><p>the total atk on my weapon is 13606 to 15236, so the weapon total max atk is 15236<br>the enchant atk on my weapon is 6787 to 7533, so the weapon enchant max atk is 7533</p><blockquote><p>the components of the weapon total max atk</p><ul><li><strong>default atk</strong> &#x3D; weapon base max atk &#x3D; 6315</li><li><strong>enchant atk</strong> &#x3D; weapon enchant max atk &#x3D; 7533</li><li><strong>the 1st soulcraft atk</strong><br>&#x3D; weapon base max atk * soulcraft max atk %<br>&#x3D; 6315 * 12%<br>&#x3D; 6315 * 0.12<br>&#x3D; 757.8<br>should not include the chaotic part<br>the chaotic part does not add on it and is not displayed on item</li><li><strong>monster card atk</strong><br>&#x3D; weapon base max atk * card max atk %<br>&#x3D; 6315 * 10%<br>&#x3D; 6315 * 0.1<br>&#x3D; 631.5</li></ul></blockquote><p>which is 6315 + 7533 + 757 + 631 &#x3D; 15236</p><h2 id="Fixed-atk"><a href="#Fixed-atk" class="headerlink" title="Fixed atk"></a>Fixed atk</h2><ul><li>fixed atk<br>&#x3D; item - max atk on weapon<br>&#x3D; 18227 - 15236<br>&#x3D; 2991</li></ul><p>it comes from:</p><ul><li>max patk on gears<br>F8 accesories, special options on bdl and low level gears</li><li>gears that add atk directly<br>IM weapon atk, easter balloon, noble pin, low level gears</li></ul><p>first, we take off f8 accesories, easter balloon and noble pin</p><div align="left">    <img src="/images/savage-after-take-off-fixed-atk-gears-1.png"><br><br>    <img src="/images/savage-after-take-off-fixed-atk-gears-2.png"><br><br>    <img src="/images/savage-im-wp.png"></div><br><ul><li>total str &#x3D; 1215</li><li>char &#x3D; total str * 5<br>&#x3D; 1215 * 5 &#x3D; 6075</li><li>item &#x3D; 15261</li><li>final dmg amplification % &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * Final dmg amplification %<br>&#x3D; (6075 + 15261) * 0.25<br>&#x3D; 5334</li><li>final atk<br>&#x3D; [6075 * 1.1 + 7533 + 6315 * 1.22 + (15261 - 15236) + 520] * 1.25<br>&#x3D; 28081</li></ul><p>the IM weapon atk is 25 to 25, so the IM weapon max atk is 25<br>which is 15261 - 15236 &#x3D; 25<br>it adds on the <strong>set atk</strong></p><p>we wear the fate neck<br>(patk +490)</p><div align="left">    <img src="/images/savage-fate-neck.png"><br><br>    <img src="/images/savage-after-wear-fate-neck.png"></div><br><ul><li>total str &#x3D; 1215</li><li>char &#x3D; total str * 5<br>&#x3D; 1215 * 5 &#x3D; 6075</li><li>item &#x3D; 15751</li><li>final dmg amplification &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * Final dmg amplification %<br>&#x3D; (6075 + 15751) * 0.25<br>&#x3D; 5456.5</li><li>final atk<br>&#x3D; [6075 * 1.1 + 7533 + 6315 * 1.22 + (15751 - 15236) + 520] * 1.25<br>&#x3D; 28693.5</li></ul><p>it adds on the fixed atk and the <strong>2nd soulcraft atk</strong></p><p>we wear the fate ear<br>(patk +490, str +40)</p><div align="left">    <img src="/images/savage-fate-ear.png"><br><br>    <img src="/images/savage-after-wear-fate-ear.png"></div><br><ul><li>total str &#x3D; 1215 + 40 &#x3D; 1255</li><li>char &#x3D; total str * 5<br>&#x3D; 1255 * 5 &#x3D; 6275</li><li>item &#x3D; 16241</li><li>final dmg amplification % &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * Final dmg amplification %<br>&#x3D; (6275 + 16241) * 0.25<br>&#x3D; 5629</li><li>final atk<br>&#x3D; [6275 * 1.1 + 7533 + 6315 * 1.22 + (16241 - 15236) + 520] * 1.25<br>&#x3D; 29581</li><li>2nd soulcraft atk &#x3D; 490 + 490 &#x3D; 980</li></ul><p>we wear the easter balloon<br>(atk +288, str +6)</p><div align="left">    <img src="/images/savage-easter-balloon.png"><br><br>    <img src="/images/savage-after-wear-easter-balloon.png"></div><br><ul><li>total str &#x3D; 1255 + 6 &#x3D; 1261</li><li>char &#x3D; total str * 5<br>&#x3D; 1261 * 5 &#x3D; 6305</li><li>item &#x3D; 16529</li><li>final dmg amplification % &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * Final dmg amplification %<br>&#x3D; (6305 + 16529) * 0.25<br>&#x3D; 5708.5</li><li>final atk<br>&#x3D; [6305 * 1.1 + 7533 + 6315 * 1.22 + (16529 - 15236) + 520] * 1.25<br>&#x3D; 29982.2</li></ul><p>it adds on the <strong>set atk</strong></p><ul><li>set atk &#x3D; 25 + 288 &#x3D; 313</li></ul><p>the noble pin also adds atk, but it does not display<br>we wear the noble pin</p><div align="left">    <img src="/images/savage-noble-pin.png"><br><br>    <img src="/images/savage-after-wear-noble-pin.png"></div><br><ul><li>total str &#x3D; 1261</li><li>char &#x3D; total str * 5<br>&#x3D; 1261 * 5 &#x3D; 6305</li><li>item &#x3D; 16817</li><li>final dmg amplification % &#x3D; 25%</li><li>final dmg amplification value<br>&#x3D; (char + item) * Final dmg amplification %<br>&#x3D; (6305 + 16817) * 0.25<br>&#x3D; 5780.5</li><li>final atk<br>&#x3D; [6305 * 1.1 + 7533 + 6315 * 1.22 + (16817 - 15236) + 520] * 1.25<br>&#x3D; 30342.2</li></ul><p>the noble pin adds 16817 - 16529 &#x3D; 288 atk</p><ul><li>set atk &#x3D; 313 + 288 &#x3D; 601</li></ul><p>and these are another 3 accesories we weared</p><div align="left">    <img src="/images/savage-fate-belt.png"><br><br>    <img src="/images/savage-fate-ring.png"><br><br>    <img src="/images/savage-lifebane-ring.png"></div><br><p>so the fixed atk 2991 is from atk on these gears:</p><ul><li>IM weapon: 25 patk</li><li>fate neck: 490 patk</li><li>fate belt: 470 patk</li><li>fate ring: 470 patk</li><li>fate ear: 490 patk</li><li>lifebane ring: 470 patk</li><li>easter balloon: 288 patk</li><li>noble pin: 288 patk</li></ul><p>which is 25 + 490 + 470 + 470 + 490 + 470 + 288 + 288 &#x3D; 2991</p><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>with this accurate atk formula, we can predict final atk when we change stats<br>or when we change to other f8 sets but keep all other stats the same</p><p>For example, if i change my 4 fate to 4 vital and keep stats the same<br>(str +100, final amplification +15%)</p><ul><li>total str &#x3D; 1301 + 100 &#x3D; 1401</li><li>char &#x3D; total str * 5<br>&#x3D; 1401 * 5 &#x3D; 7005</li><li>item &#x3D; 18227</li><li>final dmg amplification &#x3D; 25% + 15% &#x3D; 40%</li><li>final dmg amplification value<br>&#x3D; (char + item) * Final dmg amplification %<br>&#x3D; (7005 + 18227) * 0.4<br>&#x3D; 10092.8</li><li>final atk<br>&#x3D; [7005 * 1.1 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * 1.4<br>&#x3D; 37035.3</li></ul><p>the final atk will be changed from 32378 to 37035<br>when we get the accurate final atk, we can compare current set to other sets</p>]]></content>
     
     
     
@@ -61,11 +80,11 @@
   
   
   <entry>
-    <title>ReDragonica - ninja bdl vs. 2+2+2</title>
-    <link href="/ReDragonica%20-%20ninja%20bdl%20vs.%20222/"/>
-    <url>/ReDragonica%20-%20ninja%20bdl%20vs.%20222/</url>
+    <title>ReDragonica - ninja bdl vs. 2+2+2 version 2</title>
+    <link href="/ReDragonica%20-%20ninja%20bdl%20vs.%20222%20version%202/"/>
+    <url>/ReDragonica%20-%20ninja%20bdl%20vs.%20222%20version%202/</url>
     
-    <content type="html"><![CDATA[<h2 id="Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl"><a href="#Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl" class="headerlink" title="Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)"></a>Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)</h2><div align="left">  <img src="/images/ninja-222-1.png"></div><br><div align="left">  <img src="/images/ninja-222-2.png"></div><br>leo set effect<div align="left">  <img src="/images/leo-effect.png"></div>black fedora and brindle set effect<div align="left">  <img src="/images/black-fedora.png"></div>bdl set effect for ninja<div align="left">  <img src="/images/ninja-bdl.png"></div><br><p>Stat difference from 2+2+2 to full bdl</p><ul><li>CD: $120-30&#x3D;90$<br>(bdl 120, leo 30)</li><li>FCR: $5.5-3&#x3D;2.5$<br>(bdl 5.5, leo 3)</li><li>patk: $120 \times 8 &#x3D; 960$<br>(bdl 120 str, 1str &#x3D; 8patk for ninja)</li><li>spell dmg: $-(10+10+10)&#x3D;-30$<br>(leo 10, black fedora 10, brindle set 10)</li><li>awaken spell dmg: $-20$<br>(black fedora 20)</li><li>boss dmg: $10$<br>(bdl 10)</li></ul><p>Assume CD 725 means the CD multiplier is 725&#x2F;100 &#x3D; 7.25<br>and we don’t consider 110 agi</p><h3 id="Without-vowbuff"><a href="#Without-vowbuff" class="headerlink" title="Without vowbuff"></a>Without vowbuff</h3><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th><th align="left">Multiplier</th></tr></thead><tbody><tr><td align="left">patk</td><td align="left">$30700+960&#x3D;31660$</td><td align="left">30700</td><td align="left">$30700&#x2F;31660&#x3D;0.970$</td></tr><tr><td align="left">CD</td><td align="left">$698+90&#x3D;788$</td><td align="left">698</td><td align="left">$698&#x2F;788&#x3D;0.886$</td></tr><tr><td align="left">FCR</td><td align="left">$58.2+2.5&#x3D;60.7$</td><td align="left">58.2</td><td align="left"></td></tr><tr><td align="left">spell dmg</td><td align="left">$45-30&#x3D;15$</td><td align="left">45</td><td align="left">$1.45&#x2F;1.15&#x3D;1.261$</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$80-20&#x3D;60%$</td><td align="left">80</td><td align="left">$1.80&#x2F;1.60&#x3D;1.125$</td></tr><tr><td align="left">boss dmg</td><td align="left">$37.5+10%&#x3D;47.5%$</td><td align="left">37.5</td><td align="left">$1.375&#x2F;1.475&#x3D;0.932$</td></tr></tbody></table><p>expected value of multiplier on non-crit and crit<br>$&#x3D; (1 - FCR) + FCR \times CD&#x2F;100$</p><ul><li>full bdl: $(1 - 0.607) + 0.607 \times 7.88 &#x3D; 5.176$</li><li>2+2+2: $(1 - 0.582) + 0.582 \times 6.98 &#x3D; 4.480$</li></ul><p>$4.48&#x2F;5.176&#x3D;0.866$</p><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Multiplier</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 0.932 \times 1.261 &#x3D; 1.140$</td><td align="left"><strong>+14.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.140 \times 0.886 &#x3D; 1.010$</td><td align="left"><strong>+1.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.140 \times 0.866 &#x3D; 0.987$</td><td align="left"><strong>-1.3%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.140 \times 1.125 &#x3D; 1.282$</td><td align="left"><strong>+28.2%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.010 \times 1.125 &#x3D; 1.136$</td><td align="left"><strong>+13.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$0.987 \times 1.125 &#x3D; 1.111$</td><td align="left"><strong>+11.1%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 1.261 &#x3D; 1.223$</td><td align="left"><strong>+22.3%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.223 \times 0.886 &#x3D; 1.084$</td><td align="left"><strong>+8.4%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.223 \times 0.866 &#x3D; 1.059$</td><td align="left"><strong>+5.9%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.223 \times 1.125 &#x3D; 1.376$</td><td align="left"><strong>+37.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.084 \times 1.125 &#x3D; 1.219$</td><td align="left"><strong>+21.9%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.059 \times 1.125 &#x3D; 1.192$</td><td align="left"><strong>+19.2%</strong></td></tr></tbody></table><h3 id="With-vowbuff"><a href="#With-vowbuff" class="headerlink" title="With vowbuff"></a>With vowbuff</h3><p>vowbuff +20 spell dmg and +100 awaken spell dmg</p><div align="left">  <img src="/images/vowbuff.png"></div><br><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th><th align="left">Multiplier</th></tr></thead><tbody><tr><td align="left">spell dmg</td><td align="left">$15+20&#x3D;35%$</td><td align="left">$45+20&#x3D;65%$</td><td align="left">$1.65&#x2F;1.35&#x3D;1.222$</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$60+100&#x3D;160%$</td><td align="left">$80+100&#x3D;180%$</td><td align="left">$2.8&#x2F;2.6&#x3D;1.077$</td></tr></tbody></table><p>other stats keep the same</p><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Multiplier</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 0.932 \times 1.222 &#x3D; 1.105$</td><td align="left"><strong>+10.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.105 \times 0.886 &#x3D; 0.979$</td><td align="left"><strong>-2.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.105 \times 0.866 &#x3D; 0.957$</td><td align="left"><strong>-4.3%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.105 \times 1.077 &#x3D; 1.190$</td><td align="left"><strong>+19.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$0.979 \times 1.077 &#x3D; 1.054$</td><td align="left"><strong>+5.4%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$0.957 \times 1.077 &#x3D; 1.031$</td><td align="left"><strong>+3.1%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 1.222 &#x3D; 1.185$</td><td align="left"><strong>+18.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.185 \times 0.886 &#x3D; 1.050$</td><td align="left"><strong>+5.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.185 \times 0.866 &#x3D; 1.026$</td><td align="left"><strong>+2.6%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.185 \times 1.077 &#x3D; 1.276$</td><td align="left"><strong>+27.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.050 \times 1.077 &#x3D; 1.131$</td><td align="left"><strong>+13.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.026 \times 1.077 &#x3D; 1.105$</td><td align="left"><strong>+10.5%</strong></td></tr></tbody></table><p>without vowbuff, only the expected dmg of non-awaken skill on boss decreases a bit<br>with vowbuff, only the crit dmg and expected dmg of non-awaken skill on boss decrease a bit<br>all other dmgs increased<br>Therefore, 2+2+2 is better than full bdl</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl"><a href="#Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl" class="headerlink" title="Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)"></a>Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)</h2><div align="left">  <img src="/images/ninja-222-1.png"></div><br><div align="left">  <img src="/images/ninja-222-2.png"></div><br>leo set effect<div align="left">  <img src="/images/leo-effect.png"></div>black fedora and brindle set effect<div align="left">  <img src="/images/black-fedora.png"></div>bdl set effect for ninja<div align="left">  <img src="/images/ninja-bdl.png"></div><br><p>Stat difference from 2+2+2 to full bdl</p><ul><li>CD: $120-30&#x3D;90$<br>(bdl 120, leo 30)</li><li>FCR: $5.5-3&#x3D;2.5$<br>(bdl 5.5, leo 3)</li><li>patk: $120 \times 8 &#x3D; 960$<br>(bdl 120 str, 1str &#x3D; 8patk for ninja)</li><li>spell dmg: $-(10+10+10)&#x3D;-30$<br>(leo 10, black fedora 10, brindle set 10)</li><li>awaken spell dmg: $-20$<br>(black fedora 20)</li><li>boss dmg: $10$<br>(bdl 10)</li><li>back dmg: $0$ (we assume the chaotic are the same)</li></ul><p>Assume CD 725 means the CD multiplier is 725&#x2F;100 &#x3D; 7.25<br>and we don’t consider 110 agi</p><h3 id="Without-vowbuff"><a href="#Without-vowbuff" class="headerlink" title="Without vowbuff"></a>Without vowbuff</h3><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th></tr></thead><tbody><tr><td align="left">patk</td><td align="left">$30700+960&#x3D;31660$</td><td align="left">30700</td></tr><tr><td align="left">CD</td><td align="left">$698+90&#x3D;788$</td><td align="left">698</td></tr><tr><td align="left">FCR</td><td align="left">$58.2+2.5&#x3D;60.7$</td><td align="left">58.2</td></tr><tr><td align="left">spell dmg</td><td align="left">$45-30&#x3D;15$</td><td align="left">45</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$80-20&#x3D;60$</td><td align="left">80</td></tr><tr><td align="left">boss dmg</td><td align="left">$37.5+10&#x3D;47.5$</td><td align="left">37.5</td></tr><tr><td align="left">back dmg</td><td align="left">118.8</td><td align="left">118.8</td></tr></tbody></table><p>expected value of multiplier on non-crit and crit<br>$&#x3D; (1 - FCR) + FCR \times CD&#x2F;100$</p><ul><li>full bdl: $(1 - 0.607) + 0.607 \times 7.88 &#x3D; 5.176$</li><li>2+2+2: $(1 - 0.582) + 0.582 \times 6.98 &#x3D; 4.480$</li></ul><p><strong>Formula:</strong></p><ul><li>non-awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{back dmg multiplier} \times \text{crit multiplier}$</li><li>awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{awaken spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{back dmg multiplier} \times \text{crit multiplier}$</li></ul><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Full bdl value</th><th align="left">2+2+2 value</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 &#x3D; 117510.6$</td><td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 &#x3D; 133932.1$</td><td align="left"><strong>+14.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 \times 7.88 &#x3D; 925983.3$</td><td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 \times 6.98 &#x3D; 934846.3$</td><td align="left"><strong>+1.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 \times 5.176 &#x3D; 608234.8$</td><td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 \times 4.480 &#x3D; 600015.9$</td><td align="left"><strong>-1.3%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 &#x3D; 188016.9$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 &#x3D; 241077.8$</td><td align="left"><strong>+28.2%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 \times 7.88 &#x3D; 1481573.3$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 \times 6.98 &#x3D; 1682723.3$</td><td align="left"><strong>+13.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 \times 5.176 &#x3D; 973175.7$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 \times 4.480 &#x3D; 1080029.7$</td><td align="left"><strong>+11.1%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 2.188 &#x3D; 79654.6$</td><td align="left">$30700 \times 1.45 \times 2.188 &#x3D; 97397.9$</td><td align="left"><strong>+22.3%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 2.188 \times 7.88 &#x3D; 627678.5$</td><td align="left">$30700 \times 1.45 \times 2.188 \times 6.98 &#x3D; 679837.2$</td><td align="left"><strong>+8.3%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 2.188 \times 5.176 &#x3D; 412292.3$</td><td align="left">$30700 \times 1.45 \times 2.188 \times 4.480 &#x3D; 436342.5$</td><td align="left"><strong>+5.8%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 &#x3D; 127447.4$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 &#x3D; 175316.2$</td><td align="left"><strong>+37.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 \times 7.88 &#x3D; 1004285.6$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 \times 6.98 &#x3D; 1223707.0$</td><td align="left"><strong>+21.8%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 \times 5.176 &#x3D; 659667.7$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 \times 4.480 &#x3D; 785416.5$</td><td align="left"><strong>+19.1%</strong></td></tr></tbody></table><h3 id="With-vowbuff"><a href="#With-vowbuff" class="headerlink" title="With vowbuff"></a>With vowbuff</h3><p>vowbuff +20 spell dmg and +100 awaken spell dmg</p><div align="left">  <img src="/images/vowbuff.png"></div><br><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th></tr></thead><tbody><tr><td align="left">spell dmg</td><td align="left">$15+20&#x3D;35$</td><td align="left">$45+20&#x3D;65$</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$60+100&#x3D;160$</td><td align="left">$80+100&#x3D;180$</td></tr><tr><td align="left">back dmg</td><td align="left">118.8</td><td align="left">118.8</td></tr></tbody></table><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Full bdl value</th><th align="left">2+2+2 value</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 &#x3D; 137932.4$</td><td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 &#x3D; 152391.9$</td><td align="left"><strong>+10.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 \times 7.88 &#x3D; 1086907.4$</td><td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 \times 6.98 &#x3D; 1063695.5$</td><td align="left"><strong>-2.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 \times 5.176 &#x3D; 713938.1$</td><td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 \times 4.480 &#x3D; 682715.8$</td><td align="left"><strong>-4.4%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 &#x3D; 358624.3$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 &#x3D; 426697.4$</td><td align="left"><strong>+19.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 \times 7.88 &#x3D; 2825959.3$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 \times 6.98 &#x3D; 2978348.1$</td><td align="left"><strong>+5.4%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 \times 5.176 &#x3D; 1856239.1$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 \times 4.480 &#x3D; 1911607.1$</td><td align="left"><strong>+3.0%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 2.188 &#x3D; 93513.5$</td><td align="left">$30700 \times 1.65 \times 2.188 &#x3D; 110831.8$</td><td align="left"><strong>+18.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 2.188 \times 7.88 &#x3D; 736886.4$</td><td align="left">$30700 \times 1.65 \times 2.188 \times 6.98 &#x3D; 773606.1$</td><td align="left"><strong>+5.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 2.188 \times 5.176 &#x3D; 484025.9$</td><td align="left">$30700 \times 1.65 \times 2.188 \times 4.480 &#x3D; 496526.5$</td><td align="left"><strong>+2.6%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 &#x3D; 243135.1$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 &#x3D; 310329.1$</td><td align="left"><strong>+27.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 \times 7.88 &#x3D; 1915904.8$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 \times 6.98 &#x3D; 2166097.1$</td><td align="left"><strong>+13.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 \times 5.176 &#x3D; 1258467.2$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 \times 4.480 &#x3D; 1350229.4$</td><td align="left"><strong>+10.5%</strong></td></tr></tbody></table>]]></content>
     
     
     
@@ -80,11 +99,11 @@
   
   
   <entry>
-    <title>ReDragonica - ninja bdl vs. 2+2+2 version 2</title>
-    <link href="/ReDragonica%20-%20ninja%20bdl%20vs.%20222%20version%202/"/>
-    <url>/ReDragonica%20-%20ninja%20bdl%20vs.%20222%20version%202/</url>
+    <title>ReDragonica - ninja bdl vs. 2+2+2</title>
+    <link href="/ReDragonica%20-%20ninja%20bdl%20vs.%20222/"/>
+    <url>/ReDragonica%20-%20ninja%20bdl%20vs.%20222/</url>
     
-    <content type="html"><![CDATA[<h2 id="Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl"><a href="#Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl" class="headerlink" title="Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)"></a>Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)</h2><div align="left">  <img src="/images/ninja-222-1.png"></div><br><div align="left">  <img src="/images/ninja-222-2.png"></div><br>leo set effect<div align="left">  <img src="/images/leo-effect.png"></div>black fedora and brindle set effect<div align="left">  <img src="/images/black-fedora.png"></div>bdl set effect for ninja<div align="left">  <img src="/images/ninja-bdl.png"></div><br><p>Stat difference from 2+2+2 to full bdl</p><ul><li>CD: $120-30&#x3D;90$<br>(bdl 120, leo 30)</li><li>FCR: $5.5-3&#x3D;2.5$<br>(bdl 5.5, leo 3)</li><li>patk: $120 \times 8 &#x3D; 960$<br>(bdl 120 str, 1str &#x3D; 8patk for ninja)</li><li>spell dmg: $-(10+10+10)&#x3D;-30$<br>(leo 10, black fedora 10, brindle set 10)</li><li>awaken spell dmg: $-20$<br>(black fedora 20)</li><li>boss dmg: $10$<br>(bdl 10)</li><li>back dmg: $0$ (we assume the chaotic are the same)</li></ul><p>Assume CD 725 means the CD multiplier is 725&#x2F;100 &#x3D; 7.25<br>and we don’t consider 110 agi</p><h3 id="Without-vowbuff"><a href="#Without-vowbuff" class="headerlink" title="Without vowbuff"></a>Without vowbuff</h3><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th></tr></thead><tbody><tr><td align="left">patk</td><td align="left">$30700+960&#x3D;31660$</td><td align="left">30700</td></tr><tr><td align="left">CD</td><td align="left">$698+90&#x3D;788$</td><td align="left">698</td></tr><tr><td align="left">FCR</td><td align="left">$58.2+2.5&#x3D;60.7$</td><td align="left">58.2</td></tr><tr><td align="left">spell dmg</td><td align="left">$45-30&#x3D;15$</td><td align="left">45</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$80-20&#x3D;60$</td><td align="left">80</td></tr><tr><td align="left">boss dmg</td><td align="left">$37.5+10&#x3D;47.5$</td><td align="left">37.5</td></tr><tr><td align="left">back dmg</td><td align="left">118.8</td><td align="left">118.8</td></tr></tbody></table><p>expected value of multiplier on non-crit and crit<br>$&#x3D; (1 - FCR) + FCR \times CD&#x2F;100$</p><ul><li>full bdl: $(1 - 0.607) + 0.607 \times 7.88 &#x3D; 5.176$</li><li>2+2+2: $(1 - 0.582) + 0.582 \times 6.98 &#x3D; 4.480$</li></ul><p><strong>Formula:</strong></p><ul><li>non-awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{back dmg multiplier} \times \text{crit multiplier}$</li><li>awaken: $\text{patk} \times \text{spell dmg multiplier} \times \text{awaken spell dmg multiplier} \times \text{boss dmg multiplier} \times \text{back dmg multiplier} \times \text{crit multiplier}$</li></ul><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Full bdl value</th><th align="left">2+2+2 value</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 &#x3D; 117510.6$</td><td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 &#x3D; 133932.1$</td><td align="left"><strong>+14.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 \times 7.88 &#x3D; 925983.3$</td><td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 \times 6.98 &#x3D; 934846.3$</td><td align="left"><strong>+1.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 1.475 \times 2.188 \times 5.176 &#x3D; 608234.8$</td><td align="left">$30700 \times 1.45 \times 1.375 \times 2.188 \times 4.480 &#x3D; 600015.9$</td><td align="left"><strong>-1.3%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 &#x3D; 188016.9$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 &#x3D; 241077.8$</td><td align="left"><strong>+28.2%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 \times 7.88 &#x3D; 1481573.3$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 \times 6.98 &#x3D; 1682723.3$</td><td align="left"><strong>+13.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 1.60 \times 1.475 \times 2.188 \times 5.176 &#x3D; 973175.7$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 1.375 \times 2.188 \times 4.480 &#x3D; 1080029.7$</td><td align="left"><strong>+11.1%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 2.188 &#x3D; 79654.6$</td><td align="left">$30700 \times 1.45 \times 2.188 &#x3D; 97397.9$</td><td align="left"><strong>+22.3%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 2.188 \times 7.88 &#x3D; 627678.5$</td><td align="left">$30700 \times 1.45 \times 2.188 \times 6.98 &#x3D; 679837.2$</td><td align="left"><strong>+8.3%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 2.188 \times 5.176 &#x3D; 412292.3$</td><td align="left">$30700 \times 1.45 \times 2.188 \times 4.480 &#x3D; 436342.5$</td><td align="left"><strong>+5.8%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 &#x3D; 127447.4$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 &#x3D; 175316.2$</td><td align="left"><strong>+37.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 \times 7.88 &#x3D; 1004285.6$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 \times 6.98 &#x3D; 1223707.0$</td><td align="left"><strong>+21.8%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.15 \times 1.60 \times 2.188 \times 5.176 &#x3D; 659667.7$</td><td align="left">$30700 \times 1.45 \times 1.80 \times 2.188 \times 4.480 &#x3D; 785416.5$</td><td align="left"><strong>+19.1%</strong></td></tr></tbody></table><h3 id="With-vowbuff"><a href="#With-vowbuff" class="headerlink" title="With vowbuff"></a>With vowbuff</h3><p>vowbuff +20 spell dmg and +100 awaken spell dmg</p><div align="left">  <img src="/images/vowbuff.png"></div><br><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th></tr></thead><tbody><tr><td align="left">spell dmg</td><td align="left">$15+20&#x3D;35$</td><td align="left">$45+20&#x3D;65$</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$60+100&#x3D;160$</td><td align="left">$80+100&#x3D;180$</td></tr><tr><td align="left">back dmg</td><td align="left">118.8</td><td align="left">118.8</td></tr></tbody></table><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Full bdl value</th><th align="left">2+2+2 value</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 &#x3D; 137932.4$</td><td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 &#x3D; 152391.9$</td><td align="left"><strong>+10.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 \times 7.88 &#x3D; 1086907.4$</td><td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 \times 6.98 &#x3D; 1063695.5$</td><td align="left"><strong>-2.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 1.475 \times 2.188 \times 5.176 &#x3D; 713938.1$</td><td align="left">$30700 \times 1.65 \times 1.375 \times 2.188 \times 4.480 &#x3D; 682715.8$</td><td align="left"><strong>-4.4%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 &#x3D; 358624.3$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 &#x3D; 426697.4$</td><td align="left"><strong>+19.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 \times 7.88 &#x3D; 2825959.3$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 \times 6.98 &#x3D; 2978348.1$</td><td align="left"><strong>+5.4%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 2.60 \times 1.475 \times 2.188 \times 5.176 &#x3D; 1856239.1$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 1.375 \times 2.188 \times 4.480 &#x3D; 1911607.1$</td><td align="left"><strong>+3.0%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 2.188 &#x3D; 93513.5$</td><td align="left">$30700 \times 1.65 \times 2.188 &#x3D; 110831.8$</td><td align="left"><strong>+18.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 2.188 \times 7.88 &#x3D; 736886.4$</td><td align="left">$30700 \times 1.65 \times 2.188 \times 6.98 &#x3D; 773606.1$</td><td align="left"><strong>+5.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 2.188 \times 5.176 &#x3D; 484025.9$</td><td align="left">$30700 \times 1.65 \times 2.188 \times 4.480 &#x3D; 496526.5$</td><td align="left"><strong>+2.6%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 &#x3D; 243135.1$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 &#x3D; 310329.1$</td><td align="left"><strong>+27.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 \times 7.88 &#x3D; 1915904.8$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 \times 6.98 &#x3D; 2166097.1$</td><td align="left"><strong>+13.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$31660 \times 1.35 \times 2.60 \times 2.188 \times 5.176 &#x3D; 1258467.2$</td><td align="left">$30700 \times 1.65 \times 2.80 \times 2.188 \times 4.480 &#x3D; 1350229.4$</td><td align="left"><strong>+10.5%</strong></td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<h2 id="Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl"><a href="#Full-bdl-vs-2-2-2-2-leo-black-fedora-1-brindle-2-bdl" class="headerlink" title="Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)"></a>Full bdl vs. 2+2+2 (2 leo + black fedora + 1 brindle + 2 bdl)</h2><div align="left">  <img src="/images/ninja-222-1.png"></div><br><div align="left">  <img src="/images/ninja-222-2.png"></div><br>leo set effect<div align="left">  <img src="/images/leo-effect.png"></div>black fedora and brindle set effect<div align="left">  <img src="/images/black-fedora.png"></div>bdl set effect for ninja<div align="left">  <img src="/images/ninja-bdl.png"></div><br><p>Stat difference from 2+2+2 to full bdl</p><ul><li>CD: $120-30&#x3D;90$<br>(bdl 120, leo 30)</li><li>FCR: $5.5-3&#x3D;2.5$<br>(bdl 5.5, leo 3)</li><li>patk: $120 \times 8 &#x3D; 960$<br>(bdl 120 str, 1str &#x3D; 8patk for ninja)</li><li>spell dmg: $-(10+10+10)&#x3D;-30$<br>(leo 10, black fedora 10, brindle set 10)</li><li>awaken spell dmg: $-20$<br>(black fedora 20)</li><li>boss dmg: $10$<br>(bdl 10)</li></ul><p>Assume CD 725 means the CD multiplier is 725&#x2F;100 &#x3D; 7.25<br>and we don’t consider 110 agi</p><h3 id="Without-vowbuff"><a href="#Without-vowbuff" class="headerlink" title="Without vowbuff"></a>Without vowbuff</h3><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th><th align="left">Multiplier</th></tr></thead><tbody><tr><td align="left">patk</td><td align="left">$30700+960&#x3D;31660$</td><td align="left">30700</td><td align="left">$30700&#x2F;31660&#x3D;0.970$</td></tr><tr><td align="left">CD</td><td align="left">$698+90&#x3D;788$</td><td align="left">698</td><td align="left">$698&#x2F;788&#x3D;0.886$</td></tr><tr><td align="left">FCR</td><td align="left">$58.2+2.5&#x3D;60.7$</td><td align="left">58.2</td><td align="left"></td></tr><tr><td align="left">spell dmg</td><td align="left">$45-30&#x3D;15$</td><td align="left">45</td><td align="left">$1.45&#x2F;1.15&#x3D;1.261$</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$80-20&#x3D;60%$</td><td align="left">80</td><td align="left">$1.80&#x2F;1.60&#x3D;1.125$</td></tr><tr><td align="left">boss dmg</td><td align="left">$37.5+10%&#x3D;47.5%$</td><td align="left">37.5</td><td align="left">$1.375&#x2F;1.475&#x3D;0.932$</td></tr></tbody></table><p>expected value of multiplier on non-crit and crit<br>$&#x3D; (1 - FCR) + FCR \times CD&#x2F;100$</p><ul><li>full bdl: $(1 - 0.607) + 0.607 \times 7.88 &#x3D; 5.176$</li><li>2+2+2: $(1 - 0.582) + 0.582 \times 6.98 &#x3D; 4.480$</li></ul><p>$4.48&#x2F;5.176&#x3D;0.866$</p><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Multiplier</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 0.932 \times 1.261 &#x3D; 1.140$</td><td align="left"><strong>+14.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.140 \times 0.886 &#x3D; 1.010$</td><td align="left"><strong>+1.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.140 \times 0.866 &#x3D; 0.987$</td><td align="left"><strong>-1.3%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.140 \times 1.125 &#x3D; 1.282$</td><td align="left"><strong>+28.2%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.010 \times 1.125 &#x3D; 1.136$</td><td align="left"><strong>+13.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$0.987 \times 1.125 &#x3D; 1.111$</td><td align="left"><strong>+11.1%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 1.261 &#x3D; 1.223$</td><td align="left"><strong>+22.3%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.223 \times 0.886 &#x3D; 1.084$</td><td align="left"><strong>+8.4%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.223 \times 0.866 &#x3D; 1.059$</td><td align="left"><strong>+5.9%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.223 \times 1.125 &#x3D; 1.376$</td><td align="left"><strong>+37.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.084 \times 1.125 &#x3D; 1.219$</td><td align="left"><strong>+21.9%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.059 \times 1.125 &#x3D; 1.192$</td><td align="left"><strong>+19.2%</strong></td></tr></tbody></table><h3 id="With-vowbuff"><a href="#With-vowbuff" class="headerlink" title="With vowbuff"></a>With vowbuff</h3><p>vowbuff +20 spell dmg and +100 awaken spell dmg</p><div align="left">  <img src="/images/vowbuff.png"></div><br><table><thead><tr><th align="left">Stat</th><th align="left">Full bdl</th><th align="left">Full leo + black fedora</th><th align="left">Multiplier</th></tr></thead><tbody><tr><td align="left">spell dmg</td><td align="left">$15+20&#x3D;35%$</td><td align="left">$45+20&#x3D;65%$</td><td align="left">$1.65&#x2F;1.35&#x3D;1.222$</td></tr><tr><td align="left">awaken spell dmg</td><td align="left">$60+100&#x3D;160%$</td><td align="left">$80+100&#x3D;180%$</td><td align="left">$2.8&#x2F;2.6&#x3D;1.077$</td></tr></tbody></table><p>other stats keep the same</p><table><thead><tr><th align="left">Target</th><th align="left">Skill</th><th align="left">Crit &#x2F; Non-crit</th><th align="left">Multiplier</th><th align="left">Result compared to bdl</th></tr></thead><tbody><tr><td align="left">on boss</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 0.932 \times 1.222 &#x3D; 1.105$</td><td align="left"><strong>+10.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.105 \times 0.886 &#x3D; 0.979$</td><td align="left"><strong>-2.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.105 \times 0.866 &#x3D; 0.957$</td><td align="left"><strong>-4.3%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.105 \times 1.077 &#x3D; 1.190$</td><td align="left"><strong>+19.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$0.979 \times 1.077 &#x3D; 1.054$</td><td align="left"><strong>+5.4%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$0.957 \times 1.077 &#x3D; 1.031$</td><td align="left"><strong>+3.1%</strong></td></tr><tr><td align="left">on mob</td><td align="left">non-awaken</td><td align="left">non-crit</td><td align="left">$0.970 \times 1.222 &#x3D; 1.185$</td><td align="left"><strong>+18.5%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.185 \times 0.886 &#x3D; 1.050$</td><td align="left"><strong>+5.0%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.185 \times 0.866 &#x3D; 1.026$</td><td align="left"><strong>+2.6%</strong></td></tr><tr><td align="left"></td><td align="left">awaken</td><td align="left">non-crit</td><td align="left">$1.185 \times 1.077 &#x3D; 1.276$</td><td align="left"><strong>+27.6%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">crit</td><td align="left">$1.050 \times 1.077 &#x3D; 1.131$</td><td align="left"><strong>+13.1%</strong></td></tr><tr><td align="left"></td><td align="left"></td><td align="left">expected</td><td align="left">$1.026 \times 1.077 &#x3D; 1.105$</td><td align="left"><strong>+10.5%</strong></td></tr></tbody></table><p>without vowbuff, only the expected dmg of non-awaken skill on boss decreases a bit<br>with vowbuff, only the crit dmg and expected dmg of non-awaken skill on boss decrease a bit<br>all other dmgs increased<br>Therefore, 2+2+2 is better than full bdl</p>]]></content>
     
     
     
@@ -149,13 +168,13 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Math</tag>
-      
-      <tag>Array</tag>
       
       <tag>Heap (Priority Queue)</tag>
       
@@ -178,13 +197,13 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>String</tag>
-      
-      <tag>Array</tag>
       
       <tag>Heap (Priority Queue)</tag>
       
@@ -232,11 +251,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>Array</tag>
       
       <tag>Heap (Priority Queue)</tag>
       
@@ -259,13 +278,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Binary Tree</tag>
-      
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -286,13 +305,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Two Pointers</tag>
       
       <tag>Array</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -313,11 +332,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>Array</tag>
       
       <tag>Binary Search</tag>
       
@@ -340,13 +359,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Binary Tree</tag>
-      
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>DFS</tag>
       
     </tags>
     
@@ -367,15 +386,15 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
       <tag>Binary Tree</tag>
       
       <tag>BFS</tag>
       
       <tag>DFS</tag>
-      
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
       
     </tags>
     
@@ -396,15 +415,15 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
+      
       <tag>Binary Tree</tag>
       
       <tag>BFS</tag>
       
       <tag>DFS</tag>
-      
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
       
     </tags>
     
@@ -425,11 +444,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>BFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>BFS</tag>
       
       <tag>Matrix</tag>
       
@@ -506,15 +525,15 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
+      <tag>Greedy</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Dynamic Programming</tag>
-      
-      <tag>Array</tag>
-      
-      <tag>Greedy</tag>
       
     </tags>
     
@@ -535,15 +554,15 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
+      <tag>Greedy</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Dynamic Programming</tag>
-      
-      <tag>Array</tag>
-      
-      <tag>Greedy</tag>
       
     </tags>
     
@@ -564,13 +583,13 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Two Pointers</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
-      
-      <tag>Two Pointers</tag>
       
       <tag>Linked List</tag>
       
@@ -647,11 +666,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Two Pointers</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>Two Pointers</tag>
       
       <tag>Linked List</tag>
       
@@ -674,11 +693,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Two Pointers</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>Two Pointers</tag>
       
       <tag>Linked List</tag>
       
@@ -726,13 +745,13 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Dynamic Programming</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
@@ -753,13 +772,13 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Dynamic Programming</tag>
-      
-      <tag>Array</tag>
       
     </tags>
     
@@ -780,13 +799,13 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
       
       <tag>Stack</tag>
-      
-      <tag>Array</tag>
       
       <tag>Monotonic Stack</tag>
       
@@ -809,13 +828,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Two Pointers</tag>
       
       <tag>Array</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -836,15 +855,15 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Two Pointers</tag>
       
       <tag>Array</tag>
       
       <tag>Greedy</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -971,13 +990,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Binary Tree</tag>
-      
-      <tag>BFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>BFS</tag>
       
     </tags>
     
@@ -998,13 +1017,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Binary Tree</tag>
-      
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>DFS</tag>
       
       <tag>Stack</tag>
       
@@ -1027,13 +1046,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Binary Tree</tag>
-      
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>DFS</tag>
       
       <tag>Stack</tag>
       
@@ -1056,13 +1075,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Binary Tree</tag>
-      
-      <tag>DFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>DFS</tag>
       
       <tag>Stack</tag>
       
@@ -1229,11 +1248,11 @@
       
       <tag>LeetCode</tag>
       
+      <tag>Array</tag>
+      
       <tag>Python</tag>
       
       <tag>C++</tag>
-      
-      <tag>Array</tag>
       
       <tag>Binary Search</tag>
       
@@ -1285,9 +1304,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
       <tag>Combinatorics</tag>
       
@@ -1314,9 +1333,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -1341,9 +1360,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -1368,9 +1387,9 @@
       
       <tag>C++</tag>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -1391,11 +1410,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>BFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>BFS</tag>
       
       <tag>Union Find</tag>
       
@@ -1420,11 +1439,11 @@
       
       <tag>LeetCode</tag>
       
-      <tag>BFS</tag>
-      
       <tag>Python</tag>
       
       <tag>C++</tag>
+      
+      <tag>BFS</tag>
       
       <tag>Matrix</tag>
       
@@ -1447,13 +1466,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Two Pointers</tag>
       
       <tag>Array</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -1474,13 +1493,13 @@
       
       <tag>LeetCode</tag>
       
-      <tag>Python</tag>
-      
-      <tag>C++</tag>
-      
       <tag>Two Pointers</tag>
       
       <tag>Array</tag>
+      
+      <tag>Python</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
