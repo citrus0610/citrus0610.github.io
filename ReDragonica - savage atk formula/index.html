@@ -66,7 +66,7 @@
 <meta property="og:image" content="https://citrus0610.github.io/images/savage-fate-ring.png">
 <meta property="og:image" content="https://citrus0610.github.io/images/savage-lifebane-ring.png">
 <meta property="article:published_time" content="2026-09-02T14:20:55.000Z">
-<meta property="article:modified_time" content="2026-09-04T06:54:22.859Z">
+<meta property="article:modified_time" content="2026-09-23T16:31:17.330Z">
 <meta property="article:author" content="Citrus">
 <meta property="article:tag" content="ReDragonica">
 <meta name="twitter:card" content="summary_large_image">
@@ -263,7 +263,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          769 words
+          741 words
         
       </span>
     
@@ -366,6 +366,7 @@
 <ul>
 <li>final atk<br>&#x3D; [6505 * 1.05 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * 1.25<br>&#x3D; 31973.1</li>
 </ul>
+<p>the 5% atk buff on tuna weapon item skill adds on basic atk bonus</p>
 <h2 id="Passive-skills"><a href="#Passive-skills" class="headerlink" title="Passive skills"></a>Passive skills</h2><p>passive atk is from this 2 passive skills, which is 200 + 320 &#x3D; 520<br>they also increase final dmg 10% + 5% &#x3D; 15%, which directly adds on the final dmg amplification %</p>
 <div align="left">
     <img src="/images/savage-passive-skill1.png" srcset="/img/loading.gif" lazyload><br><br>
@@ -589,17 +590,10 @@
 <li>noble pin: 288 patk</li>
 </ul>
 <p>which is 25 + 490 + 470 + 470 + 490 + 470 + 288 + 288 &#x3D; 2991</p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>with this accurate atk formula, we can predict final atk when we change stats<br>or when we change to other f8 sets but keep all other stats the same</p>
-<p>For example, if i change my 4 fate to 4 vital and keep stats the same<br>(str +100, final amplification +15%)</p>
-<ul>
-<li>total str &#x3D; 1301 + 100 &#x3D; 1401</li>
-<li>char &#x3D; total str * 5<br>&#x3D; 1401 * 5 &#x3D; 7005</li>
-<li>item &#x3D; 18227</li>
-<li>final dmg amplification &#x3D; 25% + 15% &#x3D; 40%</li>
-<li>final dmg amplification value<br>&#x3D; (char + item) * Final dmg amplification %<br>&#x3D; (7005 + 18227) * 0.4<br>&#x3D; 10092.8</li>
-<li>final atk<br>&#x3D; [7005 * 1.1 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * 1.4<br>&#x3D; 37035.3</li>
-</ul>
-<p>the final atk will be changed from 32378 to 37035<br>when we get the accurate final atk, we can compare current set to other sets</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>with this accurate atk formula, we can predict final atk when we change stats<br>or when we change to other f8 sets but keep all other stats the same</p>
+<p>For example, if change my 4 fate to 4 vital<br>(str +100, final amplification +15%)<br>and keep other stats the same</p>
+<p>the final atk will become<br>&#x3D; [(1301 + 100) * 5 * 1.1 + 7533 + 6315 * 1.22 + (18227 - 15236) + 520] * (1.25 + 0.15)<br>&#x3D; 37035.3</p>
+<p>the final atk will be changed from 32378 to 37035<br>once we get the accurate final atk, we can compare current set to other sets</p>
 
                 
               </div>
